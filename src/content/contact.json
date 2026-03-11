@@ -1,0 +1,11 @@
+{
+  "address": "Ground Floor – 2, Euro 9 Apartment, Lane no.4, S. No. 234A, Sanjay Park, Pune – 411 014",
+  "phone": "+91 - 993 012 2963",
+  "emails": ["naresh@gridlabsrf.com", "nshroff@gridlabsrf.com"],
+  "hours": [
+    "Mon – Fri    8:00 am – 8:00 pm",
+    "Saturday    9:00 am – 2:00 pm",
+    "Sunday      Closed"
+  ],
+  "mapUrl": "https://maps.google.com/?q=Pune"
+}

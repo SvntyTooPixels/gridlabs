@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "Shaping Tomorrow with Responsible Leadership",
+    "description": "At Gridlabs Research Foundation, we collaborate with corporations, institutions, and communities to create meaningful CSR initiatives that improve lives through education, healthcare, sustainability, and social development.",
+    "primaryCta": "Discover Our Work",
+    "secondaryCta": "Contact Us"
+  },
+  "announcement": {
+    "title": "Gridlabs Research Foundation is proud to announce a contribution of INR 11 lakhs to the Dhole Patil Education Society in Pune, Maharashtra, as part of our \"Jao Padho\" education initiative.",
+    "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning."
+  },
+  "aboutSnapshot": {
+    "title": "About Gridlabs Research Foundation",
+    "description": "Gridlabs Research Foundation partners with corporations and institutions to design and implement impactful CSR programs that create lasting social change. From strategy and planning to execution and impact assessment, we help organizations translate their CSR commitments into meaningful initiatives.",
+    "extra": "Supported by a strong corporate network, an experienced team, and an advisory board of eminent professionals, Gridlabs delivers CSR programs that generate sustainable community impact."
+  },
+  "vision": {
+    "title": "Vision",
+    "text": "To uplift underserved communities by expanding access to education, healthcare, and sustainable opportunities through impactful and responsibly executed CSR initiatives.",
+    "structuring": "Structuring and Execution Skills: The team is capable of structuring complex and simply understood arrangements, organizations, and projects that are unique and work across dynamic areas of regulations, taxation, corporate law, corporate functioning, state and central governments, and quasi-government bodies. This is quite unique considering the wide-ranging experience that the team brings to the table."
+  },
+  "impactAreas": [
+    {
+      "title": "Education",
+      "description": "Expanding access to quality education through scholarships, learning resources, and school development programs."
+    },
+    {
+      "title": "Healthcare",
+      "description": "Improving community health through medical facilities, preventive care programs, and awareness initiatives."
+    },
+    {
+      "title": "Women & Social Welfare",
+      "description": "Empowering women and supporting vulnerable communities through targeted welfare and development programs."
+    },
+    {
+      "title": "Community Development",
+      "description": "Strengthening communities through housing, sanitation, skill development, and livelihood initiatives."
+    },
+    {
+      "title": "Environment & Sustainability",
+      "description": "Promoting environmental responsibility through recycling programs, waste management, and sustainability initiatives."
+    },
+    {
+      "title": "Public Awareness & Safety",
+      "description": "Driving social change through awareness programs focused on cyber safety, road safety, and public well-being."
+    }
+  ],
+  "featuredProjects": [
+    {
+      "title": "Healthcare for Tribals in Tamil Nadu",
+      "description": "A multi-specialty hospital project dedicated to improving access to quality healthcare for tribal communities in Tamil Nadu. The initiative aims to provide essential medical services to underserved populations and strengthen healthcare infrastructure in remote regions."
+    },
+    {
+      "title": "Jao Padho – Education Program",
+      "description": "The Jao Padho initiative supports education for underprivileged children by providing essential learning materials such as textbooks, notebooks, stationery, and school uniforms. The program is designed to improve access to education and promote literacy among disadvantaged communities."
+    },
+    {
+      "title": "Cervical Cancer Prevention Program",
+      "description": "In collaboration with healthcare partners, this initiative focuses on raising awareness, promoting early screening, and improving access to preventive care for cervical cancer. The program aims to reduce health risks and improve long-term health outcomes for women in vulnerable communities."
+    }
+  ],
+  "cta": {
+    "title": "Partner With Gridlabs",
+    "description": "Work with Gridlabs Research Foundation to design and implement CSR initiatives that create lasting social impact. Our team collaborates with corporations and institutions to develop responsible programs that empower communities and deliver measurable results.",
+    "primary": "Explore CSR Services",
+    "secondary": "Contact Us"
+  }
+}
