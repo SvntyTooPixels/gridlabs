@@ -3,66 +3,113 @@
     "title": "Shaping Tomorrow with Responsible Leadership",
     "description": "At Gridlabs Research Foundation, we collaborate with corporations, institutions, and communities to create meaningful CSR initiatives that improve lives through education, healthcare, sustainability, and social development.",
     "primaryCta": "Discover Our Work",
-    "secondaryCta": "Contact Us"
+    "secondaryCta": "Contact Us",
+    "badge": "Purpose meets action",
+    "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80",
+    "alt": "Community partners and volunteers celebrating together outdoors",
+    "metrics": [
+      "Education initiatives",
+      "Healthcare outreach",
+      "Women-led empowerment",
+      "Sustainability programs"
+    ]
   },
   "announcement": {
     "title": "Gridlabs Research Foundation is proud to announce a contribution of INR 11 lakhs to the Dhole Patil Education Society in Pune, Maharashtra, as part of our \"Jao Padho\" education initiative.",
-    "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning."
+    "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning.",
+    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80",
+    "alt": "Students smiling in a bright classroom",
+    "tag": "Latest spotlight"
   },
   "aboutSnapshot": {
     "title": "About Gridlabs Research Foundation",
     "description": "Gridlabs Research Foundation partners with corporations and institutions to design and implement impactful CSR programs that create lasting social change. From strategy and planning to execution and impact assessment, we help organizations translate their CSR commitments into meaningful initiatives.",
-    "extra": "Supported by a strong corporate network, an experienced team, and an advisory board of eminent professionals, Gridlabs delivers CSR programs that generate sustainable community impact."
+    "extra": "Supported by a strong corporate network, an experienced team, and an advisory board of eminent professionals, Gridlabs delivers CSR programs that generate sustainable community impact.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80",
+    "alt": "A diverse team collaborating over a strategy session",
+    "tag": "Trusted partner"
   },
   "vision": {
     "title": "Vision",
     "text": "To uplift underserved communities by expanding access to education, healthcare, and sustainable opportunities through impactful and responsibly executed CSR initiatives.",
-    "structuring": "Structuring and Execution Skills: The team is capable of structuring complex and simply understood arrangements, organizations, and projects that are unique and work across dynamic areas of regulations, taxation, corporate law, corporate functioning, state and central governments, and quasi-government bodies. This is quite unique considering the wide-ranging experience that the team brings to the table."
+    "structuring": "Structuring and Execution Skills: The team is capable of structuring complex and simply understood arrangements, organizations, and projects that are unique and work across dynamic areas of regulations, taxation, corporate law, corporate functioning, state and central governments, and quasi-government bodies. This is quite unique considering the wide-ranging experience that the team brings to the table.",
+    "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80",
+    "alt": "A volunteer engaging with children during a community learning program",
+    "tag": "Future-facing"
   },
   "impactAreas": [
     {
       "title": "Education",
-      "description": "Expanding access to quality education through scholarships, learning resources, and school development programs."
+      "description": "Expanding access to quality education through scholarships, learning resources, and school development programs.",
+      "icon": "📘",
+      "accent": "from-sky-200 via-sky-100 to-white",
+      "image": "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Healthcare",
-      "description": "Improving community health through medical facilities, preventive care programs, and awareness initiatives."
+      "description": "Improving community health through medical facilities, preventive care programs, and awareness initiatives.",
+      "icon": "🩺",
+      "accent": "from-rose-200 via-orange-100 to-white",
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Women & Social Welfare",
-      "description": "Empowering women and supporting vulnerable communities through targeted welfare and development programs."
+      "description": "Empowering women and supporting vulnerable communities through targeted welfare and development programs.",
+      "icon": "🌸",
+      "accent": "from-fuchsia-200 via-pink-100 to-white",
+      "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Community Development",
-      "description": "Strengthening communities through housing, sanitation, skill development, and livelihood initiatives."
+      "description": "Strengthening communities through housing, sanitation, skill development, and livelihood initiatives.",
+      "icon": "🏘️",
+      "accent": "from-amber-200 via-orange-100 to-white",
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Environment & Sustainability",
-      "description": "Promoting environmental responsibility through recycling programs, waste management, and sustainability initiatives."
+      "description": "Promoting environmental responsibility through recycling programs, waste management, and sustainability initiatives.",
+      "icon": "🌿",
+      "accent": "from-emerald-200 via-green-100 to-white",
+      "image": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Public Awareness & Safety",
-      "description": "Driving social change through awareness programs focused on cyber safety, road safety, and public well-being."
+      "description": "Driving social change through awareness programs focused on cyber safety, road safety, and public well-being.",
+      "icon": "✨",
+      "accent": "from-violet-200 via-indigo-100 to-white",
+      "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
     }
   ],
   "featuredProjects": [
     {
       "title": "Healthcare for Tribals in Tamil Nadu",
-      "description": "A multi-specialty hospital project dedicated to improving access to quality healthcare for tribal communities in Tamil Nadu. The initiative aims to provide essential medical services to underserved populations and strengthen healthcare infrastructure in remote regions."
+      "description": "A multi-specialty hospital project dedicated to improving access to quality healthcare for tribal communities in Tamil Nadu. The initiative aims to provide essential medical services to underserved populations and strengthen healthcare infrastructure in remote regions.",
+      "tag": "Healthcare",
+      "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Healthcare team speaking with community members"
     },
     {
       "title": "Jao Padho – Education Program",
-      "description": "The Jao Padho initiative supports education for underprivileged children by providing essential learning materials such as textbooks, notebooks, stationery, and school uniforms. The program is designed to improve access to education and promote literacy among disadvantaged communities."
+      "description": "The Jao Padho initiative supports education for underprivileged children by providing essential learning materials such as textbooks, notebooks, stationery, and school uniforms. The program is designed to improve access to education and promote literacy among disadvantaged communities.",
+      "tag": "Education",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Young students studying together with books"
     },
     {
       "title": "Cervical Cancer Prevention Program",
-      "description": "In collaboration with healthcare partners, this initiative focuses on raising awareness, promoting early screening, and improving access to preventive care for cervical cancer. The program aims to reduce health risks and improve long-term health outcomes for women in vulnerable communities."
+      "description": "In collaboration with healthcare partners, this initiative focuses on raising awareness, promoting early screening, and improving access to preventive care for cervical cancer. The program aims to reduce health risks and improve long-term health outcomes for women in vulnerable communities.",
+      "tag": "Women’s health",
+      "image": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Women attending a health awareness session"
     }
   ],
   "cta": {
     "title": "Partner With Gridlabs",
     "description": "Work with Gridlabs Research Foundation to design and implement CSR initiatives that create lasting social impact. Our team collaborates with corporations and institutions to develop responsible programs that empower communities and deliver measurable results.",
     "primary": "Explore CSR Services",
-    "secondary": "Contact Us"
+    "secondary": "Contact Us",
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+    "alt": "Partners reviewing plans across a worktable"
   }
 }

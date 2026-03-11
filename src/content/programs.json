@@ -1,4 +1,6 @@
 {
+  "intro": "Our programs are designed as vibrant, measurable interventions across sectors that matter most to communities and corporate partners.",
+  "heroImage": "https://images.unsplash.com/photo-1469571486292-b53601020f32?auto=format&fit=crop&w=1200&q=80",
   "categories": [
     "Healthcare",
     "Education",
@@ -34,5 +36,66 @@
   ],
   "environment": [
     "Recycling & Waste Management — Promotes responsible waste management, recycling awareness, and sustainable practices."
+  ],
+  "sections": [
+    {
+      "title": "Healthcare Programs",
+      "eyebrow": "Care access",
+      "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1100&q=80",
+      "alt": "Medical outreach workers with a patient",
+      "items": [
+        "Healthcare for Tribals in Tamil Nadu — A multi-specialty healthcare facility initiative aimed at improving access to quality medical services for tribal communities in Tamil Nadu.",
+        "Donate-a-Dialysis — Supports dialysis facilities to provide life-saving treatment for patients lacking access to affordable care.",
+        "Ambulance for Neonatal Care – Hyderabad — A specialized neonatal ambulance service for newborns requiring critical care.",
+        "Neuro Healthcare / Trauma Centres — Development of specialized healthcare facilities for neurological and trauma conditions.",
+        "Cataract Surgery for the Poor – Nashik — Free or affordable cataract surgeries for economically disadvantaged communities.",
+        "Dental Hygiene Awareness & Treatment — School-based oral health awareness and treatment support program.",
+        "Skin Care Awareness & Treatment — Community initiative focused on skin health, preventive care, and treatment access.",
+        "Healthcare for Armed Forces Veterans — Access to medical services and wellness programs for veterans."
+      ]
+    },
+    {
+      "title": "Education Programs",
+      "eyebrow": "Learning pathways",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1100&q=80",
+      "alt": "Students learning together in a classroom",
+      "items": [
+        "Jao Padho – Education Program — Provides textbooks, notebooks, stationery, and uniforms to underprivileged students.",
+        "Cyber Crime Awareness — Nationwide awareness program on cyber threats and digital safety.",
+        "Safety Awareness & Training — Road safety education program to encourage responsible road behavior."
+      ]
+    },
+    {
+      "title": "Women & Welfare",
+      "eyebrow": "Inclusive wellbeing",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1100&q=80",
+      "alt": "Women in a group discussion and training session",
+      "items": [
+        "Menstruation Hygiene Program — Awareness and support for menstrual health education and product access.",
+        "Depression, Autism & Mental Health Program — Support, counselling, and awareness for mental health challenges."
+      ]
+    },
+    {
+      "title": "Community Development",
+      "eyebrow": "Local resilience",
+      "image": "https://images.unsplash.com/photo-1524492449090-1abe1e07cc8e?auto=format&fit=crop&w=1100&q=80",
+      "alt": "Community members gathered outside local homes",
+      "items": [
+        "Tribal Housing Projects — Housing initiative providing safe and sustainable homes for tribal communities.",
+        "Toilet Corridors in Mumbai — Public sanitation facilities along highways to improve hygiene for commuters.",
+        "Donate a Meal — Community initiative combating hunger with a long-term sustainable kitchen goal.",
+        "Artisans Store — Supports local artisans by enabling sale and visibility of handcrafted products.",
+        "Social & Cultural Activities — Programs promoting social harmony, cultural heritage, and participation."
+      ]
+    },
+    {
+      "title": "Environment",
+      "eyebrow": "Greener systems",
+      "image": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1100&q=80",
+      "alt": "Volunteers planting trees outdoors",
+      "items": [
+        "Recycling & Waste Management — Promotes responsible waste management, recycling awareness, and sustainable practices."
+      ]
+    }
   ]
 }

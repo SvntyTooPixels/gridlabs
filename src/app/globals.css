@@ -7,7 +7,24 @@
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
+  @apply bg-[#f8f4ff] text-slate-900 antialiased;
+  background-image:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.24),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(244, 114, 182, 0.18),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(45, 212, 191, 0.16),
+      transparent 20%
+    ),
+    linear-gradient(180deg, #fffdfc 0%, #f7f5ff 42%, #eefaf9 100%);
 }
 
 .container-padded {
@@ -15,13 +32,53 @@ body {
 }
 
 .glass-panel {
-  @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur;
+  @apply rounded-[32px] border border-white/40 bg-white/65 backdrop-blur-xl shadow-[0_24px_80px_rgba(34,35,95,0.14)];
 }
 
 .section-title {
-  @apply text-3xl font-semibold text-white md:text-4xl;
+  @apply text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl;
 }
 
 .section-copy {
-  @apply text-slate-300;
+  @apply text-base leading-7 text-slate-600;
+}
+
+.section-kicker {
+  @apply inline-flex rounded-full border border-fuchsia-300/70 bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-700 shadow-[0_10px_30px_rgba(217,70,239,0.12)];
+}
+
+.section-shell {
+  @apply relative overflow-hidden rounded-[36px] border border-white/40 bg-white/55 p-8 shadow-[0_24px_80px_rgba(34,35,95,0.12)] backdrop-blur-xl md:p-10;
+}
+
+.gradient-mesh {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(59, 130, 246, 0.18),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(244, 114, 182, 0.18),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 75% 80%,
+      rgba(34, 197, 94, 0.14),
+      transparent 20%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 255, 255, 0.58)
+    );
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent;
+}
+
+.soft-ring {
+  @apply ring-1 ring-inset ring-white/50;
 }

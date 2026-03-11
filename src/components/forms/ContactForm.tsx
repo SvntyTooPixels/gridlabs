@@ -42,20 +42,26 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass-panel p-6">
-      <h3 className="text-xl font-semibold text-white">Contact Form</h3>
+    <form onSubmit={handleSubmit} className="section-shell gradient-mesh p-6">
+      <span className="section-kicker">Let’s build together</span>
+      <h3 className="mt-4 text-xl font-semibold text-slate-950">
+        Contact Form
+      </h3>
+      <p className="mt-2 text-sm text-slate-600">
+        Share your CSR goals and the team will respond with the next best step.
+      </p>
       <div className="mt-5 grid gap-4">
-        <label className="grid gap-2 text-sm text-slate-300">
+        <label className="grid gap-2 text-sm text-slate-700">
           Name
           <input
             value={form.name}
             onChange={(event) =>
               setForm((prev) => ({ ...prev, name: event.target.value }))
             }
-            className="rounded-lg border border-white/20 bg-slate-950 px-3 py-2 text-white outline-none ring-brand-400 focus:ring"
+            className="rounded-xl border border-white/50 bg-white/85 px-3 py-2 text-slate-900 outline-none ring-brand-300 focus:ring"
           />
         </label>
-        <label className="grid gap-2 text-sm text-slate-300">
+        <label className="grid gap-2 text-sm text-slate-700">
           Email
           <input
             type="email"
@@ -63,10 +69,10 @@ export function ContactForm() {
             onChange={(event) =>
               setForm((prev) => ({ ...prev, email: event.target.value }))
             }
-            className="rounded-lg border border-white/20 bg-slate-950 px-3 py-2 text-white outline-none ring-brand-400 focus:ring"
+            className="rounded-xl border border-white/50 bg-white/85 px-3 py-2 text-slate-900 outline-none ring-brand-300 focus:ring"
           />
         </label>
-        <label className="grid gap-2 text-sm text-slate-300">
+        <label className="grid gap-2 text-sm text-slate-700">
           Message
           <textarea
             rows={5}
@@ -74,7 +80,7 @@ export function ContactForm() {
             onChange={(event) =>
               setForm((prev) => ({ ...prev, message: event.target.value }))
             }
-            className="rounded-lg border border-white/20 bg-slate-950 px-3 py-2 text-white outline-none ring-brand-400 focus:ring"
+            className="rounded-xl border border-white/50 bg-white/85 px-3 py-2 text-slate-900 outline-none ring-brand-300 focus:ring"
           />
         </label>
       </div>
@@ -87,7 +93,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="mt-5 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200 disabled:opacity-60"
+        className="mt-5 rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] disabled:opacity-60"
       >
         {loading ? "Submitting..." : "Send Message"}
       </button>

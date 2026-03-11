@@ -45,28 +45,31 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/10 bg-slate-950/70 py-14">
+    <footer className="mt-24 border-t border-white/40 bg-white/60 py-14 backdrop-blur-xl">
       <div className="container-padded grid gap-10 lg:grid-cols-6">
         <div className="lg:col-span-2">
-          <h3 className="text-xl font-semibold text-white">Quick Links</h3>
-          <p className="mt-3 text-sm text-slate-300">
+          <span className="section-kicker">Stay connected</span>
+          <h3 className="mt-4 text-xl font-semibold text-slate-950">
+            Quick Links
+          </h3>
+          <p className="mt-3 text-sm text-slate-600">
             Responsible CSR partnerships for long-term community impact.
           </p>
-          <p className="mt-6 text-sm text-slate-300">
+          <p className="mt-6 text-sm text-slate-600">
             Office Address: {footerData.officeAddress}
           </p>
-          <p className="mt-2 text-sm text-slate-300">CIN: {footerData.cin}</p>
+          <p className="mt-2 text-sm text-slate-600">CIN: {footerData.cin}</p>
         </div>
 
         {columns.map((column) => (
           <div key={column.heading}>
-            <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-200">
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-700">
               {column.heading}
             </h4>
-            <ul className="mt-4 space-y-2 text-sm text-slate-400">
+            <ul className="mt-4 space-y-2 text-sm text-slate-500">
               {column.links.map(([label, href]) => (
                 <li key={label}>
-                  <Link href={href} className="hover:text-white">
+                  <Link href={href} className="hover:text-fuchsia-700">
                     {label}
                   </Link>
                 </li>

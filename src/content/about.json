@@ -3,15 +3,21 @@
   "about2": "From initial concept development and program design to implementation, monitoring, and impact assessment, Gridlabs provides end-to-end support for CSR initiatives. Our goal is to help organizations deliver programs that not only meet regulatory requirements but also create lasting value for communities.",
   "about3": "With a strong corporate network and the ability to mobilize partnerships and resources, Gridlabs facilitates collaborative initiatives that address critical social challenges across sectors such as education, healthcare, sustainability, and community development.",
   "about4": "Guided by an advisory board of distinguished professionals and supported by an experienced team working in the CSR and sustainability space, Gridlabs Research Foundation is committed to building responsible partnerships that empower communities and drive long-term social progress.",
+  "introImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+  "introAlt": "Advisors collaborating around a colorful workspace table",
   "mission": "To design and implement impactful CSR initiatives that empower underserved communities through education, healthcare, sustainable development, and social welfare while enabling corporations to create meaningful and measurable social impact.",
+  "missionImage": "https://images.unsplash.com/photo-1469571486292-b53601020f32?auto=format&fit=crop&w=900&q=80",
   "vision": "To build a more inclusive and sustainable society by connecting corporate responsibility with community development and long-term social progress.",
+  "visionImage": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80",
   "founder": {
     "name": "Naresh Shroff",
     "role": "Founder & CMD",
     "bio": "Naresh Shroff is a seasoned professional with over 25 years of experience in Strategic Management, Mergers & Acquisitions, Business Management, People Management, Networking, and Influencing. Throughout his distinguished career, he has collaborated with several of India’s leading industry organizations, playing a key role in shaping their acquisition strategies and business growth initiatives.",
     "bio2": "His extensive industry experience, leadership capabilities, and strong professional network have been instrumental in driving impactful initiatives and building strategic partnerships across sectors.",
     "quote": "As you start to walk on the way, the way appears.",
-    "quoteBy": "Rumi"
+    "quoteBy": "Rumi",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+    "alt": "Portrait of a thoughtful business leader"
   },
   "achievements": [
     "STRATEGIC VISIONARY — Naresh delivers strategic insights driving growth, profitability, and sustainable success.",

@@ -1,3 +1,5 @@
+import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
+import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import services from "@/content/services.json";
 
@@ -5,70 +7,127 @@ export function ServicesPage() {
   return (
     <div className="container-padded space-y-10 pb-16">
       <Reveal>
-        <h1 className="section-title">CSR Services</h1>
+        <span className="section-kicker">How we help</span>
+        <h1 className="mt-5 section-title">CSR Services</h1>
       </Reveal>
 
-      <Reveal className="glass-panel p-8">
-        <h2 className="text-2xl font-semibold text-white">Overview</h2>
-        <p className="mt-4 section-copy">{services.overview}</p>
-        <p className="mt-4 section-copy">{services.overview2}</p>
-        <p className="mt-4 section-copy">{services.overview3}</p>
+      <Reveal>
+        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="section-shell gradient-mesh p-8">
+            <h2 className="text-2xl font-semibold text-slate-950">Overview</h2>
+            <p className="mt-4 section-copy">{services.overview}</p>
+            <p className="mt-4 section-copy">{services.overview2}</p>
+            <p className="mt-4 section-copy">{services.overview3}</p>
+          </div>
+          <ImageCard
+            src={services.heroImage}
+            alt={services.heroAlt}
+            badge="Strategy to delivery"
+          />
+        </SpotlightPanel>
       </Reveal>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Reveal className="glass-panel p-6">
-          <h2 className="text-2xl font-semibold text-white">CSR Strategy</h2>
-          <p className="mt-3 section-copy">{services.strategy}</p>
-          <p className="mt-3 section-copy">{services.strategy2}</p>
+        <Reveal>
+          <SpotlightPanel className="section-shell gradient-mesh p-4">
+            <ImageCard
+              src={services.strategyImage}
+              alt="Strategy workshop and planning"
+              badge="Strategy"
+            />
+            <div className="px-2 pb-2 pt-6">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                CSR Strategy
+              </h2>
+              <p className="mt-3 section-copy">{services.strategy}</p>
+              <p className="mt-3 section-copy">{services.strategy2}</p>
+            </div>
+          </SpotlightPanel>
         </Reveal>
-        <Reveal delay={0.08} className="glass-panel p-6">
-          <h2 className="text-2xl font-semibold text-white">
-            Program Implementation
-          </h2>
-          <p className="mt-3 section-copy">{services.implementation}</p>
-          <p className="mt-3 section-copy">{services.implementation2}</p>
+        <Reveal delay={0.08}>
+          <SpotlightPanel className="section-shell gradient-mesh p-4">
+            <ImageCard
+              src={services.implementationImage}
+              alt="Program implementation and delivery"
+              badge="Implementation"
+            />
+            <div className="px-2 pb-2 pt-6">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Program Implementation
+              </h2>
+              <p className="mt-3 section-copy">{services.implementation}</p>
+              <p className="mt-3 section-copy">{services.implementation2}</p>
+            </div>
+          </SpotlightPanel>
         </Reveal>
       </div>
 
-      <Reveal className="glass-panel p-8">
-        <h2 className="text-2xl font-semibold text-white">
-          Impact Measurement
-        </h2>
-        <p className="mt-3 section-copy">{services.measurement}</p>
-        <ul className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
-          {services.measurementPoints.map((item) => (
-            <li
-              key={item}
-              className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+      <Reveal>
+        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[0.9fr_1.1fr]">
+          <ImageCard
+            src={services.measurementImage}
+            alt="Data dashboards and impact measurement"
+            badge="Measurement"
+          />
+          <div className="section-shell gradient-mesh p-8">
+            <h2 className="text-2xl font-semibold text-slate-950">
+              Impact Measurement
+            </h2>
+            <p className="mt-3 section-copy">{services.measurement}</p>
+            <ul className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
+              {services.measurementPoints.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-2xl border border-white/50 bg-white/70 px-3 py-3 text-sm text-slate-700"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </SpotlightPanel>
       </Reveal>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Reveal className="glass-panel p-6">
-          <h2 className="text-2xl font-semibold text-white">
-            Technical Expertise
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            {services.technical.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <Reveal>
+          <SpotlightPanel className="section-shell gradient-mesh p-4">
+            <ImageCard
+              src={services.technicalImage}
+              alt="Technical project planning conversation"
+              badge="Technical expertise"
+            />
+            <div className="px-2 pb-2 pt-6">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Technical Expertise
+              </h2>
+              <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                {services.technical.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </SpotlightPanel>
         </Reveal>
 
-        <Reveal delay={0.08} className="glass-panel p-6">
-          <h2 className="text-2xl font-semibold text-white">
-            Compliance & Ethics
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            {services.compliance.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="mt-4 text-sm text-slate-200">{services.legal}</p>
+        <Reveal delay={0.08}>
+          <SpotlightPanel className="section-shell gradient-mesh p-4">
+            <ImageCard
+              src={services.complianceImage}
+              alt="Compliance and legal review in progress"
+              badge="Compliance"
+            />
+            <div className="px-2 pb-2 pt-6">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Compliance & Ethics
+              </h2>
+              <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                {services.compliance.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className="mt-4 text-sm text-slate-600">{services.legal}</p>
+            </div>
+          </SpotlightPanel>
         </Reveal>
       </div>
     </div>
