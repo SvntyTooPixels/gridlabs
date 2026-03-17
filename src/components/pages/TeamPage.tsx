@@ -1,6 +1,10 @@
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
+import { ActiveGradientPanel } from "@/components/interactive/ActiveGradientPanel";
+import { StaggerHoverGroup, StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
+import { MouseParallax } from "@/components/interactive/MouseParallax";
+import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import team from "@/content/team.json";
 
 export function TeamPage() {
@@ -12,8 +16,8 @@ export function TeamPage() {
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="p-4">
-          <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+        <ActiveGradientPanel className="p-4 shadow-[0_24px_80px_rgba(34,35,95,0.16)] backdrop-blur-xl border border-white/40">
+          <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr] p-2">
             <div className="section-shell gradient-mesh p-8">
               <h2 className="text-2xl font-semibold text-slate-950">
                 CSR Expertise
@@ -30,7 +34,7 @@ export function TeamPage() {
               badge="Collaborative leadership"
             />
           </div>
-        </SpotlightPanel>
+        </ActiveGradientPanel>
       </Reveal>
 
       <Reveal>
@@ -45,38 +49,44 @@ export function TeamPage() {
               <h2 className="text-2xl font-semibold text-slate-950">
                 Certified Expertise
               </h2>
-              <ul className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-2">
+              <StaggerHoverGroup className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-2">
                 {team.certifications.map((item) => (
-                  <li
+                  <StaggerHoverItem
                     key={item}
-                    className="rounded-2xl border border-white/50 bg-white/70 px-3 py-3"
+                    className="rounded-2xl border border-white/50 px-3 py-3"
                   >
                     {item}
-                  </li>
+                  </StaggerHoverItem>
                 ))}
-              </ul>
+              </StaggerHoverGroup>
             </div>
           </div>
         </SpotlightPanel>
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="p-4">
-          <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="section-shell gradient-mesh p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">
-                Experience
-              </h2>
-              <p className="mt-4 section-copy">{team.experience}</p>
-              <p className="mt-4 section-copy">{team.experience2}</p>
+        <HoverLiftGlow glowColor="rgba(147, 51, 234, 0.2)">
+          <SpotlightPanel className="p-4">
+            <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="section-shell gradient-mesh p-8 relative overflow-hidden">
+                <MouseParallax offset={8} damping={50} stiffness={300}>
+                  <h2 className="text-2xl font-semibold text-slate-950">
+                    Experience
+                  </h2>
+                </MouseParallax>
+                <MouseParallax offset={4} damping={40} stiffness={200}>
+                  <p className="mt-4 section-copy">{team.experience}</p>
+                  <p className="mt-4 section-copy">{team.experience2}</p>
+                </MouseParallax>
+              </div>
+              <ImageCard
+                src={team.experienceImage}
+                alt="Experienced team members collaborating"
+                badge="40+ years combined"
+              />
             </div>
-            <ImageCard
-              src={team.experienceImage}
-              alt="Experienced team members collaborating"
-              badge="40+ years combined"
-            />
-          </div>
-        </SpotlightPanel>
+          </SpotlightPanel>
+        </HoverLiftGlow>
       </Reveal>
     </div>
   );

@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { StaggerHoverGroup, StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
+import { MagneticButton } from "@/components/interactive/MagneticButton";
 import contact from "@/content/contact.json";
 
 export function ContactPage() {
@@ -46,7 +47,9 @@ export function ContactPage() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Reveal>
-          <ContactForm />
+          <SpotlightPanel className="p-6 h-full flex flex-col justify-center">
+            <ContactForm />
+          </SpotlightPanel>
         </Reveal>
 
         <Reveal delay={0.08}>
@@ -55,36 +58,39 @@ export function ContactPage() {
               Contact Details
             </h2>
 
-            <div className="mt-5 space-y-4 text-sm text-slate-700">
-              <div>
+            <StaggerHoverGroup className="mt-5 space-y-4 text-sm text-slate-700 list-none p-0 m-0">
+              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
                 <p className="font-semibold text-slate-950">Address</p>
                 <p>{contact.address}</p>
-              </div>
-              <div>
+              </StaggerHoverItem>
+              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
                 <p className="font-semibold text-slate-950">Call Us</p>
                 <p>{contact.phone}</p>
-              </div>
-              <div>
+              </StaggerHoverItem>
+              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
                 <p className="font-semibold text-slate-950">Email us</p>
                 {contact.emails.map((email) => (
                   <p key={email}>{email}</p>
                 ))}
-              </div>
-              <div>
+              </StaggerHoverItem>
+              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
                 <p className="font-semibold text-slate-950">Opening Hours</p>
                 {contact.hours.map((hour) => (
                   <p key={hour}>{hour}</p>
                 ))}
-              </div>
-            </div>
+              </StaggerHoverItem>
+            </StaggerHoverGroup>
 
-            <Link
-              href={contact.mapUrl}
-              target="_blank"
-              className="mt-6 inline-flex rounded-2xl border border-white/50 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-white"
-            >
-              Open Map
-            </Link>
+            <MagneticButton strength={15}>
+              <a
+                href={contact.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-block rounded-2xl border border-white/50 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-white hover:scale-105 hover:shadow-lg"
+              >
+                Open Map
+              </a>
+            </MagneticButton>
           </SpotlightPanel>
         </Reveal>
       </div>

@@ -5,6 +5,11 @@ import { HeroOrbs } from "@/components/animation/HeroOrbs";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { FeatureCarousel } from "@/components/visual/FeatureCarousel";
 import { ImageCard } from "@/components/visual/ImageCard";
+import { MouseParallax } from "@/components/interactive/MouseParallax";
+import { MagneticButton } from "@/components/interactive/MagneticButton";
+import { BorderTrace } from "@/components/interactive/BorderTrace";
+import { SiblingDimGroup } from "@/components/interactive/SiblingDimGroup";
+import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import home from "@/content/home.json";
 
 export function HomePage() {
@@ -16,12 +21,16 @@ export function HomePage() {
           <Reveal>
             <SpotlightPanel className="section-shell gradient-mesh p-8 md:p-10">
               <span className="section-kicker">{home.hero.badge}</span>
-              <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-                {home.hero.title}
-              </h1>
-              <p className="mt-6 max-w-3xl text-lg text-slate-600">
-                {home.hero.description}
-              </p>
+              <MouseParallax offset={8} damping={50} stiffness={400}>
+                <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+                  {home.hero.title}
+                </h1>
+              </MouseParallax>
+              <MouseParallax offset={4} damping={40} stiffness={300}>
+                <p className="mt-6 max-w-3xl text-lg text-slate-600">
+                  {home.hero.description}
+                </p>
+              </MouseParallax>
               <div className="mt-6 flex flex-wrap gap-3">
                 {home.hero.metrics.map((metric) => (
                   <span
@@ -33,18 +42,22 @@ export function HomePage() {
                 ))}
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/projects"
-                  className="rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
-                >
-                  {home.hero.primaryCta}
-                </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-2xl border border-white/50 bg-white/70 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white"
-                >
-                  {home.hero.secondaryCta}
-                </Link>
+                <MagneticButton strength={20}>
+                  <Link
+                    href="/projects"
+                    className="rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02] inline-block"
+                  >
+                    {home.hero.primaryCta}
+                  </Link>
+                </MagneticButton>
+                <MagneticButton strength={15}>
+                  <Link
+                    href="/contact"
+                    className="rounded-2xl border border-white/50 bg-white/70 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white inline-block"
+                  >
+                    {home.hero.secondaryCta}
+                  </Link>
+                </MagneticButton>
               </div>
             </SpotlightPanel>
           </Reveal>
@@ -68,8 +81,9 @@ export function HomePage() {
 
       <section className="container-padded">
         <Reveal>
-          <SpotlightPanel className="p-4 md:p-5">
-            <div className="grid h-full gap-6 md:grid-cols-[0.9fr_1.1fr]">
+          <BorderTrace color="rgba(147, 51, 234, 0.6)">
+            <SpotlightPanel className="p-4 md:p-5">
+              <div className="grid h-full gap-6 md:grid-cols-[0.9fr_1.1fr]">
               <ImageCard
                 src={home.announcement.image}
                 alt={home.announcement.alt}
@@ -89,41 +103,44 @@ export function HomePage() {
                 </p>
               </div>
             </div>
-          </SpotlightPanel>
+            </SpotlightPanel>
+          </BorderTrace>
         </Reveal>
       </section>
 
-      <section className="container-padded grid gap-6 md:grid-cols-2">
-        <Reveal>
-          <SpotlightPanel className="section-shell gradient-mesh p-4">
-            <ImageCard
-              src={home.aboutSnapshot.image}
-              alt={home.aboutSnapshot.alt}
-              badge={home.aboutSnapshot.tag}
-            />
-            <div className="px-2 pb-2 pt-6">
-              <h2 className="section-title">{home.aboutSnapshot.title}</h2>
-              <p className="mt-4 section-copy">
-                {home.aboutSnapshot.description}
-              </p>
-              <p className="mt-4 section-copy">{home.aboutSnapshot.extra}</p>
-            </div>
-          </SpotlightPanel>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <SpotlightPanel className="section-shell gradient-mesh p-4">
-            <ImageCard
-              src={home.vision.image}
-              alt={home.vision.alt}
-              badge={home.vision.tag}
-            />
-            <div className="px-2 pb-2 pt-6">
-              <h2 className="section-title">{home.vision.title}</h2>
-              <p className="mt-4 section-copy">{home.vision.text}</p>
-              <p className="mt-4 section-copy">{home.vision.structuring}</p>
-            </div>
-          </SpotlightPanel>
-        </Reveal>
+      <section className="container-padded">
+        <SiblingDimGroup className="grid gap-6 md:grid-cols-2">
+          <Reveal className="w-full">
+            <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
+              <ImageCard
+                src={home.aboutSnapshot.image}
+                alt={home.aboutSnapshot.alt}
+                badge={home.aboutSnapshot.tag}
+              />
+              <div className="px-2 pb-2 pt-6">
+                <h2 className="section-title">{home.aboutSnapshot.title}</h2>
+                <p className="mt-4 section-copy">
+                  {home.aboutSnapshot.description}
+                </p>
+                <p className="mt-4 section-copy">{home.aboutSnapshot.extra}</p>
+              </div>
+            </SpotlightPanel>
+          </Reveal>
+          <Reveal delay={0.1} className="w-full">
+            <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
+              <ImageCard
+                src={home.vision.image}
+                alt={home.vision.alt}
+                badge={home.vision.tag}
+              />
+              <div className="px-2 pb-2 pt-6">
+                <h2 className="section-title">{home.vision.title}</h2>
+                <p className="mt-4 section-copy">{home.vision.text}</p>
+                <p className="mt-4 section-copy">{home.vision.structuring}</p>
+              </div>
+            </SpotlightPanel>
+          </Reveal>
+        </SiblingDimGroup>
       </section>
 
       <section className="container-padded">
@@ -137,7 +154,8 @@ export function HomePage() {
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {home.impactAreas.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.05} className="h-full">
-              <SpotlightPanel className="h-full p-4">
+              <HoverLiftGlow>
+                <SpotlightPanel className="h-full p-4">
                 <div className="relative h-full overflow-hidden rounded-[24px] border border-white/35">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${item.accent}`}
@@ -165,7 +183,8 @@ export function HomePage() {
                     </div>
                   </div>
                 </div>
-              </SpotlightPanel>
+                </SpotlightPanel>
+              </HoverLiftGlow>
             </Reveal>
           ))}
         </div>

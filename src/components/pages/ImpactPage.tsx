@@ -3,6 +3,12 @@ import { FeatureCarousel } from "@/components/visual/FeatureCarousel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { CountUp } from "@/components/animation/CountUp";
+import { MouseParallax } from "@/components/interactive/MouseParallax";
+import { StatHoverCard } from "@/components/interactive/StatHoverCard";
+import { SiblingDimGroup } from "@/components/interactive/SiblingDimGroup";
+import { StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
+import { RevealImageCard } from "@/components/interactive/RevealImageCard";
+import { BorderTrace } from "@/components/interactive/BorderTrace";
 import impact from "@/content/impact.json";
 import { getJournalPosts } from "@/lib/journal";
 
@@ -21,9 +27,15 @@ export async function ImpactPage() {
         <SpotlightPanel className="p-4">
           <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="section-shell gradient-mesh p-8">
-              <p className="section-copy">{impact.intro}</p>
-              <p className="mt-4 section-copy">{impact.intro2}</p>
-              <p className="mt-4 section-copy">{impact.intro3}</p>
+              <MouseParallax offset={8} damping={50} stiffness={400}>
+                <p className="section-copy">{impact.intro}</p>
+              </MouseParallax>
+              <MouseParallax offset={4} damping={60} stiffness={300}>
+                <p className="mt-4 section-copy">{impact.intro2}</p>
+              </MouseParallax>
+              <MouseParallax offset={12} damping={40} stiffness={200}>
+                <p className="mt-4 section-copy">{impact.intro3}</p>
+              </MouseParallax>
             </div>
             <ImageCard
               src={impact.introImage}
@@ -36,15 +48,23 @@ export async function ImpactPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {impact.highlights.map((item, index) => (
-          <Reveal key={item.label} delay={index * 0.06} className="h-full">
-            <SpotlightPanel className="h-full p-5">
-              <p className="text-4xl font-semibold text-slate-950">
-                <CountUp to={item.value} />
-                {item.suffix}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-slate-700">
-                {item.label}
-              </p>
+          <Reveal key={item.label} delay={index * 0.06} className="h-full w-full">
+            <SpotlightPanel className="h-full w-full">
+              <StatHoverCard
+                className="p-5 flex flex-col justify-center"
+                color={["rgba(236,72,153,0.3)", "rgba(59,130,246,0.3)", "rgba(168,85,247,0.3)", "rgba(45,212,191,0.3)"][index % 4]}
+                valueNodes={
+                  <p className="text-4xl font-semibold text-slate-950">
+                    <CountUp to={item.value} />
+                    {item.suffix}
+                  </p>
+                }
+                labelNodes={
+                  <p className="mt-3 text-sm leading-6 text-slate-700">
+                    {item.label}
+                  </p>
+                }
+              />
             </SpotlightPanel>
           </Reveal>
         ))}
@@ -58,23 +78,23 @@ export async function ImpactPage() {
           <p className="mt-3 section-copy">
             Driving sustainable outcomes through structured CSR programs.
           </p>
-          <ul className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
+          <SiblingDimGroup className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
             {impact.outcomes.map((item) => (
-              <li
+              <StaggerHoverItem
                 key={item}
-                className="rounded-2xl border border-white/50 bg-white/70 px-3 py-3 text-sm text-slate-700"
+                className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-sm text-slate-700 font-medium"
               >
                 {item}
-              </li>
+              </StaggerHoverItem>
             ))}
-          </ul>
+          </SiblingDimGroup>
         </SpotlightPanel>
       </Reveal>
 
       <Reveal>
         <SpotlightPanel className="p-4">
           <div className="grid h-full gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-            <ImageCard
+            <RevealImageCard
               src={impact.caseStudyImage}
               alt={impact.caseStudyTitle}
               badge="Case study"
@@ -116,16 +136,18 @@ export async function ImpactPage() {
       </Reveal>
       <div className="grid gap-4 md:grid-cols-2">
         {posts.map((post) => (
-          <Reveal key={post.slug}>
-            <SpotlightPanel className="h-full p-6">
-              <p className="text-xs uppercase tracking-wide text-brand-700">
-                {post.date}
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-slate-950">
-                {post.title}
-              </h3>
-              <p className="mt-3 text-sm text-slate-600">{post.excerpt}</p>
-            </SpotlightPanel>
+          <Reveal key={post.slug} className="h-full">
+            <BorderTrace color="rgba(244, 63, 94, 0.5)">
+              <SpotlightPanel className="h-full p-6">
+                <p className="text-xs uppercase tracking-wide text-brand-700">
+                  {post.date}
+                </p>
+                <h3 className="mt-2 text-xl font-semibold text-slate-950">
+                  {post.title}
+                </h3>
+                <p className="mt-3 text-sm text-slate-600">{post.excerpt}</p>
+              </SpotlightPanel>
+            </BorderTrace>
           </Reveal>
         ))}
       </div>
