@@ -18,20 +18,22 @@ function ProgramBlock({
 }) {
   return (
     <Reveal>
-      <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[0.92fr_1.08fr]">
-        <ImageCard src={image} alt={alt} badge={eyebrow} />
-        <div className="section-shell gradient-mesh p-8">
-          <h2 className="text-2xl font-semibold text-slate-950">{title}</h2>
-          <ul className="mt-4 grid gap-3 text-sm text-slate-700">
-            {items.map((item) => (
-              <li
-                key={item}
-                className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 transition hover:-translate-y-1 hover:shadow-soft"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+      <SpotlightPanel className="p-4">
+        <div className="grid h-full gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+          <ImageCard src={image} alt={alt} badge={eyebrow} />
+          <div className="section-shell gradient-mesh p-8">
+            <h2 className="text-2xl font-semibold text-slate-950">{title}</h2>
+            <ul className="mt-4 grid gap-3 text-sm text-slate-700">
+              {items.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 transition hover:-translate-y-1 hover:shadow-soft"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </SpotlightPanel>
     </Reveal>

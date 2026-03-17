@@ -14,30 +14,32 @@ export function ContactPage() {
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <ImageCard
-            src={contact.heroImage}
-            alt={contact.heroAlt}
-            badge="We’d love to hear from you"
-          />
-          <div className="section-shell gradient-mesh flex flex-col justify-center p-8">
-            <h2 className="text-2xl font-semibold text-slate-950">
-              Let’s design meaningful CSR work together
-            </h2>
-            <p className="mt-4 section-copy">
-              Reach out for strategy support, implementation partnerships,
-              impact measurement, or exploratory conversations.
-            </p>
-            <ul className="mt-6 grid gap-3">
-              {contact.quickPoints.map((point) => (
-                <li
-                  key={point}
-                  className="rounded-2xl border border-white/50 bg-white/75 px-4 py-3 text-sm text-slate-700"
-                >
-                  {point}
-                </li>
-              ))}
-            </ul>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+            <ImageCard
+              src={contact.heroImage}
+              alt={contact.heroAlt}
+              badge="We’d love to hear from you"
+            />
+            <div className="section-shell gradient-mesh flex flex-col justify-center p-8">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Let’s design meaningful CSR work together
+              </h2>
+              <p className="mt-4 section-copy">
+                Reach out for strategy support, implementation partnerships,
+                impact measurement, or exploratory conversations.
+              </p>
+              <ul className="mt-6 grid gap-3">
+                {contact.quickPoints.map((point) => (
+                  <li
+                    key={point}
+                    className="rounded-2xl border border-white/50 bg-white/75 px-4 py-3 text-sm text-slate-700"
+                  >
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </SpotlightPanel>
       </Reveal>

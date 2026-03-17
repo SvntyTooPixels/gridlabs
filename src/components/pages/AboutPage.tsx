@@ -12,18 +12,20 @@ export function AboutPage() {
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="section-shell gradient-mesh p-8">
-            <p className="section-copy">{about.about}</p>
-            <p className="mt-4 section-copy">{about.about2}</p>
-            <p className="mt-4 section-copy">{about.about3}</p>
-            <p className="mt-4 section-copy">{about.about4}</p>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="section-shell gradient-mesh p-8">
+              <p className="section-copy">{about.about}</p>
+              <p className="mt-4 section-copy">{about.about2}</p>
+              <p className="mt-4 section-copy">{about.about3}</p>
+              <p className="mt-4 section-copy">{about.about4}</p>
+            </div>
+            <ImageCard
+              src={about.introImage}
+              alt={about.introAlt}
+              badge="People-centered partnerships"
+            />
           </div>
-          <ImageCard
-            src={about.introImage}
-            alt={about.introAlt}
-            badge="People-centered partnerships"
-          />
         </SpotlightPanel>
       </Reveal>
 
@@ -57,22 +59,24 @@ export function AboutPage() {
       </div>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[0.85fr_1.15fr]">
-          <ImageCard
-            src={about.founder.image}
-            alt={about.founder.alt}
-            badge="Founder spotlight"
-          />
-          <div className="section-shell gradient-mesh p-8">
-            <h2 className="section-title">Founder</h2>
-            <p className="mt-2 text-lg font-medium text-slate-950">
-              {about.founder.name}
-            </p>
-            <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-700">
-              {about.founder.role}
-            </p>
-            <p className="mt-4 section-copy">{about.founder.bio}</p>
-            <p className="mt-4 section-copy">{about.founder.bio2}</p>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+            <ImageCard
+              src={about.founder.image}
+              alt={about.founder.alt}
+              badge="Founder spotlight"
+            />
+            <div className="section-shell gradient-mesh p-8">
+              <h2 className="section-title">Founder</h2>
+              <p className="mt-2 text-lg font-medium text-slate-950">
+                {about.founder.name}
+              </p>
+              <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-700">
+                {about.founder.role}
+              </p>
+              <p className="mt-4 section-copy">{about.founder.bio}</p>
+              <p className="mt-4 section-copy">{about.founder.bio2}</p>
+            </div>
           </div>
         </SpotlightPanel>
       </Reveal>

@@ -68,24 +68,26 @@ export function HomePage() {
 
       <section className="container-padded">
         <Reveal>
-          <SpotlightPanel className="grid gap-6 p-4 md:grid-cols-[0.9fr_1.1fr] md:p-5">
-            <ImageCard
-              src={home.announcement.image}
-              alt={home.announcement.alt}
-              badge={home.announcement.tag}
-              className="h-full"
-            />
-            <div className="section-shell gradient-mesh flex flex-col justify-center p-8">
-              <span className="section-kicker">Announcement</span>
-              <h2 className="mt-5 text-3xl font-semibold text-slate-950">
-                Education momentum in Pune
-              </h2>
-              <p className="mt-4 text-lg text-slate-700">
-                {home.announcement.title}
-              </p>
-              <p className="mt-4 section-copy">
-                {home.announcement.description}
-              </p>
+          <SpotlightPanel className="p-4 md:p-5">
+            <div className="grid h-full gap-6 md:grid-cols-[0.9fr_1.1fr]">
+              <ImageCard
+                src={home.announcement.image}
+                alt={home.announcement.alt}
+                badge={home.announcement.tag}
+                className="h-full"
+              />
+              <div className="section-shell gradient-mesh flex flex-col justify-center p-8">
+                <span className="section-kicker">Announcement</span>
+                <h2 className="mt-5 text-3xl font-semibold text-slate-950">
+                  Education momentum in Pune
+                </h2>
+                <p className="mt-4 text-lg text-slate-700">
+                  {home.announcement.title}
+                </p>
+                <p className="mt-4 section-copy">
+                  {home.announcement.description}
+                </p>
+              </div>
             </div>
           </SpotlightPanel>
         </Reveal>
@@ -136,7 +138,7 @@ export function HomePage() {
           {home.impactAreas.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.05} className="h-full">
               <SpotlightPanel className="h-full p-4">
-                <div className="relative overflow-hidden rounded-[24px] border border-white/35">
+                <div className="relative h-full overflow-hidden rounded-[24px] border border-white/35">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${item.accent}`}
                   />
@@ -181,35 +183,37 @@ export function HomePage() {
 
       <section className="container-padded">
         <Reveal>
-          <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="section-shell gradient-mesh flex flex-col justify-center p-8 text-center lg:text-left">
-              <span className="section-kicker mx-auto lg:mx-0">
-                Partner with purpose
-              </span>
-              <h2 className="mt-5 section-title">{home.cta.title}</h2>
-              <p className="mx-auto mt-4 max-w-3xl section-copy lg:mx-0">
-                {home.cta.description}
-              </p>
-              <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
-                <Link
-                  href="/csr-services"
-                  className="rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
-                >
-                  {home.cta.primary}
-                </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-2xl border border-white/50 bg-white/75 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white"
-                >
-                  {home.cta.secondary}
-                </Link>
+          <SpotlightPanel className="p-4 md:p-5">
+            <div className="grid h-full gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="section-shell gradient-mesh flex flex-col justify-center p-8 text-center lg:text-left">
+                <span className="section-kicker mx-auto lg:mx-0">
+                  Partner with purpose
+                </span>
+                <h2 className="mt-5 section-title">{home.cta.title}</h2>
+                <p className="mx-auto mt-4 max-w-3xl section-copy lg:mx-0">
+                  {home.cta.description}
+                </p>
+                <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
+                  <Link
+                    href="/csr-services"
+                    className="rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
+                  >
+                    {home.cta.primary}
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="rounded-2xl border border-white/50 bg-white/75 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white"
+                  >
+                    {home.cta.secondary}
+                  </Link>
+                </div>
               </div>
+              <ImageCard
+                src={home.cta.image}
+                alt={home.cta.alt}
+                badge="Let’s collaborate"
+              />
             </div>
-            <ImageCard
-              src={home.cta.image}
-              alt={home.cta.alt}
-              badge="Let’s collaborate"
-            />
           </SpotlightPanel>
         </Reveal>
       </section>

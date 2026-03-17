@@ -18,17 +18,19 @@ export async function ImpactPage() {
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="section-shell gradient-mesh p-8">
-            <p className="section-copy">{impact.intro}</p>
-            <p className="mt-4 section-copy">{impact.intro2}</p>
-            <p className="mt-4 section-copy">{impact.intro3}</p>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="section-shell gradient-mesh p-8">
+              <p className="section-copy">{impact.intro}</p>
+              <p className="mt-4 section-copy">{impact.intro2}</p>
+              <p className="mt-4 section-copy">{impact.intro3}</p>
+            </div>
+            <ImageCard
+              src={impact.introImage}
+              alt={impact.introAlt}
+              badge="Across India"
+            />
           </div>
-          <ImageCard
-            src={impact.introImage}
-            alt={impact.introAlt}
-            badge="Across India"
-          />
         </SpotlightPanel>
       </Reveal>
 
@@ -70,22 +72,24 @@ export async function ImpactPage() {
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <ImageCard
-            src={impact.caseStudyImage}
-            alt={impact.caseStudyTitle}
-            badge="Case study"
-          />
-          <div className="section-shell gradient-mesh p-8">
-            <h2 className="text-2xl font-semibold text-slate-950">
-              Case Study
-            </h2>
-            <h3 className="mt-3 text-xl font-medium text-slate-900">
-              {impact.caseStudyTitle}
-            </h3>
-            <p className="mt-3 section-copy">{impact.caseStudy}</p>
-            <p className="mt-3 section-copy">{impact.caseStudy2}</p>
-            <p className="mt-3 section-copy">{impact.caseStudy3}</p>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+            <ImageCard
+              src={impact.caseStudyImage}
+              alt={impact.caseStudyTitle}
+              badge="Case study"
+            />
+            <div className="section-shell gradient-mesh p-8">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Case Study
+              </h2>
+              <h3 className="mt-3 text-xl font-medium text-slate-900">
+                {impact.caseStudyTitle}
+              </h3>
+              <p className="mt-3 section-copy">{impact.caseStudy}</p>
+              <p className="mt-3 section-copy">{impact.caseStudy2}</p>
+              <p className="mt-3 section-copy">{impact.caseStudy3}</p>
+            </div>
           </div>
         </SpotlightPanel>
       </Reveal>

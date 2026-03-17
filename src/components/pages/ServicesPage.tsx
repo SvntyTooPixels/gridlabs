@@ -12,18 +12,20 @@ export function ServicesPage() {
       </Reveal>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="section-shell gradient-mesh p-8">
-            <h2 className="text-2xl font-semibold text-slate-950">Overview</h2>
-            <p className="mt-4 section-copy">{services.overview}</p>
-            <p className="mt-4 section-copy">{services.overview2}</p>
-            <p className="mt-4 section-copy">{services.overview3}</p>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="section-shell gradient-mesh p-8">
+              <h2 className="text-2xl font-semibold text-slate-950">Overview</h2>
+              <p className="mt-4 section-copy">{services.overview}</p>
+              <p className="mt-4 section-copy">{services.overview2}</p>
+              <p className="mt-4 section-copy">{services.overview3}</p>
+            </div>
+            <ImageCard
+              src={services.heroImage}
+              alt={services.heroAlt}
+              badge="Strategy to delivery"
+            />
           </div>
-          <ImageCard
-            src={services.heroImage}
-            alt={services.heroAlt}
-            badge="Strategy to delivery"
-          />
         </SpotlightPanel>
       </Reveal>
 
@@ -63,27 +65,29 @@ export function ServicesPage() {
       </div>
 
       <Reveal>
-        <SpotlightPanel className="grid gap-5 p-4 lg:grid-cols-[0.9fr_1.1fr]">
-          <ImageCard
-            src={services.measurementImage}
-            alt="Data dashboards and impact measurement"
-            badge="Measurement"
-          />
-          <div className="section-shell gradient-mesh p-8">
-            <h2 className="text-2xl font-semibold text-slate-950">
-              Impact Measurement
-            </h2>
-            <p className="mt-3 section-copy">{services.measurement}</p>
-            <ul className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
-              {services.measurementPoints.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-2xl border border-white/50 bg-white/70 px-3 py-3 text-sm text-slate-700"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+        <SpotlightPanel className="p-4">
+          <div className="grid h-full gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+            <ImageCard
+              src={services.measurementImage}
+              alt="Data dashboards and impact measurement"
+              badge="Measurement"
+            />
+            <div className="section-shell gradient-mesh p-8">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Impact Measurement
+              </h2>
+              <p className="mt-3 section-copy">{services.measurement}</p>
+              <ul className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
+                {services.measurementPoints.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-2xl border border-white/50 bg-white/70 px-3 py-3 text-sm text-slate-700"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </SpotlightPanel>
       </Reveal>
