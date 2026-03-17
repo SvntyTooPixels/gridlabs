@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import clsx from "clsx";
+import { MagneticButton } from "@/components/interactive/MagneticButton";
+import { DonateModal } from "@/components/forms/DonateModal";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -18,59 +20,99 @@ const nav = [
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [isDonateOpen, setIsDonateOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-2xl">
-      <div className="container-padded flex h-20 items-center justify-between">
-        <Link
-          href="/"
-          className="text-lg font-semibold tracking-tight text-slate-950"
-        >
-          <span className="text-gradient">Gridlabs</span> Research Foundation
-        </Link>
-        <button
-          className="rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm text-slate-900 shadow-soft md:hidden"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
-        >
-          Menu
-        </button>
-        <nav className="hidden items-center gap-2 md:flex">
-          {nav.map((item) => (
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-2xl">
+        <div className="container-padded flex h-20 items-center justify-between">
+          
+          {/* Left: Logo */}
+          <div className="flex-1">
             <Link
-              key={item.href}
-              href={item.href}
-              className={clsx(
-                "rounded-xl px-3 py-2 text-sm font-medium transition",
-                pathname === item.href
-                  ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(244,114,182,0.18),rgba(59,130,246,0.16))] text-slate-950 shadow-soft"
-                  : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
-              )}
+              href="/"
+              className="text-lg font-semibold tracking-tight text-slate-950"
             >
-              {item.label}
+              <span className="text-gradient">Gridlabs</span> Research Foundation
             </Link>
-          ))}
-        </nav>
-      </div>
-      {open && (
-        <nav className="container-padded mb-4 grid gap-2 md:hidden">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className={clsx(
-                "rounded-xl px-3 py-2 text-sm font-medium transition",
-                pathname === item.href
-                  ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(244,114,182,0.18),rgba(59,130,246,0.16))] text-slate-950 shadow-soft"
-                  : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
-              )}
+          </div>
+
+          {/* Center: Navigation */}
+          <nav className="hidden items-center justify-center gap-2 md:flex flex-1">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={clsx(
+                  "rounded-xl px-3 py-2 text-sm font-medium transition",
+                  pathname === item.href
+                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(244,114,182,0.18),rgba(59,130,246,0.16))] text-slate-950 shadow-soft"
+                    : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right: Actions */}
+          <div className="flex flex-1 items-center justify-end gap-3">
+            <div className="hidden md:block">
+              <MagneticButton strength={15}>
+                <button
+                  onClick={() => setIsDonateOpen(true)}
+                  className="rounded-xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-2 text-sm font-semibold text-white transition hover:scale-[1.02]"
+                >
+                  Donate now
+                </button>
+              </MagneticButton>
+            </div>
+            <button
+              className="rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm text-slate-900 shadow-soft md:hidden"
+              onClick={() => setOpen((prev) => !prev)}
+              aria-label="Toggle navigation"
             >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      )}
-    </header>
+              Menu
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {open && (
+          <nav className="container-padded mb-4 grid gap-2 md:hidden">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={clsx(
+                  "rounded-xl px-3 py-2 text-sm font-medium transition",
+                  pathname === item.href
+                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(244,114,182,0.18),rgba(59,130,246,0.16))] text-slate-950 shadow-soft"
+                    : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <button
+              onClick={() => {
+                setOpen(false);
+                setIsDonateOpen(true);
+              }}
+              className="mt-2 rounded-xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-3 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] text-center"
+            >
+              Donate now
+            </button>
+          </nav>
+        )}
+      </header>
+
+      {/* Donate Modal */}
+      <DonateModal 
+        isOpen={isDonateOpen} 
+        onClose={() => setIsDonateOpen(false)} 
+      />
+    </>
   );
 }
