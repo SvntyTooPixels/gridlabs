@@ -1,7 +1,7 @@
 {
   "introTitle": "Social Impact",
   "introTagline": "Creating measurable change through responsible CSR initiatives",
-  "introImage": "https://images.unsplash.com/photo-1531206715517-5c2f35740c8b?auto=format&fit=crop&w=1200&q=80",
+  "introImage": "/images/image_3.jpg",
   "introAlt": "Volunteers and students engaging in a community program",
   "intro": "At Gridlabs Research Foundation, we focus on delivering CSR initiatives that create meaningful and lasting impact for communities across India.",
   "intro2": "Through collaborative partnerships with corporations, institutions, and local organizations, our programs are designed to address critical social challenges and improve quality of life for underserved populations.",
@@ -35,39 +35,39 @@
     "Encourage sustainable practices and environmental responsibility"
   ],
   "caseStudyTitle": "Jao Padho – Education Initiative",
-  "caseStudyImage": "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80",
+  "caseStudyImage": "/images/image_4.jpg",
   "caseStudy": "The Jao Padho initiative focuses on supporting education for underprivileged children by providing essential learning resources such as textbooks, notebooks, stationery, and school uniforms.",
   "caseStudy2": "By addressing the lack of educational resources in underserved communities, the program helps students continue their education with greater confidence and opportunity.",
   "caseStudy3": "In partnership with educational institutions and corporate contributors, the initiative aims to promote literacy, improve access to education, and empower young learners to build a better future.",
   "gallery": [
     {
       "title": "School kit distribution drive",
-      "image": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/image_5.jpg",
       "alt": "Children receiving school supplies"
     },
     {
       "title": "Healthcare outreach camp",
-      "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/image_6.jpg",
       "alt": "Healthcare camp consultation in progress"
     },
     {
       "title": "Community sanitation workshop",
-      "image": "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/image_7.jpg",
       "alt": "Community hygiene workshop discussion"
     },
     {
       "title": "Women welfare awareness session",
-      "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/image_8.jpg",
       "alt": "Women attending an awareness event"
     },
     {
       "title": "Sustainability recycling initiative",
-      "image": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/image_9.jpg",
       "alt": "Volunteers outdoors in a sustainability activity"
     },
     {
       "title": "Rural education support event",
-      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/image_10.jpg",
       "alt": "Students in a rural learning environment"
     }
   ]

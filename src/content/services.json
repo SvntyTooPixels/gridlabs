@@ -1,18 +1,18 @@
 {
-  "heroImage": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+  "heroImage": "/images/image_1.jpg",
   "heroAlt": "Professionals in a strategic workshop with colorful notes",
   "overview": "Gridlabs Research Foundation provides comprehensive Corporate Social Responsibility (CSR) program design and implementation services, helping organizations translate their CSR commitments into structured and impactful initiatives.",
   "overview2": "Through detailed CSR assessments, we help companies identify opportunities, gaps, risks, and challenges in their existing CSR approach. This enables organizations to better understand their strengths and align their initiatives with internal CSR goals, regulatory requirements, and industry best practices.",
   "overview3": "By developing well-defined CSR strategies, Gridlabs helps organizations establish a clear roadmap for long-term social impact. Our goal is to integrate CSR initiatives into a company’s broader strategic objectives, ensuring programs are effective, sustainable, and capable of delivering meaningful outcomes for communities.",
-  "overviewImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+  "overviewImage": "/images/image_2.jpg",
   "strategy": "An effective CSR strategy provides organizations with a clear roadmap for creating meaningful social impact. At Gridlabs Research Foundation, we work closely with companies to develop structured CSR strategies that align with their values, regulatory requirements, and long-term objectives.",
   "strategy2": "Our approach focuses on identifying the overall direction and goals of CSR initiatives, defining key focus areas and programs, establishing performance indicators, and outlining practical next steps.",
-  "strategyImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
+  "strategyImage": "/images/image_3.jpg",
   "implementation": "Gridlabs Research Foundation supports organizations in designing and implementing CSR programs that address real community needs while aligning with corporate CSR goals.",
   "implementation2": "Our team manages the design, coordination, and execution of CSR initiatives and provides detailed reports aligned with government compliance requirements for annual CSR filings.",
-  "implementationImage": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+  "implementationImage": "/images/image_4.jpg",
   "measurement": "At Gridlabs Research Foundation, our ultimate goal is to help organizations achieve measurable social impact and sustainable outcomes through well-structured CSR initiatives.",
-  "measurementImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+  "measurementImage": "/images/image_5.jpg",
   "measurementPoints": [
     "Organizational assessment reports",
     "Review of CSR project plans and implementation strategies",
@@ -29,7 +29,7 @@
     "Annual Report",
     "Digital Support for CSR Dashboard"
   ],
-  "technicalImage": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
+  "technicalImage": "/images/image_6.jpg",
   "compliance": [
     "Legal Compliance: Ensure all CSR activities adhere to legal and regulatory requirements.",
     "Ethical Practices: Maintain ethical standards and transparency in financial transactions",
@@ -39,5 +39,5 @@
     "Public Relations: Manage PR efforts, including press releases and media coverage, related to CSR projects."
   ],
   "legal": "Gridlabs has corporate lawyers on its panel to advise collaborators on legal aspects.",
-  "complianceImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80"
+  "complianceImage": "/images/image_7.jpg"
 }

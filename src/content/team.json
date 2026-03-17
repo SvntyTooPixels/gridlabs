@@ -1,20 +1,20 @@
 {
-  "heroImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  "heroImage": "/images/image_8.jpg",
   "heroAlt": "A collaborative team standing around a project board",
   "section1Title": "One Vision. One Goal.",
   "section1": "Our team provides expert guidance to organizations in developing and implementing CSR strategies, sustainability initiatives, and impact-driven programs.",
   "section1b": "We support companies in navigating the complexities of CSR reporting, impact analysis, and Social Return on Investment (SROI).",
   "section1c": "Our expertise extends to developing robust Environmental, Social, and Governance (ESG) frameworks and sustainability assessments using EFQM, Corporate Responsibility Index, and ISO 26000.",
   "section1d": "We also develop sustainability reports aligned with Global Reporting Initiative (GRI) guidelines and UN Global Compact principles.",
-  "expertiseImage": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80",
+  "expertiseImage": "/images/image_9.jpg",
   "certifications": [
     "ISSP-SA – International Society of Sustainability Professionals",
     "ISO 9000 Lead Auditor Certification",
     "EFQM Accredited European Excellence Assessor",
     "Competent Leader & Competent Communicator – Toastmasters International"
   ],
-  "certificationImage": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80",
+  "certificationImage": "/images/image_10.jpg",
   "experience": "With more than four decades of combined experience, our team brings deep expertise in advisory, training, and research across Corporate Social Responsibility (CSR) and sustainability.",
   "experience2": "We work closely with organizations from early program development through implementation and impact measurement, ensuring long-term community benefits.",
-  "experienceImage": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1000&q=80"
+  "experienceImage": "/images/image_1.jpg"
 }
