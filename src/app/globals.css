@@ -7,18 +7,18 @@
 }
 
 body {
-  @apply bg-[#f8f4ff] text-slate-900 antialiased;
+  @apply bg-[#f0f3ed] text-slate-900 antialiased;
   background-image:
     radial-gradient(circle at top left,
-      rgba(59, 130, 246, 0.24),
+      rgba(49, 148, 193, 0.15),
       transparent 22%),
     radial-gradient(circle at top right,
-      rgba(244, 114, 182, 0.18),
+      rgba(153, 76, 172, 0.12),
       transparent 24%),
     radial-gradient(circle at 20% 80%,
-      rgba(45, 212, 191, 0.16),
+      rgba(157, 179, 62, 0.12),
       transparent 20%),
-    linear-gradient(180deg, #fffdfc 0%, #f7f5ff 42%, #eefaf9 100%);
+    linear-gradient(180deg, #f0f3ed 0%, #e6ebe0 42%, #d8e2d4 100%);
 }
 
 .container-padded {
@@ -48,13 +48,13 @@ body {
 .gradient-mesh {
   background-image:
     radial-gradient(circle at 20% 20%,
-      rgba(59, 130, 246, 0.18),
+      rgba(49, 148, 193, 0.15),
       transparent 24%),
     radial-gradient(circle at 80% 10%,
-      rgba(244, 114, 182, 0.18),
+      rgba(153, 76, 172, 0.12),
       transparent 20%),
     radial-gradient(circle at 75% 80%,
-      rgba(34, 197, 94, 0.14),
+      rgba(157, 179, 62, 0.12),
       transparent 20%),
     linear-gradient(135deg,
       rgba(255, 255, 255, 0.94),

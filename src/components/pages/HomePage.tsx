@@ -87,7 +87,7 @@ export function HomePage() {
                 <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
                   <Link
                     href="/csr-services"
-                    className="rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
+                    className="rounded-2xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
                   >
                     {home.cta.primary}
                   </Link>

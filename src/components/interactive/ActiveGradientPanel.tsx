@@ -25,13 +25,13 @@ export function ActiveGradientPanel({
         }}
         transition={{ duration: 0.7 }}
         style={{
-          background: "conic-gradient(from 90deg at 50% 50%, #3b82f6, #ec4899, #14b8a6, #3b82f6)",
+          background: "conic-gradient(from 90deg at 50% 50%, #3194c1, #994cac, #9db33e, #3194c1)",
         }}
       />
       <motion.div
         className="absolute inset-[-50%] -z-10 animate-[spin_5s_linear_infinite]"
         style={{
-          background: "conic-gradient(from 90deg at 50% 50%, #3b82f6, #ec4899, #14b8a6, #3b82f6)",
+          background: "conic-gradient(from 90deg at 50% 50%, #3194c1, #994cac, #9db33e, #3194c1)",
         }}
         variants={{
           rest: { opacity: 0 },

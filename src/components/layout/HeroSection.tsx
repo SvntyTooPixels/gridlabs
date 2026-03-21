@@ -155,7 +155,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           <MagneticButton strength={20}>
             <Link
               href="/projects"
-              className="rounded-full bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-8 py-4 font-semibold text-white shadow-lg transition hover:scale-[1.02] inline-block"
+              className="rounded-full bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-8 py-4 font-semibold text-white shadow-lg transition hover:scale-[1.02] inline-block"
             >
               {data.primaryCta}
             </Link>

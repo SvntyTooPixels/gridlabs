@@ -63,7 +63,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
               className="relative w-full max-w-lg my-auto rounded-3xl bg-white shadow-2xl overflow-hidden shadow-2xl"
             >
               {/* Decorative Header */}
-              <div className="relative overflow-hidden bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-8 py-10 text-center text-white">
+              <div className="relative overflow-hidden bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-8 py-10 text-center text-white">
                 <div className="relative z-10">
                   <h2 className="text-3xl font-bold tracking-tight">
                     Make an Impact
@@ -203,7 +203,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                           !email ||
                           (selectedAmount === "custom" && !customAmount)
                         }
-                        className="w-full rounded-xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] py-4 text-center font-bold text-white transition-all hover:scale-[1.02] hover:shadow-lg disabled:pointer-events-none disabled:opacity-50"
+                        className="w-full rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] py-4 text-center font-bold text-white transition-all hover:scale-[1.02] hover:shadow-lg disabled:pointer-events-none disabled:opacity-50"
                       >
                         Proceed to Donate{" "}
                         {selectedAmount === "custom" && customAmount

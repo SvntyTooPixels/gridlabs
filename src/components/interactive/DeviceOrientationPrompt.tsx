@@ -62,7 +62,7 @@ export function DeviceOrientationPrompt() {
             </button>
             <button
               onClick={handleRequest}
-              className="flex-1 rounded-xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-4 py-2 text-xs font-bold text-white shadow-lg transition hover:scale-[1.02] sm:flex-none"
+              className="flex-1 rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-4 py-2 text-xs font-bold text-white shadow-lg transition hover:scale-[1.02] sm:flex-none"
             >
               Enable
             </button>

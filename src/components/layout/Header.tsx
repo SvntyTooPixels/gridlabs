@@ -31,9 +31,10 @@ export function Header() {
           <div className="flex items-center lg:w-[20%] shrink-0">
             <Link
               href="/"
-              className="text-lg font-semibold tracking-tight text-slate-950"
+              className="text-lg font-semibold tracking-tight text-slate-950 flex items-center gap-2"
             >
-              <span className="text-gradient">Gridlabs</span> Research Foundation
+              <img src="/images/Logo.jpg" alt="Gridlabs Logo" className="h-10 w-auto rounded-md object-contain" />
+              <span className="text-gradient hidden sm:inline-block">Gridlabs Research Foundation</span>
             </Link>
           </div>
 
@@ -46,7 +47,7 @@ export function Header() {
                 className={clsx(
                   "rounded-xl px-2 xl:px-3 py-2 text-sm font-medium transition whitespace-nowrap",
                   pathname === item.href
-                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(244,114,182,0.18),rgba(59,130,246,0.16))] text-slate-950 shadow-soft"
+                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(153,76,172,0.18),rgba(49,148,193,0.16))] text-slate-950 shadow-soft"
                     : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
                 )}
               >
@@ -61,7 +62,7 @@ export function Header() {
               <MagneticButton strength={15}>
                 <button
                   onClick={() => setIsDonateOpen(true)}
-                  className="rounded-xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-2 text-sm font-semibold text-white transition hover:scale-[1.02] whitespace-nowrap"
+                  className="rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-5 py-2 text-sm font-semibold text-white transition hover:scale-[1.02] whitespace-nowrap"
                 >
                   Donate now
                 </button>
@@ -88,7 +89,7 @@ export function Header() {
                 className={clsx(
                   "rounded-xl px-3 py-2 text-sm font-medium transition",
                   pathname === item.href
-                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(244,114,182,0.18),rgba(59,130,246,0.16))] text-slate-950 shadow-soft"
+                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(153,76,172,0.18),rgba(49,148,193,0.16))] text-slate-950 shadow-soft"
                     : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
                 )}
               >
@@ -100,7 +101,7 @@ export function Header() {
                 setOpen(false);
                 setIsDonateOpen(true);
               }}
-              className="mt-2 rounded-xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-3 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] text-center"
+              className="mt-2 rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-3 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] text-center"
             >
               Donate now
             </button>

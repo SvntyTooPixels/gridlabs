@@ -34,9 +34,9 @@ export function HeroOrbs() {
       />
       <div
         ref={second}
-        className="absolute right-0 top-40 h-96 w-96 rounded-full bg-fuchsia-400/25 blur-3xl"
+        className="absolute right-0 top-40 h-96 w-96 rounded-full bg-berry-400/25 blur-3xl"
       />
-      <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl" />
+      <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-meadow-300/20 blur-3xl" />
     </div>
   );
 }
