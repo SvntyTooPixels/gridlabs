@@ -15,7 +15,7 @@ export function HiddenGRFBackground({ children, className }: { children: React.R
 
   return (
     <div
-      className={`relative overflow-hidden group rounded-[36px] border border-white/40 bg-white/55 shadow-[0_24px_80px_rgba(34,35,95,0.12)] backdrop-blur-xl ${className || ""}`}
+      className={`relative overflow-hidden group rounded-[36px] border border-white/40 bg-white/55 shadow-[0_24px_80px_rgba(34,35,95,0.12)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/65 hover:border-white/50 hover:shadow-[0_32px_96px_rgba(34,35,95,0.18)] ${className || ""}`}
       onMouseMove={handleMouseMove}
     >
       <motion.div

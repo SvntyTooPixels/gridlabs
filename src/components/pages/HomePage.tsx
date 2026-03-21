@@ -30,9 +30,9 @@ export function HomePage() {
         </Reveal>
 
       <section className="container-padded my-20">
-        <SiblingDimGroup className="grid gap-6 md:grid-cols-2">
+        <SiblingDimGroup className="grid group/split gap-y-6 md:gap-0 hover:md:gap-6 transition-all duration-700 ease-out md:grid-cols-2">
           <Reveal className="w-full h-full">
-            <HiddenGRFBackground className="h-full flex flex-col justify-center">
+            <HiddenGRFBackground className="h-full flex flex-col justify-center md:rounded-r-none group-hover/split:md:rounded-r-[36px]">
               <div className="mx-auto text-center">
                 <h2 className="section-title">
                   About{" "}
@@ -53,7 +53,7 @@ export function HomePage() {
             </HiddenGRFBackground>
           </Reveal>
           <Reveal delay={0.1} className="w-full h-full">
-            <GRFWithEyesBackground className="h-full flex flex-col justify-center">
+            <GRFWithEyesBackground className="h-full flex flex-col justify-center md:rounded-l-none group-hover/split:md:rounded-l-[36px]">
               <div className="mx-auto text-center flex flex-col items-center">
                 <h2 className="section-title flex items-center justify-center">
                   <span className="relative inline-block">
