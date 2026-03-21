@@ -41,7 +41,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
               whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
               viewport={{ once: true }}
               transition={{ 
-                duration: 0.6, 
+                duration: 1.0, 
                 ease: [0.32, 0.72, 0, 1],
                 y: { delay: index * 0.1 },
                 opacity: { delay: index * 0.1 }
@@ -54,21 +54,21 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                 alt={item.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover z-0 transition-transform duration-1000 ease-out group-hover:scale-110"
               />
               
               {/* Overlay for inactive cards */}
               <motion.div 
                 className="absolute inset-0 bg-slate-900/40 z-20 pointer-events-none"
                 animate={{ opacity: isActive ? 0 : 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.0 }}
               />
 
               {/* Gradient for text readability */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20 pointer-events-none"
                 animate={{ opacity: isActive ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.0 }}
               />
 
               {/* Content for Active State */}
@@ -79,7 +79,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
+                    transition={{ duration: 1.0, delay: 0.2 }}
                   >
                     <div className="flex items-center gap-4 mb-3">
                       <span className="text-4xl">{item.icon}</span>
@@ -102,7 +102,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 1.0 }}
                   >
                     <h3 
                       className="font-bold text-white tracking-widest text-xl mb-6 whitespace-nowrap"
@@ -135,7 +135,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
               whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
               viewport={{ once: true }}
               transition={{ 
-                duration: 0.6, 
+                duration: 1.0, 
                 ease: [0.32, 0.72, 0, 1],
                 y: { delay: index * 0.1 },
                 opacity: { delay: index * 0.1 }
@@ -148,21 +148,21 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                 alt={item.title}
                 fill
                 sizes="100vw"
-                className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover z-0 transition-transform duration-1000 ease-out group-hover:scale-110"
               />
               
               {/* Overlay for inactive cards */}
               <motion.div 
                 className="absolute inset-0 bg-slate-900/50 z-20 pointer-events-none"
                 animate={{ opacity: isActive ? 0 : 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.0 }}
               />
 
               {/* Gradient for text readability */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20 pointer-events-none"
                 animate={{ opacity: isActive ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.0 }}
               />
 
               {/* Content for Active State */}
@@ -173,7 +173,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
+                    transition={{ duration: 1.0, delay: 0.2 }}
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-3xl">{item.icon}</span>
@@ -196,7 +196,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 1.0 }}
                   >
                     <span className="flex items-center gap-3">
                       <span className="text-xl bg-white/20 p-1.5 rounded-full backdrop-blur-sm border border-white/20">{item.icon}</span>
