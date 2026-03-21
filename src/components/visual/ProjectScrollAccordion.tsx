@@ -111,10 +111,10 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
                       <span className="mb-4 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                         {item.tag}
                       </span>
-                      <h3 className="font-bold text-white text-3xl mb-3">
+                      <h3 className="font-bold text-white text-3xl mb-3 min-w-[50vw] w-[85%]">
                         {item.title}
                       </h3>
-                      <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
+                      <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/10 min-w-[51vw] w-[85%]">
                         {item.description}
                       </p>
                     </motion.div>

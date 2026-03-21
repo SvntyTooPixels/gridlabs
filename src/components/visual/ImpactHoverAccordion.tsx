@@ -68,7 +68,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20 pointer-events-none"
                 animate={{ opacity: isActive ? 1 : 0 }}
-                transition={{ duration: 1.0 }}
+                transition={{ duration: 0.1 }}
               />
 
               {/* Content for Active State */}
@@ -79,15 +79,15 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 1.0, delay: 0.2 }}
+                    transition={{ duration: 0.1 }}
                   >
                     <div className="flex items-center gap-4 mb-3">
                       <span className="text-4xl">{item.icon}</span>
-                      <h3 className="font-bold text-white text-3xl">
+                      <h3 className="font-bold text-white text-3xl min-w-[40vw] w-[85%]">
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/30 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
+                    <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/30 p-5 rounded-2xl backdrop-blur-md border border-white/10 min-w-[40vw] w-[85%]">
                       {item.description}
                     </p>
                   </motion.div>
@@ -102,7 +102,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 1.0 }}
+                    transition={{ duration: 0.1 }}
                   >
                     <h3 
                       className="font-bold text-white tracking-widest text-xl mb-6 whitespace-nowrap"
