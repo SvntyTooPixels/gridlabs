@@ -10,74 +10,13 @@ import { MagneticButton } from "@/components/interactive/MagneticButton";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
 import { SiblingDimGroup } from "@/components/interactive/SiblingDimGroup";
 import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
+import { HeroSection } from "@/components/layout/HeroSection";
 import home from "@/content/home.json";
 
 export function HomePage() {
   return (
     <div className="space-y-20 pb-16">
-      <section className="container-padded relative pt-10">
-        <HeroOrbs />
-        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <Reveal>
-            <SpotlightPanel className="section-shell gradient-mesh p-8 md:p-10">
-              <span className="section-kicker">{home.hero.badge}</span>
-              <MouseParallax offset={8} damping={50} stiffness={400}>
-                <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-                  {home.hero.title}
-                </h1>
-              </MouseParallax>
-              <MouseParallax offset={4} damping={40} stiffness={300}>
-                <p className="mt-6 max-w-3xl text-lg text-slate-600">
-                  {home.hero.description}
-                </p>
-              </MouseParallax>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {home.hero.metrics.map((metric) => (
-                  <span
-                    key={metric}
-                    className="rounded-full border border-white/50 bg-white/75 px-4 py-2 text-sm font-medium text-slate-700 shadow-soft"
-                  >
-                    {metric}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <MagneticButton strength={20}>
-                  <Link
-                    href="/projects"
-                    className="rounded-2xl bg-[linear-gradient(135deg,#2563eb,#ec4899,#14b8a6)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02] inline-block"
-                  >
-                    {home.hero.primaryCta}
-                  </Link>
-                </MagneticButton>
-                <MagneticButton strength={15}>
-                  <Link
-                    href="/contact"
-                    className="rounded-2xl border border-white/50 bg-white/70 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white inline-block"
-                  >
-                    {home.hero.secondaryCta}
-                  </Link>
-                </MagneticButton>
-              </div>
-            </SpotlightPanel>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <ImageCard
-              src={home.hero.image}
-              alt={home.hero.alt}
-              priority
-              badge="Impact in motion"
-              className="lg:ml-auto"
-            >
-              <p className="max-w-sm text-sm text-slate-100">
-                Colorful, community-centered programs across education,
-                healthcare, sustainability, and social welfare.
-              </p>
-            </ImageCard>
-          </Reveal>
-        </div>
-      </section>
+      <HeroSection data={home.hero} />
 
       <section className="container-padded">
         <Reveal>
