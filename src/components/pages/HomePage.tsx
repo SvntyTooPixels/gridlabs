@@ -62,8 +62,7 @@ export function HomePage() {
 
       <section className="container-padded">
         <Reveal>
-          <span className="section-kicker">Where we create change</span>
-          <h2 className="mt-5 section-title">Impact Areas</h2>
+          <h2 className="mt-5 section-title">Where we create change</h2>
           <p className="mt-3 text-slate-600">
             Let us be together to "create a space for a better place"!
           </p>
@@ -109,7 +108,6 @@ export function HomePage() {
 
       <section className="container-padded my-20">
         <Reveal>
-          <span className="section-kicker">Interactive project stories</span>
           <h2 className="mt-5 section-title">Featured Projects</h2>
         </Reveal>
         <Reveal className="mt-6">
