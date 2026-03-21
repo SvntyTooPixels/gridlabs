@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/animation/Reveal";
 import { HeroOrbs } from "@/components/animation/HeroOrbs";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
-import { FeatureCarousel } from "@/components/visual/FeatureCarousel";
+import { ProjectHoverAccordion } from "@/components/visual/ProjectHoverAccordion";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { AnnouncementCarousel } from "@/components/visual/AnnouncementCarousel";
 import { ImpactScrollAccordion } from "@/components/visual/ImpactScrollAccordion";
@@ -68,7 +68,7 @@ export function HomePage() {
           <h2 className="mt-5 section-title">Featured Projects</h2>
         </Reveal>
         <Reveal className="mt-6">
-          <FeatureCarousel slides={home.featuredProjects} />
+          <ProjectHoverAccordion items={home.featuredProjects} />
         </Reveal>
       </section>
 
