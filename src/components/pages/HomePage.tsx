@@ -6,6 +6,7 @@ import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { FeatureCarousel } from "@/components/visual/FeatureCarousel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { AnnouncementCarousel } from "@/components/visual/AnnouncementCarousel";
+import { ImpactScrollAccordion } from "@/components/visual/ImpactScrollAccordion";
 import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { MagneticButton } from "@/components/interactive/MagneticButton";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
@@ -60,51 +61,7 @@ export function HomePage() {
         </SiblingDimGroup>
       </section>
 
-      <section className="container-padded">
-        <Reveal>
-          <h2 className="mt-5 section-title">Where we create change</h2>
-          <p className="mt-3 text-slate-600">
-            Let us be together to "create a space for a better place"!
-          </p>
-        </Reveal>
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {home.impactAreas.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.05} className="h-full">
-              <HoverLiftGlow>
-                <SpotlightPanel className="h-full p-4">
-                <div className="relative h-full overflow-hidden rounded-[24px] border border-white/35">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${item.accent}`}
-                  />
-                  <div className="relative grid min-h-[280px] grid-rows-[180px_auto]">
-                    <div className="relative">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover mix-blend-multiply"
-                      />
-                    </div>
-                    <div className="relative p-5">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{item.icon}</span>
-                        <h3 className="font-semibold text-slate-950">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="mt-3 text-sm leading-6 text-slate-700">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                </SpotlightPanel>
-              </HoverLiftGlow>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <ImpactScrollAccordion items={home.impactAreas} />
 
       <section className="container-padded my-20">
         <Reveal>
