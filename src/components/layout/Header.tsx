@@ -26,9 +26,9 @@ export function Header() {
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-2xl">
         <div className="container-padded flex h-16 items-center justify-between">
-          
+
           {/* Left: Logo */}
-          <div className="flex items-center shrink-0">
+          <div className="flex items-center">
             <Link
               href="/"
               className="text-lg font-semibold tracking-tight text-slate-950 flex items-center gap-2"
@@ -38,8 +38,9 @@ export function Header() {
             </Link>
           </div>
 
+          <div></div>
           {/* Center: Navigation */}
-          <nav className="hidden lg:flex flex-1 items-center justify-center gap-1 xl:gap-2">
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -55,9 +56,10 @@ export function Header() {
               </Link>
             ))}
           </nav>
-
+          <div></div>
+          <div></div>
           {/* Right: Actions */}
-          <div className="flex items-center justify-end gap-3 shrink-0">
+          <div className="flex items-center justify-end gap-3">
             <div className="hidden lg:block">
               <MagneticButton strength={15}>
                 <button
@@ -121,9 +123,9 @@ export function Header() {
       </header>
 
       {/* Donate Modal */}
-      <DonateModal 
-        isOpen={isDonateOpen} 
-        onClose={() => setIsDonateOpen(false)} 
+      <DonateModal
+        isOpen={isDonateOpen}
+        onClose={() => setIsDonateOpen(false)}
       />
     </>
   );
