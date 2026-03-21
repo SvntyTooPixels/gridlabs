@@ -51,7 +51,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
               <motion.div
                 layout
                 key={`desktop-${item.title}`}
-                className="relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 shadow-xl"
+                className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 shadow-xl"
                 animate={{ flex: isActive ? "5 1 0%" : "1 1 0%" }}
                 transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
               >
@@ -62,7 +62,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover z-0"
+                  className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 
                 {/* Overlay for inactive cards */}
@@ -143,7 +143,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
               <motion.div
                 layout
                 key={`mobile-${item.title}`}
-                className="relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 shadow-lg"
+                className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 shadow-lg"
                 animate={{ flex: isActive ? "5 1 0%" : "1 1 0%" }}
                 transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
               >
@@ -154,7 +154,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                   alt={item.title}
                   fill
                   sizes="100vw"
-                  className="object-cover z-0"
+                  className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 
                 {/* Overlay for inactive cards */}
