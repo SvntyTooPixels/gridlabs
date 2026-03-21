@@ -21,6 +21,19 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  const scrollToIndex = (index: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const absoluteTop = rect.top + window.scrollY;
+    const progress = (index + 0.5) / items.length;
+    const targetScroll = absoluteTop + progress * (rect.height - window.innerHeight);
+    
+    window.scrollTo({
+      top: targetScroll,
+      behavior: "smooth"
+    });
+  };
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (latest >= 1) {
@@ -49,7 +62,8 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
               <motion.div
                 layout
                 key={`desktop-${item.title}`}
-                className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0"
+                onClick={() => scrollToIndex(index)}
+                className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 cursor-pointer"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
                 viewport={{ once: true }}
@@ -145,7 +159,8 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
               <motion.div
                 layout
                 key={`mobile-${item.title}`}
-                className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0"
+                onClick={() => scrollToIndex(index)}
+                className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 cursor-pointer"
                 initial={{ y: 60, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
                 viewport={{ once: true }}
