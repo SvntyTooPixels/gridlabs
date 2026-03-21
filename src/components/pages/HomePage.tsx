@@ -13,6 +13,9 @@ import { BorderTrace } from "@/components/interactive/BorderTrace";
 import { SiblingDimGroup } from "@/components/interactive/SiblingDimGroup";
 import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import { HeroSection } from "@/components/layout/HeroSection";
+import { HiddenGRFBackground } from "@/components/interactive/HiddenGRFBackground";
+import { GRFWithEyesBackground } from "@/components/interactive/GRFWithEyesBackground";
+import { AnimatedEyes } from "@/components/interactive/AnimatedEyes";
 import home from "@/content/home.json";
 
 export function HomePage() {
@@ -28,35 +31,45 @@ export function HomePage() {
 
       <section className="container-padded my-20">
         <SiblingDimGroup className="grid gap-6 md:grid-cols-2">
-          <Reveal className="w-full">
-            <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
-              <ImageCard
-                src={home.aboutSnapshot.image}
-                alt={home.aboutSnapshot.alt}
-                badge={home.aboutSnapshot.tag}
-              />
-              <div className="px-2 pb-2 pt-6">
-                <h2 className="section-title">{home.aboutSnapshot.title}</h2>
-                <p className="mt-4 section-copy">
+          <Reveal className="w-full h-full">
+            <HiddenGRFBackground className="h-full flex flex-col justify-center">
+              <div className="mx-auto text-center">
+                <h2 className="section-title">
+                  About{" "}
+                  <span className="relative inline-block">
+                    <span className="absolute inset-0 bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true">
+                      {home.aboutSnapshot.title.replace("About ", "")}
+                    </span>
+                    <span className="transition-opacity duration-700 group-hover:opacity-0">
+                      {home.aboutSnapshot.title.replace("About ", "")}
+                    </span>
+                  </span>
+                </h2>
+                <p className="mt-4 section-copy text-lg">
                   {home.aboutSnapshot.description}
                 </p>
-                <p className="mt-4 section-copy">{home.aboutSnapshot.extra}</p>
+                <p className="mt-4 section-copy text-lg">{home.aboutSnapshot.extra}</p>
               </div>
-            </SpotlightPanel>
+            </HiddenGRFBackground>
           </Reveal>
-          <Reveal delay={0.1} className="w-full">
-            <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
-              <ImageCard
-                src={home.vision.image}
-                alt={home.vision.alt}
-                badge={home.vision.tag}
-              />
-              <div className="px-2 pb-2 pt-6">
-                <h2 className="section-title">{home.vision.title}</h2>
-                <p className="mt-4 section-copy">{home.vision.text}</p>
-                <p className="mt-4 section-copy">{home.vision.structuring}</p>
+          <Reveal delay={0.1} className="w-full h-full">
+            <GRFWithEyesBackground className="h-full flex flex-col justify-center">
+              <div className="mx-auto text-center flex flex-col items-center">
+                <h2 className="section-title flex items-center justify-center">
+                  <span className="relative inline-block">
+                    <span className="absolute inset-0 bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true">
+                      {home.vision.title}
+                    </span>
+                    <span className="transition-opacity duration-700 group-hover:opacity-0">
+                      {home.vision.title}
+                    </span>
+                  </span>
+                  <AnimatedEyes />
+                </h2>
+                <p className="mt-4 section-copy text-lg">{home.vision.text}</p>
+                <p className="mt-4 section-copy text-lg">{home.vision.structuring}</p>
               </div>
-            </SpotlightPanel>
+            </GRFWithEyesBackground>
           </Reveal>
         </SiblingDimGroup>
       </section>
