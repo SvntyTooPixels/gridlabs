@@ -24,11 +24,11 @@ export function HomePage() {
     <div className="pb-16">
       <HeroSection data={home.hero} />
 
-        <Reveal>
-            <SpotlightPanel className="p-4 md:p-5 rounded-none">
-              <AnnouncementCarousel items={home.announcements} />
-            </SpotlightPanel>
-        </Reveal>
+      <Reveal>
+        <SpotlightPanel className="p-4 md:p-5 rounded-none">
+          <AnnouncementCarousel items={home.announcements} />
+        </SpotlightPanel>
+      </Reveal>
 
       <section className="container-padded mt-20">
         <ScrollSplitGroup>
@@ -88,36 +88,29 @@ export function HomePage() {
 
       <section className="container-padded">
         <Reveal>
-          <SpotlightPanel className="p-4 md:p-5">
-            <div className="grid h-full gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="section-shell gradient-mesh flex flex-col justify-center p-8 text-center lg:text-left">
-                <span className="section-kicker mx-auto lg:mx-0">
-                  Partner with purpose
-                </span>
-                <h2 className="mt-5 section-title">{home.cta.title}</h2>
-                <p className="mx-auto mt-4 max-w-3xl section-copy lg:mx-0">
-                  {home.cta.description}
-                </p>
-                <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
-                  <Link
-                    href="/csr-services"
-                    className="rounded-2xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
-                  >
-                    {home.cta.primary}
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="rounded-2xl border border-white/50 bg-white/75 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white"
-                  >
-                    {home.cta.secondary}
-                  </Link>
-                </div>
+          <SpotlightPanel className="p-4 md:p-5 max-w-7xl mx-auto">
+            <div className="p-4 md:p-5">
+              <span className="section-kicker w-fit mx-auto lg:mx-0 ">
+                Partner with purpose
+              </span>
+              <h2 className="mt-5 section-title">{home.cta.title}</h2>
+              <p className="mx-auto mt-4 max-w-3xl section-copy lg:mx-0">
+                {home.cta.description}
+              </p>
+              <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
+                <Link
+                  href="/csr-services"
+                  className="rounded-2xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
+                >
+                  {home.cta.primary}
+                </Link>
+                <Link
+                  href="/contact"
+                  className="rounded-2xl border border-white/50 bg-white/75 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white"
+                >
+                  {home.cta.secondary}
+                </Link>
               </div>
-              <ImageCard
-                src={home.cta.image}
-                alt={home.cta.alt}
-                badge="Let’s collaborate"
-              />
             </div>
           </SpotlightPanel>
         </Reveal>

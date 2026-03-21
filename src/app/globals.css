@@ -38,7 +38,7 @@ body {
 }
 
 .section-kicker {
-  @apply inline-flex rounded-full border border-fuchsia-300/70 bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-700 shadow-[0_10px_30px_rgba(217,70,239,0.12)];
+  @apply w-fit inline-flex rounded-full border border-fuchsia-300/70 bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-700 shadow-[0_10px_30px_rgba(217,70,239,0.12)];
 }
 
 .section-shell {

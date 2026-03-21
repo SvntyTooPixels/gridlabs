@@ -50,7 +50,7 @@ export function Footer() {
         <div className="lg:col-span-2">
           <span className="section-kicker">Stay connected</span>
           <h3 className="mt-4 text-xl font-semibold text-slate-950">
-            Quick Links
+            Gridlabs Research Foundation
           </h3>
           <p className="mt-3 text-sm text-slate-600">
             Responsible CSR partnerships for long-term community impact.
