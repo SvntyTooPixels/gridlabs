@@ -1,9 +1,10 @@
 "use client";
 
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
-import { MouseEvent } from "react";
+import { MouseEvent, useRef, useEffect } from "react";
 
 export function HiddenGRFBackground({ children, className }: { children: React.ReactNode, className?: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -13,13 +14,40 @@ export function HiddenGRFBackground({ children, className }: { children: React.R
     mouseY.set(clientY - top);
   }
 
+  useEffect(() => {
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      if (e.gamma === null || e.beta === null || !containerRef.current) return;
+      
+      const width = containerRef.current.offsetWidth;
+      const height = containerRef.current.offsetHeight;
+      
+      // Normalize gamma (-45 to 45) -> 0 to width
+      const normalizedGamma = Math.min(Math.max(e.gamma, -45), 45);
+      const x = ((normalizedGamma + 45) / 90) * width;
+      
+      // Normalize beta (typical holding tilt is ~45deg)
+      const normalizedBeta = Math.min(Math.max(e.beta - 45, -45), 45); 
+      const y = ((normalizedBeta + 45) / 90) * height;
+      
+      // Smooth movement (optional, but framer-motion useSpring is better. Direct set works fine for gyro streams)
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+
+    if (typeof window !== "undefined" && window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", handleOrientation);
+      return () => window.removeEventListener("deviceorientation", handleOrientation);
+    }
+  }, [mouseX, mouseY]);
+
   return (
     <div
+      ref={containerRef}
       className={`relative overflow-hidden group rounded-[36px] border border-white/40 bg-white/55 shadow-[0_24px_80px_rgba(34,35,95,0.12)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/65 hover:border-white/50 hover:shadow-[0_32px_96px_rgba(34,35,95,0.18)] ${className || ""}`}
       onMouseMove={handleMouseMove}
     >
       <motion.div
-        className="pointer-events-none absolute inset-0 text-center flex items-center justify-center select-none opacity-0 group-hover:opacity-100 transition-opacity duration-[1500ms] ease-out"
+        className="pointer-events-none absolute inset-0 text-center flex items-center justify-center select-none opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-[1500ms] ease-out"
         style={{
           WebkitMaskImage: useMotionTemplate`
             radial-gradient(
@@ -40,7 +68,7 @@ export function HiddenGRFBackground({ children, className }: { children: React.R
         <div 
           className="font-black text-transparent tracking-tighter opacity-80" 
           style={{ 
-            fontSize: "clamp(8rem, 20vw, 24rem)", 
+            fontSize: "clamp(12rem, 20vw, 24rem)", 
             lineHeight: 1,
             WebkitTextStroke: "3px #94a3b8"
           }}
