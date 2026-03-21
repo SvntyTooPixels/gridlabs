@@ -3,10 +3,10 @@ import Image from "next/image";
 import { Reveal } from "@/components/animation/Reveal";
 import { HeroOrbs } from "@/components/animation/HeroOrbs";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
-import { ProjectHoverAccordion } from "@/components/visual/ProjectHoverAccordion";
+import { ProjectScrollAccordion } from "@/components/visual/ProjectScrollAccordion";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { AnnouncementCarousel } from "@/components/visual/AnnouncementCarousel";
-import { ImpactScrollAccordion } from "@/components/visual/ImpactScrollAccordion";
+import { ImpactHoverAccordion } from "@/components/visual/ImpactHoverAccordion";
 import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { MagneticButton } from "@/components/interactive/MagneticButton";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
@@ -74,16 +74,9 @@ export function HomePage() {
         </ScrollSplitGroup>
       </section>
 
-      <section className="container-padded my-20">
-        <Reveal>
-          <h2 className="mt-5 section-title">Featured Projects</h2>
-        </Reveal>
-        <Reveal className="mt-6">
-          <ProjectHoverAccordion items={home.featuredProjects} />
-        </Reveal>
-      </section>
+      <ProjectScrollAccordion items={home.featuredProjects} />
       
-      <ImpactScrollAccordion items={home.impactAreas} />
+      <ImpactHoverAccordion items={home.impactAreas} />
 
 
       <section className="container-padded">

@@ -3,19 +3,17 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
-import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import { Reveal } from "@/components/animation/Reveal";
 
-type ImpactArea = {
+type Project = {
   title: string;
   description: string;
-  icon: string;
-  accent: string;
+  tag: string;
   image: string;
+  alt: string;
 };
 
-export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
+export function ProjectScrollAccordion({ items }: { items: Project[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -38,9 +36,9 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
       {/* Desktop View: Sticky Horizontal Scroll Accordion */}
       <div className="sticky top-0 h-screen w-full hidden md:flex flex-col justify-center overflow-hidden">
         <div className="container-padded mb-8">
-          <h2 className="section-title">Where we create change</h2>
+          <h2 className="section-title">Featured Projects</h2>
           <p className="mt-3 text-slate-600">
-            Let us be together to "create a space for a better place"!
+            Showcasing our recent work and community impact.
           </p>
         </div>
         
@@ -62,11 +60,11 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                   opacity: { delay: index * 0.1 }
                 }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} mix-blend-multiply opacity-50 z-10 pointer-events-none`} />
+                <div className="absolute inset-0 bg-fuchsia-900 mix-blend-overlay opacity-30 z-10 pointer-events-none" />
                 
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
@@ -79,7 +77,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                   transition={{ duration: 0.5 }}
                 />
 
-                {/* Gradient to make text readable on active card */}
+                {/* Gradient for text readability */}
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20 pointer-events-none"
                   animate={{ opacity: isActive ? 1 : 0 }}
@@ -96,20 +94,20 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                      <div className="flex items-center gap-4 mb-3">
-                        <span className="text-4xl">{item.icon}</span>
-                        <h3 className="font-bold text-white text-3xl">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/30 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
+                      <span className="mb-4 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                        {item.tag}
+                      </span>
+                      <h3 className="font-bold text-white text-3xl mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
                         {item.description}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                {/* Vertical text & icon for Inactive State */}
+                {/* Vertical text for Inactive State */}
                 <AnimatePresence>
                   {!isActive && (
                     <motion.div
@@ -125,9 +123,6 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                       >
                         {item.title}
                       </h3>
-                      <span className="text-3xl bg-white/20 p-3 rounded-full backdrop-blur-md border border-white/20">
-                        {item.icon}
-                      </span>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -140,7 +135,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
       {/* Mobile View: Sticky Vertical Scroll Accordion */}
       <div className="sticky top-0 h-screen w-full flex md:hidden flex-col justify-center overflow-hidden">
         <div className="container-padded mb-4">
-          <h2 className="section-title text-2xl">Where we create change</h2>
+          <h2 className="section-title text-2xl">Featured Projects</h2>
         </div>
         
         <div className="flex flex-col h-[70vh] w-full container-padded gap-2">
@@ -161,11 +156,11 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                   opacity: { delay: index * 0.1 }
                 }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} mix-blend-multiply opacity-60 z-10 pointer-events-none`} />
+                <div className="absolute inset-0 bg-fuchsia-900 mix-blend-overlay opacity-30 z-10 pointer-events-none" />
                 
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt}
                   fill
                   sizes="100vw"
                   className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
@@ -178,7 +173,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                   transition={{ duration: 0.5 }}
                 />
 
-                {/* Gradient for active card */}
+                {/* Gradient for text readability */}
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20 pointer-events-none"
                   animate={{ opacity: isActive ? 1 : 0 }}
@@ -195,20 +190,20 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                       exit={{ opacity: 0, x: -10 }}
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-3xl">{item.icon}</span>
-                        <h3 className="font-bold text-white text-2xl">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="text-xs sm:text-sm leading-relaxed text-slate-100 bg-black/30 p-3 rounded-xl backdrop-blur-md border border-white/10 overflow-hidden line-clamp-3">
+                      <span className="mb-2 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                        {item.tag}
+                      </span>
+                      <h3 className="font-bold text-white text-2xl mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-100 bg-black/40 p-3 rounded-xl backdrop-blur-md border border-white/10 overflow-hidden line-clamp-3">
                         {item.description}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                {/* Horizontal text & icon for Inactive State */}
+                {/* Horizontal text for Inactive State */}
                 <AnimatePresence>
                   {!isActive && (
                     <motion.div
@@ -218,12 +213,9 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <span className="flex items-center gap-3">
-                        <span className="text-xl bg-white/20 p-1.5 rounded-full backdrop-blur-sm border border-white/20">{item.icon}</span>
-                        <h3 className="font-semibold text-white tracking-wider text-sm truncate max-w-[200px]">
-                          {item.title}
-                        </h3>
-                      </span>
+                      <h3 className="font-semibold text-white tracking-wider text-sm truncate max-w-[250px]">
+                        {item.title}
+                      </h3>
                     </motion.div>
                   )}
                 </AnimatePresence>

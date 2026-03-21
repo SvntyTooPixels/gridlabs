@@ -3,20 +3,30 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Reveal } from "@/components/animation/Reveal";
 
-type Project = {
+type ImpactArea = {
   title: string;
   description: string;
-  tag: string;
+  icon: string;
+  accent: string;
   image: string;
-  alt: string;
 };
 
-export function ProjectHoverAccordion({ items }: { items: Project[] }) {
+export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="w-full">
+    <section className="container-padded my-20">
+      <Reveal>
+        <div className="mb-8">
+          <h2 className="section-title">Where we create change</h2>
+          <p className="mt-3 text-slate-600 max-w-2xl">
+            Let us be together to "create a space for a better place"!
+          </p>
+        </div>
+      </Reveal>
+
       {/* Desktop View: Horizontal Hover Accordion */}
       <div className="hidden md:flex h-[60vh] w-full gap-4">
         {items.map((item, index) => {
@@ -27,7 +37,7 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
               key={`desktop-${item.title}`}
               onMouseEnter={() => setActiveIndex(index)}
               className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 cursor-default"
-              initial={{ y: 100, opacity: 0 }}
+              initial={{ y: 60, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
               viewport={{ once: true }}
               transition={{ 
@@ -37,19 +47,19 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                 opacity: { delay: index * 0.1 }
               }}
             >
-              <div className="absolute inset-0 bg-fuchsia-900 mix-blend-overlay opacity-30 z-10 pointer-events-none" />
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} mix-blend-multiply opacity-50 z-10 pointer-events-none`} />
               
               <Image
                 src={item.image}
-                alt={item.alt}
+                alt={item.title}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
               />
               
               {/* Overlay for inactive cards */}
               <motion.div 
-                className="absolute inset-0 bg-slate-900/50 z-20 pointer-events-none"
+                className="absolute inset-0 bg-slate-900/40 z-20 pointer-events-none"
                 animate={{ opacity: isActive ? 0 : 1 }}
                 transition={{ duration: 0.5 }}
               />
@@ -71,13 +81,13 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
                   >
-                    <span className="mb-4 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
-                      {item.tag}
-                    </span>
-                    <h3 className="font-bold text-white text-3xl mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
+                    <div className="flex items-center gap-4 mb-3">
+                      <span className="text-4xl">{item.icon}</span>
+                      <h3 className="font-bold text-white text-3xl">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/30 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
                       {item.description}
                     </p>
                   </motion.div>
@@ -100,6 +110,9 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                     >
                       {item.title}
                     </h3>
+                    <span className="text-3xl bg-white/20 p-3 rounded-full backdrop-blur-md border border-white/20">
+                      {item.icon}
+                    </span>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -128,11 +141,11 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                 opacity: { delay: index * 0.1 }
               }}
             >
-              <div className="absolute inset-0 bg-fuchsia-900 mix-blend-overlay opacity-30 z-10 pointer-events-none" />
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} mix-blend-multiply opacity-60 z-10 pointer-events-none`} />
               
               <Image
                 src={item.image}
-                alt={item.alt}
+                alt={item.title}
                 fill
                 sizes="100vw"
                 className="object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-110"
@@ -162,13 +175,13 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                     exit={{ opacity: 0, x: -10 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
                   >
-                    <span className="mb-2 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
-                      {item.tag}
-                    </span>
-                    <h3 className="font-bold text-white text-2xl mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-100 bg-black/40 p-3 rounded-xl backdrop-blur-md border border-white/10 overflow-hidden line-clamp-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-3xl">{item.icon}</span>
+                      <h3 className="font-bold text-white text-2xl">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-100 bg-black/30 p-3 rounded-xl backdrop-blur-md border border-white/10 overflow-hidden line-clamp-3">
                       {item.description}
                     </p>
                   </motion.div>
@@ -185,9 +198,12 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="font-semibold text-white tracking-wider text-sm truncate max-w-[250px]">
-                      {item.title}
-                    </h3>
+                    <span className="flex items-center gap-3">
+                      <span className="text-xl bg-white/20 p-1.5 rounded-full backdrop-blur-sm border border-white/20">{item.icon}</span>
+                      <h3 className="font-semibold text-white tracking-wider text-sm truncate max-w-[200px]">
+                        {item.title}
+                      </h3>
+                    </span>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -195,6 +211,6 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
