@@ -79,7 +79,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.1 }}
+                    transition={{ duration: 0.5 }}
                   >
                     <div className="flex items-center gap-4 mb-3">
                       <span className="text-4xl">{item.icon}</span>
@@ -102,7 +102,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.1 }}
+                    transition={{ duration: 0.5 }}
                   >
                     <h3 
                       className="font-bold text-white tracking-widest text-xl mb-6 whitespace-nowrap"

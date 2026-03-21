@@ -106,7 +106,7 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.1 }}
+                      transition={{ duration: 0.5 }}
                     >
                       <span className="mb-4 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                         {item.tag}
@@ -129,7 +129,7 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.1 }}
+                      transition={{ duration: 0.5 }}
                     >
                       <h3 
                         className="font-bold text-white tracking-widest text-xl mb-6 whitespace-nowrap"
