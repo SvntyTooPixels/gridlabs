@@ -28,7 +28,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
       </Reveal>
 
       {/* Desktop View: Horizontal Hover Accordion */}
-      <div className="hidden md:flex h-[60vh] w-full gap-4">
+      <div className="hidden lg:flex h-[60vh] w-full gap-4">
         {items.map((item, index) => {
           const isActive = activeIndex === index;
           return (
@@ -122,7 +122,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
       </div>
 
       {/* Mobile View: Vertical Click Accordion */}
-      <div className="flex md:hidden flex-col h-[70vh] w-full gap-2">
+      <div className="flex lg:hidden flex-col h-[70vh] w-full gap-2">
         {items.map((item, index) => {
           const isActive = activeIndex === index;
           return (
