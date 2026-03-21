@@ -55,7 +55,7 @@ export function HeroSection({ data }: HeroSectionProps) {
 
   const smoothGyroX = useSpring(mouseX, { damping: 40, stiffness: 200 });
   
-  const textBackgroundPositionScroll = useTransform(scrollYProgress, [0, 1.5], ["200% center", "-200% center"]);
+  const textBackgroundPositionScroll = useTransform(scrollYProgress, [-1, 1], ["200% center", "-200% center"]);
   const textBackgroundPositionGyro = useTransform(smoothGyroX, [-1, 1], ["200% center", "-200% center"]);
   
   const textBackgroundPosition = hasGyro ? textBackgroundPositionGyro : textBackgroundPositionScroll;
@@ -103,7 +103,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             style={{ 
               backgroundSize: "200% auto",
               backgroundPosition: textBackgroundPosition,
-              backgroundImage: "linear-gradient(110deg, rgba(255, 255, 255, 0.5) 0%, rgba(255,255,255,0.5) 15%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 25%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 55%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.5) 100%)"
+              backgroundImage: "linear-gradient(110deg, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.5) 85%, rgba(255,255,255,1) 86%, rgba(255,255,255,1) 87%, rgba(255,255,255,0.5) 88%, rgba(255,255,255,0.5) 90%, rgba(255,255,255,1) 95%)"
             }}
             className="mx-auto max-w-7xl bg-clip-text text-6xl font-black leading-tight text-transparent tracking-tight md:text-7xl lg:text-8xl"
           >
