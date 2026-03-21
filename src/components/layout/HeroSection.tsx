@@ -94,7 +94,7 @@ export function HeroSection({ data }: HeroSectionProps) {
       </motion.div>
 
       {/* Hero Content */}
-      <div className="container-padded relative z-10 flex flex-col items-center text-center">
+      <div className="container-padded relative z-10 flex flex-col items-center text-center py-16">
         {/* <motion.span 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
