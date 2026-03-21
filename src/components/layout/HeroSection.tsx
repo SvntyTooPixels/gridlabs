@@ -56,7 +56,7 @@ export function HeroSection({ data }: HeroSectionProps) {
   const smoothGyroX = useSpring(mouseX, { damping: 40, stiffness: 200 });
   
   const textBackgroundPositionScroll = useTransform(scrollYProgress, [0, 1.5], ["200% center", "-200% center"]);
-  const textBackgroundPositionGyro = useTransform(smoothGyroX, [-0.5, 0.5], ["200% center", "-200% center"]);
+  const textBackgroundPositionGyro = useTransform(smoothGyroX, [-1, 1], ["200% center", "-200% center"]);
   
   const textBackgroundPosition = hasGyro ? textBackgroundPositionGyro : textBackgroundPositionScroll;
 
