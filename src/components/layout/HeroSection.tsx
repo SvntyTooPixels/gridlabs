@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { MagneticButton } from "@/components/interactive/MagneticButton";
@@ -32,9 +32,33 @@ export function HeroSection({ data }: HeroSectionProps) {
   // Parallax effect for the background image
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   
-  // Light reflection effect mapped to scroll
-  // Background gradient will sweep across the text
-  const textBackgroundPosition = useTransform(scrollYProgress, [0, 0.5], ["200% center", "-200% center"]);
+  // Light reflection effect
+  const mouseX = useMotionValue(0);
+  const [hasGyro, setHasGyro] = useState(false);
+
+  useEffect(() => {
+    const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
+      if (e.gamma === null) return;
+      if (!hasGyro) setHasGyro(true);
+      
+      let xVal = e.gamma / 60;
+      xVal = Math.min(Math.max(xVal, -0.5), 0.5);
+      mouseX.set(xVal);
+    };
+
+    window.addEventListener("deviceorientation", handleDeviceOrientation);
+
+    return () => {
+      window.removeEventListener("deviceorientation", handleDeviceOrientation);
+    };
+  }, [mouseX, hasGyro]);
+
+  const smoothGyroX = useSpring(mouseX, { damping: 40, stiffness: 200 });
+  
+  const textBackgroundPositionScroll = useTransform(scrollYProgress, [0, 1.5], ["200% center", "-200% center"]);
+  const textBackgroundPositionGyro = useTransform(smoothGyroX, [-0.5, 0.5], ["200% center", "-200% center"]);
+  
+  const textBackgroundPosition = hasGyro ? textBackgroundPositionGyro : textBackgroundPositionScroll;
 
   return (
     <section 
@@ -61,7 +85,6 @@ export function HeroSection({ data }: HeroSectionProps) {
         />
         {/* Overlay to ensure text readability */}
         <div className="absolute inset-0 bg-slate-950/70 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20" />
       </motion.div>
 
       {/* Hero Content */}
@@ -80,9 +103,9 @@ export function HeroSection({ data }: HeroSectionProps) {
             style={{ 
               backgroundSize: "200% auto",
               backgroundPosition: textBackgroundPosition,
-              backgroundImage: "linear-gradient(110deg, rgba(255, 255, 255, 0.2) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(255,255,255,0.2) 100%)"
+              backgroundImage: "linear-gradient(110deg, rgba(255, 255, 255, 0.5) 0%, rgba(255,255,255,0.5) 15%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 25%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 55%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.5) 100%)"
             }}
-            className="mx-auto max-w-7xl bg-clip-text text-6xl font-bold leading-tight text-transparent tracking-tight md:text-7xl lg:text-8xl"
+            className="mx-auto max-w-7xl bg-clip-text text-6xl font-black leading-tight text-transparent tracking-tight md:text-7xl lg:text-8xl"
           >
             {data.title}
           </motion.h1>
