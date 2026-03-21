@@ -35,8 +35,13 @@ export function HeroSection({ data }: HeroSectionProps) {
   // Light reflection effect
   const mouseX = useMotionValue(0);
   const [hasGyro, setHasGyro] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile(); // Check initially
+    window.addEventListener("resize", checkMobile);
+
     const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
       if (e.gamma === null) return;
       if (!hasGyro) setHasGyro(true);
@@ -49,6 +54,7 @@ export function HeroSection({ data }: HeroSectionProps) {
     window.addEventListener("deviceorientation", handleDeviceOrientation);
 
     return () => {
+      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("deviceorientation", handleDeviceOrientation);
     };
   }, [mouseX, hasGyro]);
@@ -103,7 +109,9 @@ export function HeroSection({ data }: HeroSectionProps) {
             style={{ 
               backgroundSize: "200% auto",
               backgroundPosition: textBackgroundPosition,
-              backgroundImage: "linear-gradient(110deg, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.5) 85%, rgba(255,255,255,1) 86%, rgba(255,255,255,1) 87%, rgba(255,255,255,0.5) 88%, rgba(255,255,255,0.5) 90%, rgba(255,255,255,1) 95%)"
+              backgroundImage: isMobile ? 
+                "linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,0.4) 40%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%)" : 
+                "linear-gradient(110deg, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.5) 85%, rgba(255,255,255,1) 86%, rgba(255,255,255,1) 87%, rgba(255,255,255,0.5) 88%, rgba(255,255,255,0.5) 90%, rgba(255,255,255,1) 95%)"
             }}
             className="mx-auto max-w-7xl bg-clip-text text-6xl font-black leading-tight text-transparent tracking-tight md:text-7xl lg:text-8xl"
           >
