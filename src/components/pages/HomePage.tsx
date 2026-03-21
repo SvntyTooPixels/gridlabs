@@ -16,18 +16,14 @@ import home from "@/content/home.json";
 
 export function HomePage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="pb-16">
       <HeroSection data={home.hero} />
 
-      <section className="container-padded">
         <Reveal>
-          <BorderTrace color="rgba(147, 51, 234, 0.6)">
-            <SpotlightPanel className="p-4 md:p-5">
+            <SpotlightPanel className="p-4 md:p-5 rounded-none">
               <AnnouncementCarousel items={home.announcements} />
             </SpotlightPanel>
-          </BorderTrace>
         </Reveal>
-      </section>
 
       <section className="container-padded">
         <SiblingDimGroup className="grid gap-6 md:grid-cols-2">
