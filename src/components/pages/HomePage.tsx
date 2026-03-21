@@ -11,6 +11,7 @@ import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { MagneticButton } from "@/components/interactive/MagneticButton";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
 import { SiblingDimGroup } from "@/components/interactive/SiblingDimGroup";
+import { ScrollSplitGroup } from "@/components/interactive/ScrollSplitGroup";
 import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import { HeroSection } from "@/components/layout/HeroSection";
 import { HiddenGRFBackground } from "@/components/interactive/HiddenGRFBackground";
@@ -30,7 +31,7 @@ export function HomePage() {
         </Reveal>
 
       <section className="container-padded my-20">
-        <SiblingDimGroup className="grid group/split gap-y-6 md:gap-0 hover:md:gap-6 transition-all duration-700 ease-out md:grid-cols-2">
+        <ScrollSplitGroup>
           <Reveal className="w-full h-full">
             <HiddenGRFBackground className="h-full flex flex-col justify-center md:rounded-r-none group-hover/split:md:rounded-r-[36px]">
               <div className="mx-auto text-center">
@@ -71,7 +72,7 @@ export function HomePage() {
               </div>
             </GRFWithEyesBackground>
           </Reveal>
-        </SiblingDimGroup>
+        </ScrollSplitGroup>
       </section>
 
       <ImpactScrollAccordion items={home.impactAreas} />
