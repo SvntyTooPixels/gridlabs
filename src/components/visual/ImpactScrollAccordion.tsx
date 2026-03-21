@@ -52,8 +52,15 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                 layout
                 key={`desktop-${item.title}`}
                 className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 shadow-xl"
-                animate={{ flex: isActive ? "5 1 0%" : "1 1 0%" }}
-                transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: [0.32, 0.72, 0, 1],
+                  y: { delay: index * 0.1 },
+                  opacity: { delay: index * 0.1 }
+                }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} mix-blend-multiply opacity-50 z-10 pointer-events-none`} />
                 
@@ -144,8 +151,15 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                 layout
                 key={`mobile-${item.title}`}
                 className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 shadow-lg"
-                animate={{ flex: isActive ? "5 1 0%" : "1 1 0%" }}
-                transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                initial={{ y: 60, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: [0.32, 0.72, 0, 1],
+                  y: { delay: index * 0.1 },
+                  opacity: { delay: index * 0.1 }
+                }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} mix-blend-multiply opacity-60 z-10 pointer-events-none`} />
                 
