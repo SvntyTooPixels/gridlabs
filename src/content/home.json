@@ -14,13 +14,26 @@
       "Sustainability programs"
     ]
   },
-  "announcement": {
-    "title": "Gridlabs Research Foundation is proud to announce a contribution of INR 11 lakhs to the Dhole Patil Education Society in Pune, Maharashtra, as part of our \"Jao Padho\" education initiative.",
-    "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning.",
-    "image": "/images/image_6.jpg",
-    "alt": "Students smiling in a bright classroom",
-    "tag": "Latest spotlight"
-  },
+  "announcements": [
+    {
+      "headline": "Education momentum in Pune",
+      "title": "Gridlabs Research Foundation is proud to announce a contribution of INR 11 lakhs to the Dhole Patil Education Society in Pune, Maharashtra, as part of our \"Jao Padho\" education initiative.",
+      "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning.",
+      "tag": "Latest spotlight"
+    },
+    {
+      "headline": "Education momentum in Pune",
+      "title": "Gridlabs Research Foundation is proud to announce a contribution of INR 11 lakhs to the Dhole Patil Education Society in Pune, Maharashtra, as part of our \"Jao Padho\" education initiative.",
+      "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning.",
+      "tag": "Latest spotlight"
+    },
+    {
+      "headline": "Education momentum in Pune",
+      "title": "Gridlabs Research Foundation is proud to announce a contribution of INR 11 lakhs to the Dhole Patil Education Society in Pune, Maharashtra, as part of our \"Jao Padho\" education initiative.",
+      "description": "This contribution reflects our continued commitment to making quality education accessible to every child and supporting institutions that empower the next generation through learning.",
+      "tag": "Latest spotlight"
+    }
+  ],
   "aboutSnapshot": {
     "title": "About Gridlabs Research Foundation",
     "description": "Gridlabs Research Foundation partners with corporations and institutions to design and implement impactful CSR programs that create lasting social change. From strategy and planning to execution and impact assessment, we help organizations translate their CSR commitments into meaningful initiatives.",
@@ -43,42 +56,42 @@
       "description": "Expanding access to quality education through scholarships, learning resources, and school development programs.",
       "icon": "📘",
       "accent": "from-sky-200 via-sky-100 to-white",
-      "image": "/images/image_9.jpg"
+      "image": "/images/image_3.jpg"
     },
     {
       "title": "Healthcare",
       "description": "Improving community health through medical facilities, preventive care programs, and awareness initiatives.",
       "icon": "🩺",
       "accent": "from-rose-200 via-orange-100 to-white",
-      "image": "/images/image_1.jpg"
+      "image": "/images/image_4.jpg"
     },
     {
       "title": "Women & Social Welfare",
       "description": "Empowering women and supporting vulnerable communities through targeted welfare and development programs.",
       "icon": "🌸",
       "accent": "from-fuchsia-200 via-pink-100 to-white",
-      "image": "/images/image_2.jpg"
+      "image": "/images/image_5.jpg"
     },
     {
       "title": "Community Development",
       "description": "Strengthening communities through housing, sanitation, skill development, and livelihood initiatives.",
       "icon": "🏘️",
       "accent": "from-amber-200 via-orange-100 to-white",
-      "image": "/images/image_3.jpg"
+      "image": "/images/image_9.jpg"
     },
     {
       "title": "Environment & Sustainability",
       "description": "Promoting environmental responsibility through recycling programs, waste management, and sustainability initiatives.",
       "icon": "🌿",
       "accent": "from-emerald-200 via-green-100 to-white",
-      "image": "/images/image_4.jpg"
+      "image": "/images/image_2.jpg"
     },
     {
       "title": "Public Awareness & Safety",
       "description": "Driving social change through awareness programs focused on cyber safety, road safety, and public well-being.",
       "icon": "✨",
       "accent": "from-violet-200 via-indigo-100 to-white",
-      "image": "/images/image_5.jpg"
+      "image": "/images/image_1.jpg"
     }
   ],
   "featuredProjects": [

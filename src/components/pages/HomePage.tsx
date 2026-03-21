@@ -5,6 +5,7 @@ import { HeroOrbs } from "@/components/animation/HeroOrbs";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { FeatureCarousel } from "@/components/visual/FeatureCarousel";
 import { ImageCard } from "@/components/visual/ImageCard";
+import { AnnouncementCarousel } from "@/components/visual/AnnouncementCarousel";
 import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { MagneticButton } from "@/components/interactive/MagneticButton";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
@@ -22,26 +23,7 @@ export function HomePage() {
         <Reveal>
           <BorderTrace color="rgba(147, 51, 234, 0.6)">
             <SpotlightPanel className="p-4 md:p-5">
-              <div className="grid h-full gap-6 md:grid-cols-[0.9fr_1.1fr]">
-              <ImageCard
-                src={home.announcement.image}
-                alt={home.announcement.alt}
-                badge={home.announcement.tag}
-                className="h-full"
-              />
-              <div className="section-shell gradient-mesh flex flex-col justify-center p-8">
-                <span className="section-kicker">Announcement</span>
-                <h2 className="mt-5 text-3xl font-semibold text-slate-950">
-                  Education momentum in Pune
-                </h2>
-                <p className="mt-4 text-lg text-slate-700">
-                  {home.announcement.title}
-                </p>
-                <p className="mt-4 section-copy">
-                  {home.announcement.description}
-                </p>
-              </div>
-            </div>
+              <AnnouncementCarousel items={home.announcements} />
             </SpotlightPanel>
           </BorderTrace>
         </Reveal>
