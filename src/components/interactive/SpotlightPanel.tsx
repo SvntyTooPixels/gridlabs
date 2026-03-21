@@ -28,7 +28,7 @@ export function SpotlightPanel({
   return (
     <div
       className={clsx(
-        "group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/65 shadow-[0_24px_80px_rgba(34,35,95,0.16)] backdrop-blur-xl",
+        "group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/65 backdrop-blur-xl",
         className,
       )}
       style={style}

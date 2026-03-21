@@ -45,7 +45,7 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
                   onClick={() => isActive ? setIsManuallyPaused(!isManuallyPaused) : setActiveIndex(index)}
                   className={
                     isActive
-                      ? "border border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 shadow-sm flex items-center justify-center overflow-hidden"
+                      ? "border border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 flex items-center justify-center overflow-hidden"
                       : "bg-purple-400 hover:bg-purple-600"
                   }
                   animate={{
@@ -114,7 +114,7 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
               onClick={() => isActive ? setIsManuallyPaused(!isManuallyPaused) : setActiveIndex(index)}
               className={
                 isActive
-                  ? "border border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 shadow-sm flex items-center justify-center overflow-hidden"
+                  ? "border border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 flex items-center justify-center overflow-hidden"
                   : "bg-purple-400 hover:bg-purple-600"
               }
               animate={{

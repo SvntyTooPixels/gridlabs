@@ -51,7 +51,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
               <motion.div
                 layout
                 key={`desktop-${item.title}`}
-                className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 shadow-xl"
+                className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
                 viewport={{ once: true }}
@@ -97,8 +97,8 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
                       <div className="flex items-center gap-4 mb-3">
-                        <span className="text-4xl drop-shadow-sm">{item.icon}</span>
-                        <h3 className="font-bold text-white text-3xl drop-shadow-md">
+                        <span className="text-4xl">{item.icon}</span>
+                        <h3 className="font-bold text-white text-3xl">
                           {item.title}
                         </h3>
                       </div>
@@ -150,7 +150,7 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
               <motion.div
                 layout
                 key={`mobile-${item.title}`}
-                className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 shadow-lg"
+                className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0"
                 initial={{ y: 60, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
                 viewport={{ once: true }}
@@ -196,8 +196,8 @@ export function ImpactScrollAccordion({ items }: { items: ImpactArea[] }) {
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-3xl drop-shadow-sm">{item.icon}</span>
-                        <h3 className="font-bold text-white text-2xl drop-shadow-md">
+                        <span className="text-3xl">{item.icon}</span>
+                        <h3 className="font-bold text-white text-2xl">
                           {item.title}
                         </h3>
                       </div>

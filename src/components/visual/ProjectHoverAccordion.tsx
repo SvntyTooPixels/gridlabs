@@ -26,7 +26,7 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
               layout
               key={`desktop-${item.title}`}
               onMouseEnter={() => setActiveIndex(index)}
-              className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 shadow-xl cursor-default"
+              className="group relative h-full overflow-hidden rounded-[24px] border border-white/35 flex-shrink-0 cursor-default"
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
               viewport={{ once: true }}
@@ -74,7 +74,7 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                     <span className="mb-4 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                       {item.tag}
                     </span>
-                    <h3 className="font-bold text-white text-3xl mb-3 drop-shadow-md">
+                    <h3 className="font-bold text-white text-3xl mb-3">
                       {item.title}
                     </h3>
                     <p className="text-base md:text-lg leading-relaxed text-slate-100 bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/10 w-[85%]">
@@ -117,7 +117,7 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
               layout
               key={`mobile-${item.title}`}
               onClick={() => setActiveIndex(index)}
-              className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 shadow-lg cursor-pointer"
+              className="group relative w-full overflow-hidden rounded-[20px] border border-white/35 flex-shrink-0 cursor-pointer"
               initial={{ y: 60, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1, flex: isActive ? "5 1 0%" : "1 1 0%" }}
               viewport={{ once: true }}
@@ -165,7 +165,7 @@ export function ProjectHoverAccordion({ items }: { items: Project[] }) {
                     <span className="mb-2 inline-flex w-fit rounded-full border border-white/35 bg-white/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                       {item.tag}
                     </span>
-                    <h3 className="font-bold text-white text-2xl mb-2 drop-shadow-md">
+                    <h3 className="font-bold text-white text-2xl mb-2">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm leading-relaxed text-slate-100 bg-black/40 p-3 rounded-xl backdrop-blur-md border border-white/10 overflow-hidden line-clamp-3">

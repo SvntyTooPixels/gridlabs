@@ -36,13 +36,12 @@ export function HomePage() {
             <HiddenGRFBackground className="h-full flex flex-col justify-center md:rounded-r-none group-hover/split:md:rounded-r-[36px]">
               <div className="mx-auto text-center">
                 <h2 className="section-title">
-                  About{" "}
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true">
-                      {home.aboutSnapshot.title.replace("About ", "")}
+                      {home.aboutSnapshot.title}
                     </span>
                     <span className="transition-opacity duration-700 group-hover:opacity-0">
-                      {home.aboutSnapshot.title.replace("About ", "")}
+                      {home.aboutSnapshot.title}
                     </span>
                   </span>
                 </h2>
@@ -75,8 +74,6 @@ export function HomePage() {
         </ScrollSplitGroup>
       </section>
 
-      <ImpactScrollAccordion items={home.impactAreas} />
-
       <section className="container-padded my-20">
         <Reveal>
           <h2 className="mt-5 section-title">Featured Projects</h2>
@@ -85,6 +82,9 @@ export function HomePage() {
           <ProjectHoverAccordion items={home.featuredProjects} />
         </Reveal>
       </section>
+      
+      <ImpactScrollAccordion items={home.impactAreas} />
+
 
       <section className="container-padded">
         <Reveal>

@@ -54,11 +54,11 @@ function Eye() {
   return (
     <div
       ref={eyeRef}
-      className="relative flex h-[18vw] max-h-48 min-h-24 w-[12vw] max-w-32 min-w-16 items-center justify-center rounded-[50%] bg-white shadow-[inset_0_4px_16px_rgba(0,0,0,0.15)] border-[3px] border-slate-200"
+      className="relative flex h-[18vw] max-h-48 min-h-24 w-[12vw] max-w-32 min-w-16 items-center justify-center rounded-[50%] bg-white border-[3px] border-slate-200"
     >
       <div
         ref={pupilRef}
-        className="relative h-[5vw] max-h-14 min-h-8 w-[5vw] max-w-14 min-w-8 rounded-full bg-gray-400 shadow-md"
+        className="relative h-[5vw] max-h-14 min-h-8 w-[5vw] max-w-14 min-w-8 rounded-full bg-gray-400"
       >
         <div className="absolute top-[18%] right-[25%] h-[1.5vw] max-h-4 min-h-2 w-[1.5vw] max-w-4 min-w-2 rounded-full bg-white opacity-90" />
       </div>
@@ -68,7 +68,7 @@ function Eye() {
 
 export function GRFWithEyesBackground({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
-    <div className={`relative overflow-hidden group rounded-[36px] border border-white/40 bg-white/55 shadow-[0_24px_80px_rgba(34,35,95,0.12)] backdrop-blur-xl transition-all duration-500 lg:hover:-translate-y-2 lg:hover:bg-white/65 lg:hover:border-white/50 lg:hover:shadow-[0_32px_96px_rgba(34,35,95,0.18)] ${className || ""}`}>
+    <div className={`relative overflow-hidden group rounded-[36px] border border-white/40 bg-white/55 backdrop-blur-xl transition-all duration-500 lg:hover:-translate-y-2 lg:hover:bg-white/65 lg:hover:border-white/50 ${className || ""}`}>
       <div className="relative z-10 p-8 md:p-14">
         {children}
       </div>

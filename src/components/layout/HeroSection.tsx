@@ -94,15 +94,15 @@ export function HeroSection({ data }: HeroSectionProps) {
       </motion.div>
 
       {/* Hero Content */}
-      <div className="container-padded relative z-10 flex flex-col items-center text-center pt-24 pb-16">
-        <motion.span 
+      <div className="container-padded relative z-10 flex flex-col items-center text-center">
+        {/* <motion.span 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-8 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-md shadow-lg"
+          className="mb-8 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-md"
         >
           {data.badge}
-        </motion.span>
+        </motion.span> */}
         
         <MouseParallax offset={12} damping={50} stiffness={400}>
           <motion.h1 
@@ -134,15 +134,17 @@ export function HeroSection({ data }: HeroSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="mt-10 flex flex-wrap justify-center gap-4 hidden md:flex"
+          className="mt-10 hidden flex-wrap items-center justify-center md:flex"
         >
-          {data.metrics.map((metric) => (
-            <span
-              key={metric}
-              className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-white backdrop-blur-md"
-            >
-              {metric}
-            </span>
+          {data.metrics.map((metric, index) => (
+            <div key={metric} className="flex items-center text-white">
+              <span className="text-sm font-semibold tracking-wide uppercase">
+                {metric}
+              </span>
+              {index < data.metrics.length - 1 && (
+                <div className="mx-6 h-1 w-1 rounded-full bg-white/40" />
+              )}
+            </div>
           ))}
         </motion.div>
 
@@ -155,7 +157,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           <MagneticButton strength={20}>
             <Link
               href="/projects"
-              className="rounded-full bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-8 py-4 font-semibold text-white shadow-lg transition hover:scale-[1.02] inline-block"
+              className="rounded-full bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-8 py-4 font-semibold text-white transition hover:scale-[1.02] inline-block"
             >
               {data.primaryCta}
             </Link>

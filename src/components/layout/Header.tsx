@@ -25,16 +25,16 @@ export function Header() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-2xl">
-        <div className="container-padded flex h-20 items-center justify-between">
+        <div className="container-padded flex h-16 items-center justify-between">
           
           {/* Left: Logo */}
-          <div className="flex items-center lg:w-[20%] shrink-0">
+          <div className="flex items-center shrink-0">
             <Link
               href="/"
               className="text-lg font-semibold tracking-tight text-slate-950 flex items-center gap-2"
             >
               <img src="/images/Logo.jpg" alt="Gridlabs Logo" className="h-10 w-auto rounded-md object-contain" />
-              <span className="text-gradient hidden sm:inline-block">Gridlabs Research Foundation</span>
+              <span className="text-gradient hidden sm:inline-block whitespace-nowrap">Gridlabs Research Foundation</span>
             </Link>
           </div>
 
@@ -47,8 +47,8 @@ export function Header() {
                 className={clsx(
                   "rounded-xl px-2 xl:px-3 py-2 text-sm font-medium transition whitespace-nowrap",
                   pathname === item.href
-                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(153,76,172,0.18),rgba(49,148,193,0.16))] text-slate-950 shadow-soft"
-                    : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
+                    ? "bg-white border-2 border-slate-200"
+                    : "text-slate-700 hover:bg-slate-200/75 hover:text-slate-950",
                 )}
               >
                 {item.label}
@@ -57,7 +57,7 @@ export function Header() {
           </nav>
 
           {/* Right: Actions */}
-          <div className="flex items-center justify-end gap-3 lg:w-[20%] shrink-0">
+          <div className="flex items-center justify-end gap-3 shrink-0">
             <div className="hidden lg:block">
               <MagneticButton strength={15}>
                 <button
@@ -69,11 +69,22 @@ export function Header() {
               </MagneticButton>
             </div>
             <button
-              className="rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm text-slate-900 shadow-soft lg:hidden"
+              className="group flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/70 text-slate-900 shadow-soft lg:hidden"
               onClick={() => setOpen((prev) => !prev)}
               aria-label="Toggle navigation"
             >
-              Menu
+              {open ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="17" x2="20" y2="17" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
