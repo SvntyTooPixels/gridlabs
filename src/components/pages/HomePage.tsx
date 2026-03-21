@@ -25,7 +25,7 @@ export function HomePage() {
             </SpotlightPanel>
         </Reveal>
 
-      <section className="container-padded">
+      <section className="container-padded my-20">
         <SiblingDimGroup className="grid gap-6 md:grid-cols-2">
           <Reveal className="w-full">
             <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
@@ -107,7 +107,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="container-padded">
+      <section className="container-padded my-20">
         <Reveal>
           <span className="section-kicker">Interactive project stories</span>
           <h2 className="mt-5 section-title">Featured Projects</h2>

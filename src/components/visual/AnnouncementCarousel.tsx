@@ -27,7 +27,7 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
 
   return (
     <div
-      className="section-shell gradient-mesh relative flex flex-col justify-center p-8 md:p-10 w-full max-w-7xl mx-auto"
+      className="section-shell gradient-mesh relative flex flex-col justify-center py-8 md:py-10 w-full max-w-7xl mx-auto my-10"
       onMouseEnter={() => setIsHoverPaused(true)}
       onMouseLeave={() => setIsHoverPaused(false)}
     >
