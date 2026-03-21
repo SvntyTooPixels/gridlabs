@@ -48,10 +48,13 @@ export function Footer() {
     <footer className="mt-24 border-t border-white/40 bg-white/60 py-14 backdrop-blur-xl">
       <div className="container-padded grid gap-10 lg:grid-cols-6">
         <div className="lg:col-span-2">
-          <span className="section-kicker">Stay connected</span>
-          <h3 className="mt-4 text-xl font-semibold text-slate-950">
-            Gridlabs Research Foundation
-          </h3>
+          <Link
+              href="/"
+              className="text-lg font-semibold tracking-tight text-slate-950 flex items-center gap-2"
+            >
+              <img src="/images/Logo.jpg" alt="Gridlabs Logo" className="h-10 w-auto rounded-md object-contain" />
+              <span className="text-gradient hidden sm:inline-block">Gridlabs Research Foundation</span>
+            </Link>
           <p className="mt-3 text-sm text-slate-600">
             Responsible CSR partnerships for long-term community impact.
           </p>
