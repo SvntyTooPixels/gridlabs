@@ -30,7 +30,7 @@ export function HomePage() {
             </SpotlightPanel>
         </Reveal>
 
-      <section className="container-padded my-20">
+      <section className="container-padded mt-20">
         <ScrollSplitGroup>
           <Reveal className="w-full h-full">
             <HiddenGRFBackground className="h-full flex flex-col justify-center md:rounded-r-none group-hover/split:md:rounded-r-[36px]">
