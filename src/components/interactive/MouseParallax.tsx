@@ -38,8 +38,30 @@ export function MouseParallax({
       mouseY.set(yVal);
     };
 
+    const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
+      if (e.gamma === null || e.beta === null) return;
+
+      // gamma is left-to-right tilt in degrees [-90 to 90]
+      // beta is front-to-back tilt in degrees [-180 to 180]
+      // Let's constrain the effect to a [-30, 30] degree window
+      let xVal = e.gamma / 60;
+      let yVal = e.beta / 60;
+
+      // Clamp between -0.5 and 0.5
+      xVal = Math.min(Math.max(xVal, -0.5), 0.5);
+      yVal = Math.min(Math.max(yVal, -0.5), 0.5);
+
+      mouseX.set(xVal);
+      mouseY.set(yVal);
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("deviceorientation", handleDeviceOrientation);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("deviceorientation", handleDeviceOrientation);
+    };
   }, [mouseX, mouseY]);
 
   return (
