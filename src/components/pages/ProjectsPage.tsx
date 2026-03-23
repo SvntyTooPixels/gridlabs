@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
@@ -15,8 +17,30 @@ function getSectionId(title: string) {
 }
 
 function CategoryNav() {
+  const [isStuck, setIsStuck] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navRef.current) {
+        setIsStuck(navRef.current.getBoundingClientRect().top <= 65);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="sticky top-20 z-40 w-full bg-white/80 backdrop-blur-md border border-slate-200 py-3 shadow-sm rounded-2xl mb-8">
+    <div 
+      ref={navRef}
+      className={clsx(
+        "sticky top-16 z-40 w-full backdrop-blur-md mb-8 transition-all duration-300",
+        isStuck 
+          ? "bg-white/95 border-b border-slate-200 py-3 shadow-md rounded-b-2xl px-4"
+          : "bg-white/80 border border-slate-200 py-3 shadow-sm rounded-2xl"
+      )}
+    >
       <ul className="flex flex-wrap justify-center gap-2 md:gap-6 px-4">
         {programs.sections.map((section) => (
           <li key={section.title} className="group relative">
@@ -25,7 +49,7 @@ function CategoryNav() {
               onClick={() => {
                 const el = document.getElementById(getSectionId(section.title));
                 if (el) {
-                  const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                  const y = el.getBoundingClientRect().top + window.scrollY - 130;
                   window.scrollTo({ top: y, behavior: "smooth" });
                 }
               }}
@@ -43,7 +67,7 @@ function CategoryNav() {
                         onClick={() => {
                           const el = document.getElementById(getItemId(item));
                           if (el) {
-                            const y = el.getBoundingClientRect().top + window.scrollY - 120;
+                            const y = el.getBoundingClientRect().top + window.scrollY - 140;
                             window.scrollTo({ top: y, behavior: "smooth" });
                           }
                         }}
