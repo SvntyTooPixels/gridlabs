@@ -50,7 +50,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[100] bg-brand-900"
+            className="fixed inset-0 z-[100] bg-brand-900/70"
           />
 
           {/* Modal Container */}

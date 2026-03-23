@@ -21,7 +21,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
       <Reveal>
         <div className="mb-8">
           <h2 className="section-title">Where we create change</h2>
-          <p className="mt-3 text-brand-800 max-w-2xl">
+          <p className="mt-3 text-cream-800 max-w-2xl">
             Let us be together to "create a space for a better place"!
           </p>
         </div>
@@ -51,8 +51,6 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                 opacity: { delay: index * 0.1 },
               }}
             >
-              <div className="absolute inset-0 bg-brand-800 z-10 pointer-events-none" />
-
               <Image
                 src={item.image}
                 alt={item.title}
@@ -64,15 +62,8 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
               {/* Overlay for inactive cards */}
               <motion.div
                 className="absolute inset-0 bg-brand-900 z-20 pointer-events-none"
-                animate={{ opacity: isActive ? 0 : 1 }}
+                animate={{ opacity: isActive ? 0 : 0.72 }}
                 transition={{ duration: 1.0 }}
-              />
-
-              {/* Gradient for text readability */}
-              <motion.div
-                className="absolute inset-0 bg-brand-800 z-20 pointer-events-none"
-                animate={{ opacity: isActive ? 1 : 0 }}
-                transition={{ duration: 0.1 }}
               />
 
               {/* Content for Active State */}
@@ -91,7 +82,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-base md:text-lg leading-relaxed text-cream bg-brand-900 p-5 rounded-2xl border-2 border-brand-700 min-w-[40vw] w-[85%]">
+                    <p className="text-base md:text-lg leading-relaxed text-cream bg-brand-900 p-5 rounded-2xl border-2 border-brand-700 min-w-[30vw] w-[85%]">
                       {item.description}
                     </p>
                   </motion.div>
@@ -117,7 +108,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     >
                       {item.title}
                     </h3>
-                    <span className="text-3xl bg-sunrise-400 p-3 rounded-full border-2 border-sunrise-500 text-brand-950">
+                    <span className="text-3xl bg-sunrise-400 p-3 rounded-full border-2 border-sunrise-500 text-brand-900">
                       {item.icon}
                     </span>
                   </motion.div>
@@ -152,8 +143,6 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                 opacity: { delay: index * 0.1 },
               }}
             >
-              <div className="absolute inset-0 bg-brand-800 z-10 pointer-events-none" />
-
               <Image
                 src={item.image}
                 alt={item.title}
@@ -165,14 +154,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
               {/* Overlay for inactive cards */}
               <motion.div
                 className="absolute inset-0 bg-brand-900 z-20 pointer-events-none"
-                animate={{ opacity: isActive ? 0 : 1 }}
-                transition={{ duration: 1.0 }}
-              />
-
-              {/* Gradient for text readability */}
-              <motion.div
-                className="absolute inset-0 bg-brand-800 z-20 pointer-events-none"
-                animate={{ opacity: isActive ? 1 : 0 }}
+                animate={{ opacity: isActive ? 0 : 0.72 }}
                 transition={{ duration: 1.0 }}
               />
 
@@ -210,7 +192,7 @@ export function ImpactHoverAccordion({ items }: { items: ImpactArea[] }) {
                     transition={{ duration: 1.0 }}
                   >
                     <span className="flex items-center gap-3">
-                      <span className="text-xl bg-sunrise-400 p-1.5 rounded-full border-2 border-sunrise-500 text-brand-950">
+                      <span className="text-xl bg-sunrise-400 p-1.5 rounded-full border-2 border-sunrise-500 text-brand-900">
                         {item.icon}
                       </span>
                       <h3 className="font-semibold text-cream tracking-wider text-sm truncate max-w-[200px]">

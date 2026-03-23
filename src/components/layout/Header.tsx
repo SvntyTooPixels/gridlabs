@@ -53,7 +53,7 @@ export function Header() {
                 className={clsx(
                   "rounded-xl px-2 xl:px-3 py-2 text-sm font-medium transition whitespace-nowrap",
                   pathname === item.href
-                    ? "bg-cream border-2 border-brand-700 text-brand-950"
+                    ? "bg-cream border-2 border-brand-700 text-brand-900"
                     : "text-cream hover:bg-brand-800 hover:text-cream",
                 )}
               >

@@ -101,14 +101,7 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
                 {/* Overlay for inactive cards */}
                 <motion.div
                   className="absolute inset-0 bg-brand-900 z-20 pointer-events-none"
-                  animate={{ opacity: isActive ? 0 : 1 }}
-                  transition={{ duration: 1.0 }}
-                />
-
-                {/* Gradient for text readability */}
-                <motion.div
-                  className="absolute inset-0 bg-brand-800 z-20 pointer-events-none"
-                  animate={{ opacity: isActive ? 1 : 0 }}
+                  animate={{ opacity: isActive ? 0 : 0.72 }}
                   transition={{ duration: 1.0 }}
                 />
 
@@ -205,14 +198,7 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
                 {/* Overlay for inactive cards */}
                 <motion.div
                   className="absolute inset-0 bg-brand-900 z-20 pointer-events-none"
-                  animate={{ opacity: isActive ? 0 : 1 }}
-                  transition={{ duration: 1.0 }}
-                />
-
-                {/* Gradient for text readability */}
-                <motion.div
-                  className="absolute inset-0 bg-brand-800 z-20 pointer-events-none"
-                  animate={{ opacity: isActive ? 1 : 0 }}
+                  animate={{ opacity: isActive ? 0 : 0.72 }}
                   transition={{ duration: 1.0 }}
                 />
 
@@ -232,7 +218,7 @@ export function ProjectScrollAccordion({ items }: { items: Project[] }) {
                       <h3 className="font-bold text-cream text-2xl mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm leading-relaxed text-cream bg-brand-900 p-3 rounded-xl border-2 border-brand-700 overflow-hidden line-clamp-3">
+                      <p className="text-xs sm:text-sm leading-relaxed text-cream bg-brand-900 p-3 rounded-xl border-2 border-brand-700 overflow-hidden">
                         {item.description}
                       </p>
                     </motion.div>

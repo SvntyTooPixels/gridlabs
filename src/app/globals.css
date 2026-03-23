@@ -19,7 +19,7 @@ body {
 }
 
 .section-title {
-  @apply text-3xl font-semibold tracking-tight text-brand-900 md:text-5xl;
+  @apply text-3xl font-semibold tracking-tight text-cream md:text-5xl;
 }
 
 .section-copy {
