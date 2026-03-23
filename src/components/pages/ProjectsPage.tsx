@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
@@ -18,38 +18,54 @@ function getSectionId(title: string) {
 }
 
 function CategoryNav() {
-  const [isStuck, setIsStuck] = useState(false);
-  const navRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [offsetTop, setOffsetTop] = useState(0);
+  const { scrollY } = useScroll();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (navRef.current) {
-        setIsStuck(navRef.current.getBoundingClientRect().top <= 65);
+    const update = () => {
+      if (wrapperRef.current) {
+        setOffsetTop(wrapperRef.current.getBoundingClientRect().top + window.scrollY - 64);
       }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const t = setTimeout(update, 100);
+    window.addEventListener("resize", update);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
+  const startY = Math.max(0, offsetTop - 120);
+  const endY = Math.max(1, offsetTop);
+  const expandRatio = useTransform(scrollY, [startY, endY], [0, 1]);
+
+  const marginCalc = useMotionTemplate`calc(${expandRatio} * (50% - 50vw))`;
+  const widthCalc = useMotionTemplate`calc(100% + ${expandRatio} * (100vw - 100%))`;
+  const borderRadiusCalc = useMotionTemplate`${useTransform(expandRatio, [0, 1], [16, 0])}px`;
+  const bg = useTransform(expandRatio, [0, 1], ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.95)"]);
+  const shadow = useTransform(
+    expandRatio, 
+    [0, 1], 
+    ["0 1px 2px 0 rgba(0, 0, 0, 0.05)", "0 4px 6px -1px rgba(0, 0, 0, 0.1)"]
+  );
+
   return (
-    <motion.div
-      layout
-      transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-      ref={navRef}
-      className={clsx(
-        "sticky top-16 z-40 relative backdrop-blur-xl mb-8 transition-colors duration-500",
-        isStuck
-          ? "bg-white/95 border-b border-slate-200 py-3 shadow-md rounded-none"
-          : "bg-white/80 border border-slate-200 py-4 shadow-sm rounded-2xl"
-      )}
-      style={{
-        width: isStuck ? '100vw' : '100%',
-        marginLeft: isStuck ? 'calc(50% - 50vw)' : '0px',
-        marginRight: isStuck ? 'calc(50% - 50vw)' : '0px'
-      }}
-    >
-      <div className="container-padded px-2 md:px-4">
+    <div ref={wrapperRef} className="sticky top-16 z-40 mb-8 w-full group/nav">
+      {/* Background Layer isolated absolutely guarantees zero layout-reflow choppiness */}
+      <motion.div
+        className="absolute inset-y-0 z-[-1] border border-slate-200 backdrop-blur-xl"
+        style={{
+          width: widthCalc,
+          marginLeft: marginCalc,
+          marginRight: marginCalc,
+          borderRadius: borderRadiusCalc,
+          backgroundColor: bg,
+          boxShadow: shadow
+        }}
+      />
+
+      <div className="px-2 md:px-4 py-3">
         <ul className="flex flex-wrap justify-center gap-x-2 md:gap-x-6 gap-y-2 items-start">
           {programs.sections.map((section) => (
             <li key={section.title} className="group flex flex-col items-center flex-1 min-w-[120px] max-w-[200px]">
@@ -93,7 +109,7 @@ function CategoryNav() {
           ))}
         </ul>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

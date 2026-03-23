@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/animation/PageTransition";
 import { DeviceOrientationPrompt } from "@/components/interactive/DeviceOrientationPrompt";
+import { SmoothScroll } from "@/components/interactive/SmoothScroll";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jakarta.className}>
+        <SmoothScroll />
         <div className="relative min-h-screen">
           <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.2),transparent_22%),radial-gradient(circle_at_85%_10%,rgba(244,114,182,0.18),transparent_18%),radial-gradient(circle_at_20%_80%,rgba(34,197,94,0.16),transparent_20%)]" />
           <Header />
