@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
@@ -32,10 +33,12 @@ function CategoryNav() {
   }, []);
 
   return (
-    <div
+    <motion.div
+      layout
+      transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
       ref={navRef}
       className={clsx(
-        "sticky top-16 z-40 relative backdrop-blur-xl mb-8 transition-all duration-300 ease-in-out",
+        "sticky top-16 z-40 relative backdrop-blur-xl mb-8 transition-colors duration-500",
         isStuck
           ? "bg-white/95 border-b border-slate-200 py-3 shadow-md rounded-none"
           : "bg-white/80 border border-slate-200 py-4 shadow-sm rounded-2xl"
@@ -90,7 +93,7 @@ function CategoryNav() {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
