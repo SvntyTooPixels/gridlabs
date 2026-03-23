@@ -32,56 +32,64 @@ function CategoryNav() {
   }, []);
 
   return (
-    <div 
+    <div
       ref={navRef}
       className={clsx(
-        "sticky top-16 z-40 w-full backdrop-blur-md mb-8 transition-all duration-300",
-        isStuck 
-          ? "bg-white/95 border-b border-slate-200 py-3 shadow-md rounded-b-2xl px-4"
-          : "bg-white/80 border border-slate-200 py-3 shadow-sm rounded-2xl"
+        "sticky top-16 z-40 relative backdrop-blur-xl mb-8 transition-all duration-300 ease-in-out",
+        isStuck
+          ? "bg-white/95 border-b border-slate-200 py-3 shadow-md rounded-none"
+          : "bg-white/80 border border-slate-200 py-4 shadow-sm rounded-2xl"
       )}
+      style={{
+        width: isStuck ? '100vw' : '100%',
+        marginLeft: isStuck ? 'calc(50% - 50vw)' : '0px',
+        marginRight: isStuck ? 'calc(50% - 50vw)' : '0px'
+      }}
     >
-      <ul className="flex flex-wrap justify-center gap-2 md:gap-6 px-4">
-        {programs.sections.map((section) => (
-          <li key={section.title} className="group relative">
-            <button
-              className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
-              onClick={() => {
-                const el = document.getElementById(getSectionId(section.title));
-                if (el) {
-                  const y = el.getBoundingClientRect().top + window.scrollY - 130;
-                  window.scrollTo({ top: y, behavior: "smooth" });
-                }
-              }}
-            >
-              {section.title}
-            </button>
-            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none group-hover:pointer-events-auto origin-top scale-95 group-hover:scale-100 z-50">
-              <ul className="py-2 max-h-80 overflow-y-auto">
-                {section.items.map((item) => {
-                  const itemName = item.split(" — ")[0].split(" – ")[0];
-                  return (
-                    <li key={item}>
-                      <button
-                        className="w-full text-left px-4 py-2 text-xs text-slate-600 hover:bg-blue-50 hover:text-blue-700 transition-colors"
-                        onClick={() => {
-                          const el = document.getElementById(getItemId(item));
-                          if (el) {
-                            const y = el.getBoundingClientRect().top + window.scrollY - 140;
-                            window.scrollTo({ top: y, behavior: "smooth" });
-                          }
-                        }}
-                      >
-                        {itemName}
-                      </button>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="container-padded px-2 md:px-4">
+        <ul className="flex flex-wrap justify-center gap-x-2 md:gap-x-6 gap-y-2 items-start">
+          {programs.sections.map((section) => (
+            <li key={section.title} className="group flex flex-col items-center flex-1 min-w-[120px] max-w-[200px]">
+              <button
+                className="px-3 py-2 text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors whitespace-nowrap"
+                onClick={() => {
+                  const el = document.getElementById(getSectionId(section.title));
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 130;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}
+              >
+                {section.title}
+              </button>
+
+              <div className="w-full overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-hover:max-h-[600px] group-hover:opacity-100">
+                <ul className="pt-2 pb-4 flex flex-col gap-1 w-full mt-1 border-t border-slate-200/50">
+                  {section.items.map((item) => {
+                    const itemName = item.split(" — ")[0].split(" – ")[0];
+                    return (
+                      <li key={item} className="w-full">
+                        <button
+                          className="w-full text-center px-1 py-1.5 text-xs text-slate-600 hover:bg-slate-50 hover:text-blue-700 transition-colors rounded-md"
+                          onClick={() => {
+                            const el = document.getElementById(getItemId(item));
+                            if (el) {
+                              const y = el.getBoundingClientRect().top + window.scrollY - 160;
+                              window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                          }}
+                        >
+                          {itemName}
+                        </button>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
