@@ -44,11 +44,7 @@ function CategoryNav() {
   const widthCalc = useMotionTemplate`calc(100% + ${expandRatio} * (100vw - 100%))`;
   const borderRadiusCalc = useMotionTemplate`${useTransform(expandRatio, [0, 1], [16, 0])}px`;
   const bg = useTransform(expandRatio, [0, 1], ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.95)"]);
-  const shadow = useTransform(
-    expandRatio, 
-    [0, 1], 
-    ["0 1px 2px 0 rgba(0, 0, 0, 0.05)", "0 4px 6px -1px rgba(0, 0, 0, 0.1)"]
-  );
+
 
   return (
     <div ref={wrapperRef} className="sticky top-16 z-40 mb-8 w-full group/nav">
@@ -60,15 +56,14 @@ function CategoryNav() {
           marginLeft: marginCalc,
           marginRight: marginCalc,
           borderRadius: borderRadiusCalc,
-          backgroundColor: bg,
-          boxShadow: shadow
+          backgroundColor: bg
         }}
       />
 
       <div className="px-2 md:px-4 py-3">
         <ul className="flex flex-wrap justify-center gap-x-2 md:gap-x-6 gap-y-2 items-start">
           {programs.sections.map((section) => (
-            <li key={section.title} className="group flex flex-col items-center flex-1 min-w-[120px] max-w-[200px]">
+            <li key={section.title} className="group flex flex-col items-center relative flex-1 min-w-[120px] max-w-[200px]">
               <button
                 className="px-3 py-2 text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors whitespace-nowrap"
                 onClick={() => {
@@ -82,8 +77,8 @@ function CategoryNav() {
                 {section.title}
               </button>
 
-              <div className="w-full overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-hover:max-h-[600px] group-hover:opacity-100">
-                <ul className="pt-2 pb-4 flex flex-col gap-1 w-full mt-1 border-t border-slate-200/50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] pt-2 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-hover:max-h-[600px] group-hover:opacity-100 z-50">
+                <ul className="p-2 flex flex-col gap-1.5 w-full bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl">
                   {section.items.map((item) => {
                     const itemName = item.split(" — ")[0].split(" – ")[0];
                     return (
@@ -140,7 +135,7 @@ function ProgramBlock({
                     <li
                       id={getItemId(item)}
                       key={item}
-                      className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:bg-white hover:text-blue-900 hover:shadow-[0_10px_30px_rgba(59,130,246,0.2)] scroll-mt-32"
+                      className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:bg-white hover:text-blue-900 scroll-mt-32"
                     >
                       {item}
                     </li>
