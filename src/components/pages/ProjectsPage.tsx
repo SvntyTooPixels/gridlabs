@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import clsx from "clsx";
-import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionTemplate,
+} from "framer-motion";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
@@ -10,11 +15,11 @@ import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import programs from "@/content/programs.json";
 
 function getItemId(item: string) {
-  return 'item-' + item.substring(0, 30).replace(/\W+/g, '-').toLowerCase();
+  return "item-" + item.substring(0, 30).replace(/\W+/g, "-").toLowerCase();
 }
 
 function getSectionId(title: string) {
-  return 'section-' + title.replace(/\W+/g, '-').toLowerCase();
+  return "section-" + title.replace(/\W+/g, "-").toLowerCase();
 }
 
 function CategoryNav() {
@@ -28,8 +33,11 @@ function CategoryNav() {
   const marginCalc = useMotionTemplate`calc(${expandRatio} * (50% - 50vw))`;
   const widthCalc = useMotionTemplate`calc(100% + ${expandRatio} * (100vw - 100%))`;
   const borderRadiusCalc = useMotionTemplate`${useTransform(expandRatio, [0, 1], [16, 0])}px`;
-  const bg = useTransform(expandRatio, [0, 1], ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.95)"]);
-
+  const bg = useTransform(
+    expandRatio,
+    [0, 1],
+    ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.95)"],
+  );
 
   return (
     <div ref={wrapperRef} className="sticky top-16 z-40 mb-8 w-full group/nav">
@@ -41,20 +49,26 @@ function CategoryNav() {
           marginLeft: marginCalc,
           marginRight: marginCalc,
           borderRadius: borderRadiusCalc,
-          backgroundColor: bg
+          backgroundColor: bg,
         }}
       />
 
       <div className="px-2 md:px-4 py-3">
         <ul className="flex flex-wrap justify-center gap-x-2 md:gap-x-6 gap-y-2 items-start">
           {programs.sections.map((section) => (
-            <li key={section.title} className="group flex flex-col items-center relative flex-1 min-w-[120px] max-w-[200px]">
+            <li
+              key={section.title}
+              className="group flex flex-col items-center relative flex-1 min-w-[120px] max-w-[200px]"
+            >
               <button
                 className="px-3 py-2 text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors whitespace-nowrap"
                 onClick={() => {
-                  const el = document.getElementById(getSectionId(section.title));
+                  const el = document.getElementById(
+                    getSectionId(section.title),
+                  );
                   if (el) {
-                    const y = el.getBoundingClientRect().top + window.scrollY - 130;
+                    const y =
+                      el.getBoundingClientRect().top + window.scrollY - 130;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
@@ -73,7 +87,10 @@ function CategoryNav() {
                           onClick={() => {
                             const el = document.getElementById(getItemId(item));
                             if (el) {
-                              const y = el.getBoundingClientRect().top + window.scrollY - 160;
+                              const y =
+                                el.getBoundingClientRect().top +
+                                window.scrollY -
+                                160;
                               window.scrollTo({ top: y, behavior: "smooth" });
                             }
                           }}
@@ -81,7 +98,7 @@ function CategoryNav() {
                           {itemName}
                         </button>
                       </li>
-                    )
+                    );
                   })}
                 </ul>
               </div>
@@ -114,7 +131,9 @@ function ProgramBlock({
             <div className="grid h-full gap-5 lg:grid-cols-[0.92fr_1.08fr]">
               <ImageCard src={image} alt={alt} badge={eyebrow} />
               <div className="section-shell gradient-mesh p-8">
-                <h2 className="text-2xl font-semibold text-slate-950">{title}</h2>
+                <h2 className="text-2xl font-semibold text-slate-950">
+                  {title}
+                </h2>
                 <ul className="mt-4 grid gap-3 text-sm text-slate-700">
                   {items.map((item) => (
                     <li
