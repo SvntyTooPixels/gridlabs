@@ -13,12 +13,15 @@ export function SlideRightItem({
 }) {
   return (
     <motion.li
-      className={clsx("relative flex items-center gap-3 overflow-hidden cursor-default", className)}
+      className={clsx(
+        "relative flex items-center gap-3 overflow-hidden cursor-default",
+        className,
+      )}
       whileHover="hover"
       initial="rest"
     >
       <motion.div
-        className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-fuchsia-500 rounded-full"
+        className="absolute left-0 top-0 bottom-0 w-1 bg-sunrise-400 rounded-full"
         variants={{
           rest: { scaleY: 0, opacity: 0 },
           hover: { scaleY: 1, opacity: 1 },
@@ -28,7 +31,7 @@ export function SlideRightItem({
       <motion.div
         variants={{
           rest: { x: 0, color: "inherit" },
-          hover: { x: 12, color: "#1e293b" }, // slate-800
+          hover: { x: 12, color: "#341f60" },
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >

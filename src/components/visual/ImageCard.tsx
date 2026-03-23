@@ -41,8 +41,7 @@ export function ImageCard({
       }
       style={{ transformStyle: "preserve-3d" }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(59,130,246,0.26),rgba(251,113,133,0.2),rgba(45,212,191,0.18))]" />
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] border border-white/35 bg-slate-200/70 shadow-[0_22px_60px_rgba(43,47,119,0.2)]">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] border-2 border-brand-700 bg-brand-900">
         <Image
           src={src}
           alt={alt}
@@ -54,12 +53,11 @@ export function ImageCard({
             imageClassName,
           )}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-900/10 to-white/10" />
-        <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+        <div className="absolute inset-x-0 bottom-0 bg-brand-900 p-5 text-cream">
           {badge ? (
             <span
               className={clsx(
-                "inline-flex rounded-full border border-white/40 bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] backdrop-blur-md",
+                "inline-flex rounded-full border-2 border-sunrise-500 bg-sunrise-400 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-brand-950",
                 accentClassName,
               )}
             >

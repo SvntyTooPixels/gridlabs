@@ -8,7 +8,7 @@ export function StatHoverCard({
   valueNodes,
   labelNodes,
   className,
-  color = "rgba(236, 72, 153, 0.4)", // Pink-500
+  color = "#f4ce45",
 }: {
   valueNodes: ReactNode;
   labelNodes: ReactNode;
@@ -22,17 +22,17 @@ export function StatHoverCard({
       initial="rest"
     >
       <motion.div
-        className="absolute inset-0 -z-10 rounded-[32px] opacity-0 blur-xl transition-opacity duration-300"
+        className="absolute inset-0 -z-10 rounded-[32px] border-2 opacity-0 transition-opacity duration-300"
         variants={{
           rest: { opacity: 0 },
           hover: { opacity: 1 },
         }}
-        style={{ backgroundColor: color }}
+        style={{ borderColor: color }}
       />
       <motion.div
         variants={{
           rest: { scale: 1, y: 0 },
-          hover: { scale: 1.15, y: -5, textShadow: "0px 8px 24px rgba(236,72,153,0.3)" },
+          hover: { scale: 1.1, y: -4 },
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >

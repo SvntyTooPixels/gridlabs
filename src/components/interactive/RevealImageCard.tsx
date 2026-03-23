@@ -17,11 +17,14 @@ export function RevealImageCard({
 }) {
   return (
     <motion.div
-      className={clsx("group relative overflow-hidden rounded-[30px]", className)}
+      className={clsx(
+        "group relative overflow-hidden rounded-[30px]",
+        className,
+      )}
       whileHover="hover"
       initial="rest"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] border border-white/35">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] border-2 border-brand-700">
         <Image
           src={src}
           alt={alt}
@@ -46,7 +49,7 @@ export function RevealImageCard({
             }}
             transition={{ duration: 0.3 }}
           >
-            <span className="inline-flex rounded-full border border-white/40 bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-md">
+            <span className="inline-flex rounded-full border-2 border-sunrise-500 bg-sunrise-400 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-brand-950">
               {badge}
             </span>
           </motion.div>

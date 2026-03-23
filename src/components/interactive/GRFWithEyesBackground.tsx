@@ -15,17 +15,20 @@ function Eye() {
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!eyeRef.current || !pupilRef.current) return;
-      
+
       const rect = eyeRef.current.getBoundingClientRect();
       const eyeCenterX = rect.left + rect.width / 2;
       const eyeCenterY = rect.top + rect.height / 2;
       const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-      
+
       const maxDistX = (rect.width - pupilRef.current.offsetWidth) / 2 - 6;
       const maxDistY = (rect.height - pupilRef.current.offsetHeight) / 2 - 6;
-      
+
       // Calculate how far the mouse is
-      const distToMouse = Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY);
+      const distToMouse = Math.hypot(
+        e.clientX - eyeCenterX,
+        e.clientY - eyeCenterY,
+      );
       // Map distance ratio so it caps out smoothly without jerking
       const distanceRatio = Math.min(1, distToMouse / 350);
 
@@ -44,7 +47,7 @@ function Eye() {
 
     window.addEventListener("mousemove", handleMouseMove);
     animate();
-    
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(rafId);
@@ -66,12 +69,18 @@ function Eye() {
   );
 }
 
-export function GRFWithEyesBackground({ children, className }: { children: React.ReactNode, className?: string }) {
+export function GRFWithEyesBackground({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div className={`relative overflow-hidden group rounded-[36px] border border-white/40 bg-white/55 backdrop-blur-xl transition-all duration-500 lg:hover:-translate-y-2 lg:hover:bg-white/65 lg:hover:border-white/50 ${className || ""}`}>
-      <div className="relative z-10 p-8 md:p-14">
-        {children}
-      </div>
+    <div
+      className={`relative overflow-hidden group rounded-[36px] border-2 border-brand-700 bg-cream transition-all duration-500 lg:hover:-translate-y-1 lg:hover:bg-sunrise-100 ${className || ""}`}
+    >
+      <div className="relative z-10 p-8 md:p-14">{children}</div>
     </div>
   );
 }

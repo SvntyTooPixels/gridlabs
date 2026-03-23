@@ -16,16 +16,19 @@ function Eye() {
 
     const updatePupils = (clientX: number, clientY: number) => {
       if (!eyeRef.current || !pupilRef.current) return;
-      
+
       const rect = eyeRef.current.getBoundingClientRect();
       const eyeCenterX = rect.left + rect.width / 2;
       const eyeCenterY = rect.top + rect.height / 2;
       const angle = Math.atan2(clientY - eyeCenterY, clientX - eyeCenterX);
-      
+
       const maxDistX = (rect.width - pupilRef.current.offsetWidth) / 2 - 2;
       const maxDistY = (rect.height - pupilRef.current.offsetHeight) / 2 - 2;
-      
-      const distToMouse = Math.hypot(clientX - eyeCenterX, clientY - eyeCenterY);
+
+      const distToMouse = Math.hypot(
+        clientX - eyeCenterX,
+        clientY - eyeCenterY,
+      );
       const distanceRatio = Math.min(1, distToMouse / 250);
 
       targetX = Math.cos(angle) * maxDistX * distanceRatio;
@@ -40,14 +43,14 @@ function Eye() {
     const handleOrientation = (e: DeviceOrientationEvent) => {
       if (e.gamma === null || e.beta === null) return;
       gyroActive = true;
-      
+
       const width = window.innerWidth;
       const height = window.innerHeight;
-      
+
       const normalizedGamma = Math.min(Math.max(e.gamma, -45), 45);
       const clientX = ((normalizedGamma + 45) / 90) * width;
-      
-      const normalizedBeta = Math.min(Math.max(e.beta - 45, -45), 45); 
+
+      const normalizedBeta = Math.min(Math.max(e.beta - 45, -45), 45);
       const clientY = ((normalizedBeta + 45) / 90) * height;
 
       updatePupils(clientX, clientY);
@@ -66,9 +69,9 @@ function Eye() {
     if (typeof window !== "undefined" && window.DeviceOrientationEvent) {
       window.addEventListener("deviceorientation", handleOrientation);
     }
-    
+
     animate();
-    
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("deviceorientation", handleOrientation);
@@ -79,11 +82,11 @@ function Eye() {
   return (
     <div
       ref={eyeRef}
-      className="relative flex h-10 w-7 items-center justify-center rounded-[50%] bg-white shadow-[inset_0_2px_8px_rgba(0,0,0,0.15)] border-2 border-slate-200"
+      className="relative flex h-10 w-7 items-center justify-center rounded-[50%] border-2 border-brand-700 bg-cream"
     >
       <div
         ref={pupilRef}
-        className="relative h-4 w-4 rounded-full bg-slate-900 shadow-sm"
+        className="relative h-4 w-4 rounded-full bg-brand-900"
       >
         <div className="absolute top-[20%] right-[25%] h-1.5 w-1.5 rounded-full bg-white opacity-90" />
       </div>

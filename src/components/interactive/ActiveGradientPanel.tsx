@@ -13,33 +13,22 @@ export function ActiveGradientPanel({
 }) {
   return (
     <motion.div
-      className={clsx("relative overflow-hidden rounded-[32px] p-0.5", className)}
+      className={clsx(
+        "relative overflow-hidden rounded-[32px] border-2 border-brand-700 bg-cream",
+        className,
+      )}
       whileHover="hover"
       initial="rest"
     >
       <motion.div
-        className="absolute inset-[-50%] -z-10 rounded-full blur-[40px] opacity-0 mix-blend-multiply"
-        variants={{
-          rest: { opacity: 0, scale: 0.8 },
-          hover: { opacity: 0.5, scale: 1 },
-        }}
-        transition={{ duration: 0.7 }}
-        style={{
-          background: "conic-gradient(from 90deg at 50% 50%, #3194c1, #994cac, #9db33e, #3194c1)",
-        }}
-      />
-      <motion.div
-        className="absolute inset-[-50%] -z-10 animate-[spin_5s_linear_infinite]"
-        style={{
-          background: "conic-gradient(from 90deg at 50% 50%, #3194c1, #994cac, #9db33e, #3194c1)",
-        }}
+        className="absolute inset-0 -z-10 bg-sunrise-100 opacity-0"
         variants={{
           rest: { opacity: 0 },
-          hover: { opacity: 0.2 },
+          hover: { opacity: 1 },
         }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       />
-      <div className="relative z-10 h-full w-full bg-slate-50/90 rounded-[31px]">
+      <div className="relative z-10 h-full w-full rounded-[31px] bg-cream">
         {children}
       </div>
     </motion.div>

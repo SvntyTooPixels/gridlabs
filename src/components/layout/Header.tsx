@@ -24,17 +24,22 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-2xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-brand-700 bg-brand-900">
         <div className="container-padded flex h-16 items-center justify-between">
-
           {/* Left: Logo */}
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-lg font-semibold tracking-tight text-slate-950 flex items-center gap-2"
+              className="text-lg font-semibold tracking-tight text-cream flex items-center gap-2"
             >
-              <img src="/images/Logo.jpg" alt="Gridlabs Logo" className="h-10 w-auto rounded-md object-contain" />
-              <span className="text-gradient hidden sm:inline-block whitespace-nowrap">Gridlabs Research Foundation</span>
+              <img
+                src="/images/Logo.jpg"
+                alt="Gridlabs Logo"
+                className="h-10 w-auto rounded-md object-contain"
+              />
+              <span className="text-gradient hidden sm:inline-block whitespace-nowrap">
+                Gridlabs Research Foundation
+              </span>
             </Link>
           </div>
 
@@ -48,8 +53,8 @@ export function Header() {
                 className={clsx(
                   "rounded-xl px-2 xl:px-3 py-2 text-sm font-medium transition whitespace-nowrap",
                   pathname === item.href
-                    ? "bg-white border-2 border-slate-200"
-                    : "text-slate-700 hover:bg-slate-200/75 hover:text-slate-950",
+                    ? "bg-cream border-2 border-brand-700 text-brand-950"
+                    : "text-cream hover:bg-brand-800 hover:text-cream",
                 )}
               >
                 {item.label}
@@ -64,24 +69,42 @@ export function Header() {
               <MagneticButton strength={15}>
                 <button
                   onClick={() => setIsDonateOpen(true)}
-                  className="rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-5 py-2 text-sm font-semibold text-white transition hover:scale-[1.02] whitespace-nowrap"
+                  className="rounded-xl border-2 border-sunrise-500 bg-sunrise-400 px-5 py-2 text-sm font-semibold text-brand-950 transition hover:bg-sunrise-300 whitespace-nowrap"
                 >
                   Donate now
                 </button>
               </MagneticButton>
             </div>
             <button
-              className="group flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/70 text-slate-900 shadow-soft lg:hidden"
+              className="group flex h-10 w-10 items-center justify-center rounded-xl border-2 border-brand-700 bg-cream text-brand-950 lg:hidden"
               onClick={() => setOpen((prev) => !prev)}
               aria-label="Toggle navigation"
             >
               {open ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="4" y1="7" x2="20" y2="7" />
                   <line x1="4" y1="12" x2="20" y2="12" />
                   <line x1="4" y1="17" x2="20" y2="17" />
@@ -102,8 +125,8 @@ export function Header() {
                 className={clsx(
                   "rounded-xl px-3 py-2 text-sm font-medium transition",
                   pathname === item.href
-                    ? "bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(153,76,172,0.18),rgba(49,148,193,0.16))] text-slate-950 shadow-soft"
-                    : "text-slate-700 hover:bg-white/75 hover:text-slate-950",
+                    ? "bg-cream text-brand-950 border-2 border-brand-700"
+                    : "text-cream hover:bg-brand-800 hover:text-cream",
                 )}
               >
                 {item.label}
@@ -114,7 +137,7 @@ export function Header() {
                 setOpen(false);
                 setIsDonateOpen(true);
               }}
-              className="mt-2 rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-3 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] text-center"
+              className="mt-2 rounded-xl border-2 border-sunrise-500 bg-sunrise-400 px-3 py-3 text-sm font-semibold text-brand-950 transition hover:bg-sunrise-300 text-center"
             >
               Donate now
             </button>

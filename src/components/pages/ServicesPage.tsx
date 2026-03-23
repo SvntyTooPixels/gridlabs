@@ -3,7 +3,10 @@ import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
-import { StaggerHoverGroup, StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
+import {
+  StaggerHoverGroup,
+  StaggerHoverItem,
+} from "@/components/interactive/StaggerHoverGroup";
 import { SlideRightItem } from "@/components/interactive/SlideRightItem";
 import services from "@/content/services.json";
 
@@ -23,11 +26,13 @@ export function ServicesPage() {
                 offset={15}
                 damping={60}
                 stiffness={200}
-                className="pointer-events-none absolute -inset-20 -z-10 rounded-full bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-fuchsia-400/20 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
+                className="pointer-events-none absolute -inset-20 -z-10 rounded-full bg-sunrise-100 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
               >
                 <div className="h-full w-full" />
               </MouseParallax>
-              <h2 className="text-2xl font-semibold text-slate-950">Overview</h2>
+              <h2 className="text-2xl font-semibold text-brand-900">
+                Overview
+              </h2>
               <p className="mt-4 section-copy">{services.overview}</p>
               <p className="mt-4 section-copy">{services.overview2}</p>
               <p className="mt-4 section-copy">{services.overview3}</p>
@@ -43,7 +48,7 @@ export function ServicesPage() {
 
       <div className="grid gap-6 md:grid-cols-2">
         <Reveal>
-          <BorderTrace color="rgba(59, 130, 246, 0.6)">
+          <BorderTrace color="#694cd0">
             <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
               <ImageCard
                 src={services.strategyImage}
@@ -51,7 +56,7 @@ export function ServicesPage() {
                 badge="Strategy"
               />
               <div className="px-2 pb-2 pt-6">
-                <h2 className="text-2xl font-semibold text-slate-950">
+                <h2 className="text-2xl font-semibold text-brand-900">
                   CSR Strategy
                 </h2>
                 <p className="mt-3 section-copy">{services.strategy}</p>
@@ -61,7 +66,7 @@ export function ServicesPage() {
           </BorderTrace>
         </Reveal>
         <Reveal delay={0.08}>
-          <BorderTrace color="rgba(59, 130, 246, 0.6)">
+          <BorderTrace color="#694cd0">
             <SpotlightPanel className="section-shell gradient-mesh p-4 h-full">
               <ImageCard
                 src={services.implementationImage}
@@ -69,7 +74,7 @@ export function ServicesPage() {
                 badge="Implementation"
               />
               <div className="px-2 pb-2 pt-6">
-                <h2 className="text-2xl font-semibold text-slate-950">
+                <h2 className="text-2xl font-semibold text-brand-900">
                   Program Implementation
                 </h2>
                 <p className="mt-3 section-copy">{services.implementation}</p>
@@ -89,15 +94,15 @@ export function ServicesPage() {
               badge="Measurement"
             />
             <div className="section-shell gradient-mesh p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 Impact Measurement
               </h2>
               <p className="mt-3 section-copy">{services.measurement}</p>
-              <StaggerHoverGroup className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
+              <StaggerHoverGroup className="mt-4 grid gap-2 text-brand-900 md:grid-cols-2">
                 {services.measurementPoints.map((item) => (
                   <StaggerHoverItem
                     key={item}
-                    className="rounded-2xl border border-white/50 px-3 py-3 text-sm text-slate-700 h-full"
+                    className="rounded-2xl border-2 border-brand-700 px-3 py-3 text-sm text-brand-900 h-full"
                   >
                     {item}
                   </StaggerHoverItem>
@@ -117,10 +122,10 @@ export function ServicesPage() {
               badge="Technical expertise"
             />
             <div className="px-2 pb-2 pt-6">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 Technical Expertise
               </h2>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
+              <ul className="mt-3 space-y-2 text-sm text-brand-900">
                 {services.technical.map((item) => (
                   <SlideRightItem key={item}>{item}</SlideRightItem>
                 ))}
@@ -137,15 +142,15 @@ export function ServicesPage() {
               badge="Compliance"
             />
             <div className="px-2 pb-2 pt-6">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 Compliance & Ethics
               </h2>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
+              <ul className="mt-3 space-y-2 text-sm text-brand-900">
                 {services.compliance.map((item) => (
                   <SlideRightItem key={item}>{item}</SlideRightItem>
                 ))}
               </ul>
-              <p className="mt-4 text-sm text-slate-600">{services.legal}</p>
+              <p className="mt-4 text-sm text-brand-800">{services.legal}</p>
             </div>
           </SpotlightPanel>
         </Reveal>

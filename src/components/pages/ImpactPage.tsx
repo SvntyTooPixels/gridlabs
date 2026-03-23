@@ -20,7 +20,7 @@ export async function ImpactPage() {
       <Reveal>
         <span className="section-kicker">Stories with proof</span>
         <h1 className="mt-5 section-title">{impact.introTitle}</h1>
-        <p className="mt-3 text-xl text-slate-600">{impact.introTagline}</p>
+        <p className="mt-3 text-xl text-brand-800">{impact.introTagline}</p>
       </Reveal>
 
       <Reveal>
@@ -48,19 +48,23 @@ export async function ImpactPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {impact.highlights.map((item, index) => (
-          <Reveal key={item.label} delay={index * 0.06} className="h-full w-full">
+          <Reveal
+            key={item.label}
+            delay={index * 0.06}
+            className="h-full w-full"
+          >
             <SpotlightPanel className="h-full w-full">
               <StatHoverCard
                 className="p-5 flex flex-col justify-center"
-                color={["rgba(236,72,153,0.3)", "rgba(59,130,246,0.3)", "rgba(168,85,247,0.3)", "rgba(45,212,191,0.3)"][index % 4]}
+                color={["#f4ce45", "#694cd0", "#e1c3ff", "#573ab6"][index % 4]}
                 valueNodes={
-                  <p className="text-4xl font-semibold text-slate-950">
+                  <p className="text-4xl font-semibold text-brand-900">
                     <CountUp to={item.value} />
                     {item.suffix}
                   </p>
                 }
                 labelNodes={
-                  <p className="mt-3 text-sm leading-6 text-slate-700">
+                  <p className="mt-3 text-sm leading-6 text-brand-900">
                     {item.label}
                   </p>
                 }
@@ -72,17 +76,17 @@ export async function ImpactPage() {
 
       <Reveal>
         <SpotlightPanel className="section-shell gradient-mesh p-8">
-          <h2 className="text-2xl font-semibold text-slate-950">
+          <h2 className="text-2xl font-semibold text-brand-900">
             Program Outcomes
           </h2>
           <p className="mt-3 section-copy">
             Driving sustainable outcomes through structured CSR programs.
           </p>
-          <SiblingDimGroup className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
+          <SiblingDimGroup className="mt-4 grid gap-2 text-brand-900 md:grid-cols-2">
             {impact.outcomes.map((item) => (
               <StaggerHoverItem
                 key={item}
-                className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-sm text-slate-700 font-medium"
+                className="rounded-2xl border-2 border-brand-700 bg-cream px-4 py-3 text-sm text-brand-900 font-medium"
               >
                 {item}
               </StaggerHoverItem>
@@ -100,10 +104,10 @@ export async function ImpactPage() {
               badge="Case study"
             />
             <div className="section-shell gradient-mesh p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 Case Study
               </h2>
-              <h3 className="mt-3 text-xl font-medium text-slate-900">
+              <h3 className="mt-3 text-xl font-medium text-brand-900">
                 {impact.caseStudyTitle}
               </h3>
               <p className="mt-3 section-copy">{impact.caseStudy}</p>
@@ -116,7 +120,7 @@ export async function ImpactPage() {
 
       <Reveal>
         <span className="section-kicker">Interactive gallery</span>
-        <h2 className="mt-5 text-2xl font-semibold text-slate-950">Gallery</h2>
+        <h2 className="mt-5 text-2xl font-semibold text-brand-900">Gallery</h2>
       </Reveal>
       <Reveal>
         <FeatureCarousel
@@ -132,20 +136,20 @@ export async function ImpactPage() {
 
       <Reveal>
         <span className="section-kicker">Notes from the field</span>
-        <h2 className="mt-5 text-2xl font-semibold text-slate-950">Journal</h2>
+        <h2 className="mt-5 text-2xl font-semibold text-brand-900">Journal</h2>
       </Reveal>
       <div className="grid gap-4 md:grid-cols-2">
         {posts.map((post) => (
           <Reveal key={post.slug} className="h-full">
-            <BorderTrace color="rgba(244, 63, 94, 0.5)">
+            <BorderTrace color="#f4ce45">
               <SpotlightPanel className="h-full p-6">
                 <p className="text-xs uppercase tracking-wide text-brand-700">
                   {post.date}
                 </p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-950">
+                <h3 className="mt-2 text-xl font-semibold text-brand-900">
                   {post.title}
                 </h3>
-                <p className="mt-3 text-sm text-slate-600">{post.excerpt}</p>
+                <p className="mt-3 text-sm text-brand-800">{post.excerpt}</p>
               </SpotlightPanel>
             </BorderTrace>
           </Reveal>

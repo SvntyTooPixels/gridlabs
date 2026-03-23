@@ -28,7 +28,7 @@ export function SpotlightPanel({
   return (
     <div
       className={clsx(
-        "group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/65 backdrop-blur-xl",
+        "group relative overflow-hidden rounded-[32px] border-2 border-brand-700 bg-cream",
         className,
       )}
       style={style}
@@ -41,10 +41,13 @@ export function SpotlightPanel({
     >
       <div
         className={clsx(
-          "pointer-events-none absolute inset-0 opacity-80 transition duration-500 group-hover:opacity-100",
-          "bg-[radial-gradient(circle_at_var(--spotlight-x)_var(--spotlight-y),rgba(255,255,255,0.92),transparent_34%),radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(251,113,133,0.22),transparent_36%)]",
+          "pointer-events-none absolute h-24 w-24 rounded-full bg-sunrise-200 opacity-0 transition duration-300 group-hover:opacity-100",
           glowClassName,
         )}
+        style={{
+          left: `calc(${spotlight.x}% - 3rem)`,
+          top: `calc(${spotlight.y}% - 3rem)`,
+        }}
       />
       <div className="relative z-10 h-full">{children}</div>
     </div>

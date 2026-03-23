@@ -50,7 +50,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-md"
+            className="fixed inset-0 z-[100] bg-brand-900"
           />
 
           {/* Modal Container */}
@@ -60,27 +60,24 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-lg my-auto rounded-3xl bg-white shadow-2xl overflow-hidden shadow-2xl"
+              className="relative w-full max-w-lg my-auto overflow-hidden rounded-3xl border-2 border-brand-700 bg-cream"
             >
               {/* Decorative Header */}
-              <div className="relative overflow-hidden bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-8 py-10 text-center text-white">
+              <div className="relative overflow-hidden bg-brand-900 px-8 py-10 text-center text-cream">
                 <div className="relative z-10">
                   <h2 className="text-3xl font-bold tracking-tight">
                     Make an Impact
                   </h2>
-                  <p className="mt-2 text-white/90">
+                  <p className="mt-2 text-cream">
                     Your contribution helps us create a better place.
                   </p>
                 </div>
-                {/* Abstract shapes */}
-                <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-                <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-black/10 blur-2xl" />
               </div>
 
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-white transition-colors hover:bg-black/20"
+                className="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full border-2 border-sunrise-500 bg-sunrise-400 text-brand-950 transition-colors hover:bg-sunrise-300"
                 aria-label="Close"
               >
                 <svg
@@ -104,7 +101,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Amount Selection */}
                   <div>
-                    <label className="mb-3 block text-sm font-medium text-slate-700">
+                    <label className="mb-3 block text-sm font-medium text-brand-900">
                       Select Amount (₹)
                     </label>
                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -117,10 +114,10 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                             setCustomAmount("");
                           }}
                           className={clsx(
-                            "rounded-xl border py-3 text-center font-semibold transition-all",
+                            "rounded-xl border-2 py-3 text-center font-semibold transition-all",
                             selectedAmount === amount
-                              ? "border-blue-600 bg-blue-50 text-blue-700 shadow-sm ring-1 ring-blue-600"
-                              : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-slate-50",
+                              ? "border-brand-700 bg-brand-100 text-brand-900"
+                              : "border-brand-700 bg-cream text-brand-800 hover:border-sunrise-500 hover:bg-sunrise-100",
                           )}
                         >
                           ₹{amount}
@@ -132,14 +129,14 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                   {/* Custom Amount */}
                   <div className="relative">
                     <div className="flex items-center">
-                      <div className="flex-1 border-t border-slate-200" />
-                      <span className="px-4 text-xs font-medium uppercase text-slate-400">
+                      <div className="flex-1 border-t border-brand-700" />
+                      <span className="px-4 text-xs font-medium uppercase text-brand-700">
                         Or Custom Amount
                       </span>
-                      <div className="flex-1 border-t border-slate-200" />
+                      <div className="flex-1 border-t border-brand-700" />
                     </div>
                     <div className="mt-4 relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-700">
                         ₹
                       </span>
                       <input
@@ -152,10 +149,10 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                           setSelectedAmount("custom");
                         }}
                         className={clsx(
-                          "w-full rounded-xl border py-3 pl-8 pr-4 outline-none transition-all",
+                          "w-full rounded-xl border-2 py-3 pl-8 pr-4 outline-none transition-all",
                           selectedAmount === "custom"
-                            ? "border-blue-600 bg-blue-50/50 ring-1 ring-blue-600"
-                            : "border-slate-200 bg-slate-50/50 focus:border-blue-400 focus:bg-white focus:ring-1 focus:ring-blue-400",
+                            ? "border-brand-700 bg-brand-100"
+                            : "border-brand-700 bg-cream focus:border-sunrise-500",
                         )}
                       />
                     </div>
@@ -164,7 +161,10 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                   {/* Personal Info */}
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
+                      <label
+                        htmlFor="name"
+                        className="mb-1.5 block text-sm font-medium text-brand-900"
+                      >
                         Full Name
                       </label>
                       <input
@@ -173,12 +173,15 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 outline-none transition-all focus:border-blue-400 focus:bg-white focus:ring-1 focus:ring-blue-400"
+                        className="w-full rounded-xl border-2 border-brand-700 bg-cream px-4 py-3 outline-none transition-all focus:border-sunrise-500"
                         placeholder="Jane Doe"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
+                      <label
+                        htmlFor="email"
+                        className="mb-1.5 block text-sm font-medium text-brand-900"
+                      >
                         Email Address
                       </label>
                       <input
@@ -187,7 +190,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 outline-none transition-all focus:border-blue-400 focus:bg-white focus:ring-1 focus:ring-blue-400"
+                        className="w-full rounded-xl border-2 border-brand-700 bg-cream px-4 py-3 outline-none transition-all focus:border-sunrise-500"
                         placeholder="jane@example.com"
                       />
                     </div>
@@ -203,7 +206,7 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                           !email ||
                           (selectedAmount === "custom" && !customAmount)
                         }
-                        className="w-full rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] py-4 text-center font-bold text-white transition-all hover:scale-[1.02] hover:shadow-lg disabled:pointer-events-none disabled:opacity-50"
+                        className="w-full rounded-xl border-2 border-sunrise-500 bg-sunrise-400 py-4 text-center font-bold text-brand-950 transition-all hover:bg-sunrise-300 disabled:pointer-events-none disabled:opacity-50"
                       >
                         Proceed to Donate{" "}
                         {selectedAmount === "custom" && customAmount
@@ -214,8 +217,8 @@ export function DonateModal({ isOpen, onClose }: DonateModalProps) {
                       </button>
                     </MagneticButton>
                   </div>
-                  
-                  <p className="text-center text-xs text-slate-500">
+
+                  <p className="text-center text-xs text-brand-700">
                     Secure payment processing powered by our partners.
                   </p>
                 </form>

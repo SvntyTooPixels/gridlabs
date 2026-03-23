@@ -33,17 +33,13 @@ function CategoryNav() {
   const marginCalc = useMotionTemplate`calc(${expandRatio} * (50% - 50vw))`;
   const widthCalc = useMotionTemplate`calc(100% + ${expandRatio} * (100vw - 100%))`;
   const borderRadiusCalc = useMotionTemplate`${useTransform(expandRatio, [0, 1], [16, 0])}px`;
-  const bg = useTransform(
-    expandRatio,
-    [0, 1],
-    ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.95)"],
-  );
+  const bg = useTransform(expandRatio, [0, 1], ["#fff9ef", "#fff9ef"]);
 
   return (
     <div ref={wrapperRef} className="sticky top-16 z-40 mb-8 w-full group/nav">
       {/* Background Layer isolated absolutely guarantees zero layout-reflow choppiness */}
       <motion.div
-        className="absolute inset-y-0 z-[-1] border border-slate-200 backdrop-blur-xl"
+        className="absolute inset-y-0 z-[-1] border-2 border-brand-700"
         style={{
           width: widthCalc,
           marginLeft: marginCalc,
@@ -61,7 +57,7 @@ function CategoryNav() {
               className="group flex flex-col items-center relative flex-1 min-w-[120px] max-w-[200px]"
             >
               <button
-                className="px-3 py-2 text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors whitespace-nowrap"
+                className="px-3 py-2 text-sm font-semibold text-brand-900 group-hover:text-brand-700 transition-colors whitespace-nowrap"
                 onClick={() => {
                   const el = document.getElementById(
                     getSectionId(section.title),
@@ -77,13 +73,13 @@ function CategoryNav() {
               </button>
 
               <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] pt-2 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-hover:max-h-[600px] group-hover:opacity-100 z-50">
-                <ul className="p-2 flex flex-col gap-1.5 w-full bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl">
+                <ul className="p-2 flex flex-col gap-1.5 w-full bg-cream border-2 border-brand-700 rounded-2xl">
                   {section.items.map((item) => {
                     const itemName = item.split(" — ")[0].split(" – ")[0];
                     return (
                       <li key={item} className="w-full">
                         <button
-                          className="w-full text-center px-1 py-1.5 text-xs text-slate-600 hover:bg-slate-50 hover:text-blue-700 transition-colors rounded-md"
+                          className="w-full text-center px-1 py-1.5 text-xs text-brand-900 hover:bg-sunrise-100 hover:text-brand-900 transition-colors rounded-md"
                           onClick={() => {
                             const el = document.getElementById(getItemId(item));
                             if (el) {
@@ -126,20 +122,20 @@ function ProgramBlock({
   return (
     <Reveal>
       <div id={getSectionId(title)} className="scroll-mt-32">
-        <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.3)">
+        <HoverLiftGlow glowColor="#f4ce45">
           <SpotlightPanel className="p-4">
             <div className="grid h-full gap-5 lg:grid-cols-[0.92fr_1.08fr]">
               <ImageCard src={image} alt={alt} badge={eyebrow} />
               <div className="section-shell gradient-mesh p-8">
-                <h2 className="text-2xl font-semibold text-slate-950">
+                <h2 className="text-2xl font-semibold text-brand-900">
                   {title}
                 </h2>
-                <ul className="mt-4 grid gap-3 text-sm text-slate-700">
+                <ul className="mt-4 grid gap-3 text-sm text-brand-900">
                   {items.map((item) => (
                     <li
                       id={getItemId(item)}
                       key={item}
-                      className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:bg-white hover:text-blue-900 scroll-mt-32"
+                      className="rounded-2xl border-2 border-brand-700 bg-cream px-4 py-3 transition-all duration-300 hover:-translate-y-1 hover:bg-sunrise-100 hover:text-brand-900 scroll-mt-32"
                     >
                       {item}
                     </li>

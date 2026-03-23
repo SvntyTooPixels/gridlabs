@@ -21,8 +21,10 @@ export function AboutPage() {
           <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="section-shell gradient-mesh p-8">
               <p className="section-copy">
-                {about.about.split(' ').map((word, i) => (
-                  <TextHighlightReveal key={i} className="mr-1">{word}</TextHighlightReveal>
+                {about.about.split(" ").map((word, i) => (
+                  <TextHighlightReveal key={i} className="mr-1">
+                    {word}
+                  </TextHighlightReveal>
                 ))}
               </p>
               <p className="mt-4 section-copy">{about.about2}</p>
@@ -48,7 +50,9 @@ export function AboutPage() {
                 badge="Mission"
               />
               <div className="px-2 pb-2 pt-6">
-                <h2 className="text-2xl font-semibold text-slate-950">Mission</h2>
+                <h2 className="text-2xl font-semibold text-brand-900">
+                  Mission
+                </h2>
                 <p className="mt-3 section-copy">{about.mission}</p>
               </div>
             </SpotlightPanel>
@@ -63,7 +67,9 @@ export function AboutPage() {
                 badge="Vision"
               />
               <div className="px-2 pb-2 pt-6">
-                <h2 className="text-2xl font-semibold text-slate-950">Vision</h2>
+                <h2 className="text-2xl font-semibold text-brand-900">
+                  Vision
+                </h2>
                 <p className="mt-3 section-copy">{about.vision}</p>
               </div>
             </SpotlightPanel>
@@ -83,10 +89,10 @@ export function AboutPage() {
             <MouseParallax offset={10} damping={60} stiffness={300}>
               <div className="section-shell gradient-mesh p-8 h-full">
                 <h2 className="section-title">Founder</h2>
-                <p className="mt-2 text-lg font-medium text-slate-950">
+                <p className="mt-2 text-lg font-medium text-brand-900">
                   {about.founder.name}
                 </p>
-                <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-700">
+                <p className="text-sm uppercase tracking-[0.25em] text-sunrise-600">
                   {about.founder.role}
                 </p>
                 <p className="mt-4 section-copy">{about.founder.bio}</p>
@@ -105,7 +111,7 @@ export function AboutPage() {
         {about.achievements.map((item, index) => (
           <Reveal key={item} delay={index * 0.04}>
             <SpotlightPanel className="h-full p-5 transition-transform duration-500 hover:-translate-y-2">
-              <p className="text-sm leading-6 text-slate-700">{item}</p>
+              <p className="text-sm leading-6 text-brand-900">{item}</p>
             </SpotlightPanel>
           </Reveal>
         ))}
@@ -114,13 +120,13 @@ export function AboutPage() {
       <Reveal>
         <TiltPanel maxTilt={5}>
           <SpotlightPanel className="section-shell gradient-mesh p-8 text-center">
-            <h3 className="text-xl font-semibold text-slate-950">
+            <h3 className="text-xl font-semibold text-brand-900">
               Founder Quote
             </h3>
-            <p className="mt-4 text-2xl italic text-slate-900">
+            <p className="mt-4 text-2xl italic text-brand-900">
               “{about.founder.quote}”
             </p>
-            <p className="mt-2 text-slate-600">— {about.founder.quoteBy}</p>
+            <p className="mt-2 text-brand-800">— {about.founder.quoteBy}</p>
           </SpotlightPanel>
         </TiltPanel>
       </Reveal>

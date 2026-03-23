@@ -7,18 +7,7 @@
 }
 
 body {
-  @apply bg-[#f0f3ed] text-slate-900 antialiased;
-  background-image:
-    radial-gradient(circle at top left,
-      rgba(49, 148, 193, 0.15),
-      transparent 22%),
-    radial-gradient(circle at top right,
-      rgba(153, 76, 172, 0.12),
-      transparent 24%),
-    radial-gradient(circle at 20% 80%,
-      rgba(157, 179, 62, 0.12),
-      transparent 20%),
-    linear-gradient(180deg, #f0f3ed 0%, #e6ebe0 42%, #d8e2d4 100%);
+  @apply bg-brand-900 text-cream antialiased;
 }
 
 .container-padded {
@@ -26,45 +15,33 @@ body {
 }
 
 .glass-panel {
-  @apply rounded-[32px] border border-white/40 bg-white/65 backdrop-blur-xl;
+  @apply rounded-[32px] border-2 border-brand-700 bg-cream;
 }
 
 .section-title {
-  @apply text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl;
+  @apply text-3xl font-semibold tracking-tight text-brand-900 md:text-5xl;
 }
 
 .section-copy {
-  @apply text-base leading-7 text-slate-600;
+  @apply text-base leading-7 text-brand-800;
 }
 
 .section-kicker {
-  @apply w-fit inline-flex rounded-full border border-fuchsia-300/70 bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-700;
+  @apply w-fit inline-flex rounded-full border-2 border-brand-900 bg-sunrise-400 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-900;
 }
 
 .section-shell {
-  @apply relative overflow-hidden rounded-[36px] border border-white/40 bg-white/55 p-8 backdrop-blur-xl md:p-10;
+  @apply relative overflow-hidden rounded-[36px] border-2 border-brand-700 bg-cream p-8 md:p-10;
 }
 
 .gradient-mesh {
-  background-image:
-    radial-gradient(circle at 20% 20%,
-      rgba(49, 148, 193, 0.15),
-      transparent 24%),
-    radial-gradient(circle at 80% 10%,
-      rgba(153, 76, 172, 0.12),
-      transparent 20%),
-    radial-gradient(circle at 75% 80%,
-      rgba(157, 179, 62, 0.12),
-      transparent 20%),
-    linear-gradient(135deg,
-      rgba(255, 255, 255, 0.94),
-      rgba(255, 255, 255, 0.58));
+  background-color: #fff9ef;
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent;
+  @apply text-sunrise-400;
 }
 
 .soft-ring {
-  @apply ring-1 ring-inset ring-white/50;
+  @apply ring-2 ring-inset ring-brand-700;
 }

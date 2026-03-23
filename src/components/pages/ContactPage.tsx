@@ -2,7 +2,10 @@ import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { StaggerHoverGroup, StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
+import {
+  StaggerHoverGroup,
+  StaggerHoverItem,
+} from "@/components/interactive/StaggerHoverGroup";
 import { MagneticButton } from "@/components/interactive/MagneticButton";
 import contact from "@/content/contact.json";
 
@@ -23,7 +26,7 @@ export function ContactPage() {
               badge="We’d love to hear from you"
             />
             <div className="section-shell gradient-mesh flex flex-col justify-center p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 Let’s design meaningful CSR work together
               </h2>
               <p className="mt-4 section-copy">
@@ -34,7 +37,7 @@ export function ContactPage() {
                 {contact.quickPoints.map((point) => (
                   <li
                     key={point}
-                    className="rounded-2xl border border-white/50 bg-white/75 px-4 py-3 text-sm text-slate-700"
+                    className="rounded-2xl border-2 border-brand-700 bg-cream px-4 py-3 text-sm text-brand-900"
                   >
                     {point}
                   </li>
@@ -54,27 +57,27 @@ export function ContactPage() {
 
         <Reveal delay={0.08}>
           <SpotlightPanel className="section-shell gradient-mesh p-6">
-            <h2 className="text-2xl font-semibold text-slate-950">
+            <h2 className="text-2xl font-semibold text-brand-900">
               Contact Details
             </h2>
 
-            <StaggerHoverGroup className="mt-5 space-y-4 text-sm text-slate-700 list-none p-0 m-0">
-              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
-                <p className="font-semibold text-slate-950">Address</p>
+            <StaggerHoverGroup className="mt-5 space-y-4 text-sm text-brand-900 list-none p-0 m-0">
+              <StaggerHoverItem className="rounded-xl p-3 border-2 border-brand-700">
+                <p className="font-semibold text-brand-900">Address</p>
                 <p>{contact.address}</p>
               </StaggerHoverItem>
-              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
-                <p className="font-semibold text-slate-950">Call Us</p>
+              <StaggerHoverItem className="rounded-xl p-3 border-2 border-brand-700">
+                <p className="font-semibold text-brand-900">Call Us</p>
                 <p>{contact.phone}</p>
               </StaggerHoverItem>
-              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
-                <p className="font-semibold text-slate-950">Email us</p>
+              <StaggerHoverItem className="rounded-xl p-3 border-2 border-brand-700">
+                <p className="font-semibold text-brand-900">Email us</p>
                 {contact.emails.map((email) => (
                   <p key={email}>{email}</p>
                 ))}
               </StaggerHoverItem>
-              <StaggerHoverItem className="rounded-xl p-3 border border-white/20">
-                <p className="font-semibold text-slate-950">Opening Hours</p>
+              <StaggerHoverItem className="rounded-xl p-3 border-2 border-brand-700">
+                <p className="font-semibold text-brand-900">Opening Hours</p>
                 {contact.hours.map((hour) => (
                   <p key={hour}>{hour}</p>
                 ))}
@@ -86,7 +89,7 @@ export function ContactPage() {
                 href={contact.mapUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-block rounded-2xl border border-white/50 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-white hover:scale-105 hover:shadow-lg"
+                className="mt-6 inline-block rounded-2xl border-2 border-sunrise-500 bg-sunrise-400 px-4 py-2 text-sm font-semibold text-brand-950 transition hover:bg-sunrise-300 hover:scale-105"
               >
                 Open Map
               </a>

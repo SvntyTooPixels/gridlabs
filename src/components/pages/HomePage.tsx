@@ -36,19 +36,16 @@ export function HomePage() {
             <HiddenGRFBackground className="h-full flex flex-col justify-center md:rounded-r-none group-hover/split:md:rounded-r-[36px]">
               <div className="mx-auto text-center">
                 <h2 className="section-title">
-                  <span className="relative inline-block">
-                    <span className="absolute inset-0 bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true">
-                      {home.aboutSnapshot.title}
-                    </span>
-                    <span className="transition-opacity duration-700 group-hover:opacity-0">
-                      {home.aboutSnapshot.title}
-                    </span>
+                  <span className="inline-block text-brand-900 transition-colors duration-700 group-hover:text-sunrise-500">
+                    {home.aboutSnapshot.title}
                   </span>
                 </h2>
                 <p className="mt-4 section-copy text-lg">
                   {home.aboutSnapshot.description}
                 </p>
-                <p className="mt-4 section-copy text-lg">{home.aboutSnapshot.extra}</p>
+                <p className="mt-4 section-copy text-lg">
+                  {home.aboutSnapshot.extra}
+                </p>
               </div>
             </HiddenGRFBackground>
           </Reveal>
@@ -56,18 +53,15 @@ export function HomePage() {
             <GRFWithEyesBackground className="h-full flex flex-col justify-center md:rounded-l-none group-hover/split:md:rounded-l-[36px]">
               <div className="mx-auto text-center flex flex-col items-center">
                 <h2 className="section-title flex items-center justify-center">
-                  <span className="relative inline-block">
-                    <span className="absolute inset-0 bg-gradient-to-r from-brand-700 via-berry-600 to-sunrise-500 bg-clip-text text-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true">
-                      {home.vision.title}
-                    </span>
-                    <span className="transition-opacity duration-700 group-hover:opacity-0">
-                      {home.vision.title}
-                    </span>
+                  <span className="inline-block text-brand-900 transition-colors duration-700 group-hover:text-sunrise-500">
+                    {home.vision.title}
                   </span>
                   <AnimatedEyes />
                 </h2>
                 <p className="mt-4 section-copy text-lg">{home.vision.text}</p>
-                <p className="mt-4 section-copy text-lg">{home.vision.structuring}</p>
+                <p className="mt-4 section-copy text-lg">
+                  {home.vision.structuring}
+                </p>
               </div>
             </GRFWithEyesBackground>
           </Reveal>
@@ -75,9 +69,8 @@ export function HomePage() {
       </section>
 
       <ProjectScrollAccordion items={home.featuredProjects} />
-      
-      <ImpactHoverAccordion items={home.impactAreas} />
 
+      <ImpactHoverAccordion items={home.impactAreas} />
 
       <section className="container-padded">
         <Reveal>
@@ -93,13 +86,13 @@ export function HomePage() {
               <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <Link
                   href="/csr-services"
-                  className="rounded-2xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
+                  className="rounded-2xl border-2 border-sunrise-500 bg-sunrise-400 px-5 py-3 font-semibold text-brand-950 transition hover:bg-sunrise-300"
                 >
                   {home.cta.primary}
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-2xl border border-white/50 bg-white/75 px-5 py-3 font-semibold text-slate-900 transition hover:bg-white"
+                  className="rounded-2xl border-2 border-brand-700 bg-cream px-5 py-3 font-semibold text-brand-900 transition hover:bg-sunrise-100"
                 >
                   {home.cta.secondary}
                 </Link>

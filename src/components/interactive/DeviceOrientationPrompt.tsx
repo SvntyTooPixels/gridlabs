@@ -22,7 +22,9 @@ export function DeviceOrientationPrompt() {
 
   const handleRequest = async () => {
     try {
-      const permissionState = await (DeviceOrientationEvent as any).requestPermission();
+      const permissionState = await (
+        DeviceOrientationEvent as any
+      ).requestPermission();
       // Even if denied, we don't want to ask again and annoy the user.
       localStorage.setItem("gyro-permission-requested", "true");
       setShowPrompt(false);
@@ -41,28 +43,30 @@ export function DeviceOrientationPrompt() {
   return (
     <AnimatePresence>
       {showPrompt && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50, x: "-50%" }}
           animate={{ opacity: 1, y: 0, x: "-50%" }}
           exit={{ opacity: 0, y: 50, x: "-50%" }}
-          className="fixed bottom-6 left-1/2 w-[90%] max-w-[320px] z-50 flex flex-col items-center gap-3 rounded-2xl border border-white/20 bg-slate-900/90 p-4 shadow-2xl backdrop-blur-xl sm:max-w-md sm:flex-row sm:justify-between"
+          className="fixed bottom-6 left-1/2 w-[90%] max-w-[320px] z-50 flex flex-col items-center gap-3 rounded-2xl border-2 border-brand-700 bg-brand-950 p-4 sm:max-w-md sm:flex-row sm:justify-between"
         >
           <div className="flex flex-col text-center sm:text-left">
-            <span className="text-sm font-semibold text-white">Enable 3D Motion</span>
-            <span className="text-xs text-slate-300 mt-1">
+            <span className="text-sm font-semibold text-cream">
+              Enable 3D Motion
+            </span>
+            <span className="text-xs text-cream mt-1">
               Allow gyroscope access for immersive parallax effects.
             </span>
           </div>
           <div className="flex w-full gap-2 sm:w-auto">
             <button
               onClick={handleDismiss}
-              className="flex-1 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white transition hover:bg-white/20 sm:flex-none"
+              className="flex-1 rounded-xl border-2 border-cream bg-brand-800 px-4 py-2 text-xs font-semibold text-cream transition hover:bg-brand-700 sm:flex-none"
             >
               Skip
             </button>
             <button
               onClick={handleRequest}
-              className="flex-1 rounded-xl bg-[linear-gradient(135deg,#3194c1,#994cac,#9db33e)] px-4 py-2 text-xs font-bold text-white shadow-lg transition hover:scale-[1.02] sm:flex-none"
+              className="flex-1 rounded-xl border-2 border-sunrise-500 bg-sunrise-400 px-4 py-2 text-xs font-bold text-brand-950 transition hover:bg-sunrise-300 sm:flex-none"
             >
               Enable
             </button>

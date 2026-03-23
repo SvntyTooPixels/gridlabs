@@ -2,7 +2,10 @@ import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { ActiveGradientPanel } from "@/components/interactive/ActiveGradientPanel";
-import { StaggerHoverGroup, StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
+import {
+  StaggerHoverGroup,
+  StaggerHoverItem,
+} from "@/components/interactive/StaggerHoverGroup";
 import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import team from "@/content/team.json";
@@ -16,13 +19,15 @@ export function TeamPage() {
       </Reveal>
 
       <Reveal>
-        <ActiveGradientPanel className="p-4 shadow-[0_24px_80px_rgba(34,35,95,0.16)] backdrop-blur-xl border border-white/40">
+        <ActiveGradientPanel className="p-4">
           <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr] p-2">
             <div className="section-shell gradient-mesh p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 CSR Expertise
               </h2>
-              <p className="mt-2 text-lg text-slate-800">{team.section1Title}</p>
+              <p className="mt-2 text-lg text-brand-800">
+                {team.section1Title}
+              </p>
               <p className="mt-3 section-copy">{team.section1}</p>
               <p className="mt-3 section-copy">{team.section1b}</p>
               <p className="mt-3 section-copy">{team.section1c}</p>
@@ -46,14 +51,14 @@ export function TeamPage() {
               badge="Certified expertise"
             />
             <div className="section-shell gradient-mesh p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">
+              <h2 className="text-2xl font-semibold text-brand-900">
                 Certified Expertise
               </h2>
-              <StaggerHoverGroup className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-2">
+              <StaggerHoverGroup className="mt-4 grid gap-3 text-sm text-brand-900 md:grid-cols-2">
                 {team.certifications.map((item) => (
                   <StaggerHoverItem
                     key={item}
-                    className="rounded-2xl border border-white/50 px-3 py-3"
+                    className="rounded-2xl border-2 border-brand-700 px-3 py-3"
                   >
                     {item}
                   </StaggerHoverItem>
@@ -65,12 +70,12 @@ export function TeamPage() {
       </Reveal>
 
       <Reveal>
-        <HoverLiftGlow glowColor="rgba(147, 51, 234, 0.2)">
+        <HoverLiftGlow glowColor="#f4ce45">
           <SpotlightPanel className="p-4">
             <div className="grid h-full gap-5 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="section-shell gradient-mesh p-8 relative overflow-hidden">
                 <MouseParallax offset={8} damping={50} stiffness={300}>
-                  <h2 className="text-2xl font-semibold text-slate-950">
+                  <h2 className="text-2xl font-semibold text-brand-900">
                     Experience
                   </h2>
                 </MouseParallax>

@@ -33,20 +33,23 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
     >
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <span className="section-kicker">Announcement</span>
-        <div className="flex items-center gap-4 text-slate-500">
-
-          <div className="flex gap-2 items-center mx-2 hidden md:flex">
+        <div className="flex items-center gap-4 text-brand-700">
+          <div className="hidden gap-2 items-center mx-2 md:flex">
             {items.map((_, index) => {
               const isActive = activeIndex === index;
               return (
                 <motion.button
                   layout
                   key={index}
-                  onClick={() => isActive ? setIsManuallyPaused(!isManuallyPaused) : setActiveIndex(index)}
+                  onClick={() =>
+                    isActive
+                      ? setIsManuallyPaused(!isManuallyPaused)
+                      : setActiveIndex(index)
+                  }
                   className={
                     isActive
-                      ? "border border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 flex items-center justify-center overflow-hidden"
-                      : "bg-purple-400 hover:bg-purple-600"
+                      ? "border-2 border-brand-700 bg-cream hover:bg-sunrise-100 hover:text-brand-900 flex items-center justify-center overflow-hidden"
+                      : "bg-brand-600 hover:bg-brand-700"
                   }
                   animate={{
                     width: isActive ? 44 : 16,
@@ -54,7 +57,13 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
                     borderRadius: isActive ? 10 : 16,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  aria-label={isActive ? (isManuallyPaused ? "Play" : "Pause") : `Go to announcement ${index + 1}`}
+                  aria-label={
+                    isActive
+                      ? isManuallyPaused
+                        ? "Play"
+                        : "Pause"
+                      : `Go to announcement ${index + 1}`
+                  }
                 >
                   <AnimatePresence mode="popLayout" initial={false}>
                     {isActive && (
@@ -66,9 +75,34 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
                         transition={{ duration: 0.15 }}
                       >
                         {isManuallyPaused ? (
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                          </svg>
                         ) : (
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect x="6" y="4" width="4" height="16"></rect>
+                            <rect x="14" y="4" width="4" height="16"></rect>
+                          </svg>
                         )}
                       </motion.div>
                     )}
@@ -77,7 +111,6 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
               );
             })}
           </div>
-
         </div>
       </div>
 
@@ -90,10 +123,10 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <h2 className="text-3xl font-semibold text-slate-950">
+            <h2 className="text-3xl font-semibold text-brand-900">
               {items[activeIndex].headline}
             </h2>
-            <p className="mt-4 text-lg text-slate-700 max-w-4xl">
+            <p className="mt-4 text-lg text-brand-900 max-w-4xl">
               {items[activeIndex].title}
             </p>
             <p className="mt-4 section-copy max-w-4xl">
@@ -111,11 +144,15 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
             <motion.button
               layout
               key={index}
-              onClick={() => isActive ? setIsManuallyPaused(!isManuallyPaused) : setActiveIndex(index)}
+              onClick={() =>
+                isActive
+                  ? setIsManuallyPaused(!isManuallyPaused)
+                  : setActiveIndex(index)
+              }
               className={
                 isActive
-                  ? "border border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 flex items-center justify-center overflow-hidden"
-                  : "bg-purple-400 hover:bg-purple-600"
+                  ? "border-2 border-brand-700 bg-cream hover:bg-sunrise-100 hover:text-brand-900 flex items-center justify-center overflow-hidden"
+                  : "bg-brand-600 hover:bg-brand-700"
               }
               animate={{
                 width: isActive ? 44 : 16,
@@ -123,7 +160,13 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
                 borderRadius: isActive ? 10 : 16,
               }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              aria-label={isActive ? (isManuallyPaused ? "Play" : "Pause") : `Go to announcement ${index + 1}`}
+              aria-label={
+                isActive
+                  ? isManuallyPaused
+                    ? "Play"
+                    : "Pause"
+                  : `Go to announcement ${index + 1}`
+              }
             >
               <AnimatePresence mode="popLayout" initial={false}>
                 {isActive && (
@@ -135,9 +178,34 @@ export function AnnouncementCarousel({ items }: { items: Announcement[] }) {
                     transition={{ duration: 0.15 }}
                   >
                     {isManuallyPaused ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
                     ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                      </svg>
                     )}
                   </motion.div>
                 )}

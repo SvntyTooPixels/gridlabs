@@ -42,7 +42,7 @@ export function FeatureCarousel({
   return (
     <div
       className={clsx(
-        "rounded-[32px] border border-white/40 bg-white/65 p-4 shadow-[0_24px_80px_rgba(34,35,95,0.16)] backdrop-blur-xl",
+        "rounded-[32px] border-2 border-brand-700 bg-cream p-4",
         className,
       )}
     >
@@ -64,10 +64,10 @@ export function FeatureCarousel({
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.1),rgba(15,23,42,0.75))]" />
-              <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+              <div className="absolute inset-0 bg-brand-900" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-cream">
                 {activeSlide.tag ? (
-                  <span className="inline-flex rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] backdrop-blur-md">
+                  <span className="inline-flex rounded-full border-2 border-sunrise-500 bg-sunrise-400 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-brand-950">
                     {activeSlide.tag}
                   </span>
                 ) : null}
@@ -93,23 +93,23 @@ export function FeatureCarousel({
                 className={clsx(
                   "rounded-[22px] border p-4 text-left transition",
                   active
-                    ? "border-fuchsia-300/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.88),rgba(244,114,182,0.18),rgba(34,197,94,0.12))] shadow-[0_16px_40px_rgba(168,85,247,0.18)]"
-                    : "border-white/30 bg-white/50 hover:border-sky-300/60 hover:bg-white/70",
+                    ? "border-2 border-brand-700 bg-sunrise-100"
+                    : "border-2 border-brand-700 bg-cream hover:border-sunrise-500 hover:bg-sunrise-100",
                 )}
               >
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">
+                    <p className="text-sm font-semibold text-brand-900">
                       {slide.title}
                     </p>
-                    <p className="mt-2 max-h-10 overflow-hidden text-sm text-slate-600">
+                    <p className="mt-2 max-h-10 overflow-hidden text-sm text-brand-800">
                       {slide.description}
                     </p>
                   </div>
                   <span
                     className={clsx(
                       "h-3 w-3 rounded-full",
-                      active ? "bg-fuchsia-500" : "bg-slate-300",
+                      active ? "bg-brand-700" : "bg-brand-300",
                     )}
                   />
                 </div>
