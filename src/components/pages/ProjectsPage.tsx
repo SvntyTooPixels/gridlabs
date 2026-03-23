@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import clsx from "clsx";
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
@@ -19,26 +19,11 @@ function getSectionId(title: string) {
 
 function CategoryNav() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [offsetTop, setOffsetTop] = useState(0);
-  const { scrollY } = useScroll();
-
-  useEffect(() => {
-    const update = () => {
-      if (wrapperRef.current) {
-        setOffsetTop(wrapperRef.current.getBoundingClientRect().top + window.scrollY - 64);
-      }
-    };
-    const t = setTimeout(update, 100);
-    window.addEventListener("resize", update);
-    return () => {
-      clearTimeout(t);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
-  const startY = Math.max(0, offsetTop - 120);
-  const endY = Math.max(1, offsetTop);
-  const expandRatio = useTransform(scrollY, [startY, endY], [0, 1]);
+  const { scrollYProgress: expandRatio } = useScroll({
+    target: wrapperRef,
+    // Mirror previous behavior: animate over the final 120px before sticky lock at top-16.
+    offset: ["start 184px", "start 64px"],
+  });
 
   const marginCalc = useMotionTemplate`calc(${expandRatio} * (50% - 50vw))`;
   const widthCalc = useMotionTemplate`calc(100% + ${expandRatio} * (100vw - 100%))`;
