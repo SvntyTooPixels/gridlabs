@@ -246,7 +246,7 @@ function HorizontalProjectScroll() {
       </div>
 
       {/* Pinned horizontal scrolling block */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center border-y border-slate-200/50">
+      <div className="sticky top-32 h-[calc(100vh-8rem)] w-full overflow-hidden flex items-center border-y border-slate-200/50">
         <motion.div
           className="flex h-full will-change-transform items-center"
           style={{ x, width: `${numScreens * 100}vw` }}
