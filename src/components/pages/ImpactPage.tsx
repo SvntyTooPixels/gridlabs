@@ -10,11 +10,9 @@ import { StaggerHoverItem } from "@/components/interactive/StaggerHoverGroup";
 import { RevealImageCard } from "@/components/interactive/RevealImageCard";
 import { BorderTrace } from "@/components/interactive/BorderTrace";
 import impact from "@/content/impact.json";
-import { getJournalPosts } from "@/lib/journal";
+import { InfiniteImageScroll } from "@/components/visual/InfiniteImageScroll";
 
 export async function ImpactPage() {
-  const posts = await getJournalPosts();
-
   return (
     <div className="container-padded space-y-10 pb-16">
       <Reveal>
@@ -47,12 +45,23 @@ export async function ImpactPage() {
       </Reveal>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {impact.highlights.map((item, index) => (
-          <Reveal key={item.label} delay={index * 0.06} className="h-full w-full">
+        {impact.highlights.map((item: any, index: number) => (
+          <Reveal
+            key={item.label}
+            delay={index * 0.06}
+            className="h-full w-full"
+          >
             <SpotlightPanel className="h-full w-full">
               <StatHoverCard
                 className="p-5 flex flex-col justify-center"
-                color={["rgba(236,72,153,0.3)", "rgba(59,130,246,0.3)", "rgba(168,85,247,0.3)", "rgba(45,212,191,0.3)"][index % 4]}
+                color={
+                  [
+                    "rgba(236,72,153,0.3)",
+                    "rgba(59,130,246,0.3)",
+                    "rgba(168,85,247,0.3)",
+                    "rgba(45,212,191,0.3)",
+                  ][index % 4]
+                }
                 valueNodes={
                   <p className="text-4xl font-semibold text-slate-950">
                     <CountUp to={item.value} />
@@ -79,7 +88,7 @@ export async function ImpactPage() {
             Driving sustainable outcomes through structured CSR programs.
           </p>
           <SiblingDimGroup className="mt-4 grid gap-2 text-slate-300 md:grid-cols-2">
-            {impact.outcomes.map((item) => (
+            {impact.outcomes.map((item: string) => (
               <StaggerHoverItem
                 key={item}
                 className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-sm text-slate-700 font-medium"
@@ -120,7 +129,7 @@ export async function ImpactPage() {
       </Reveal>
       <Reveal>
         <InstagramGrid
-          images={impact.gallery.map((item) => ({
+          images={(impact as any).gallery.map((item: any) => ({
             title: item.title,
             image: item.image,
             alt: item.alt,
@@ -131,24 +140,8 @@ export async function ImpactPage() {
       <Reveal>
         <span className="section-kicker">Notes from the field</span>
         <h2 className="mt-5 text-2xl font-semibold text-slate-950">Journal</h2>
+        <InfiniteImageScroll images={(impact as any).journal || []} />
       </Reveal>
-      <div className="grid gap-4 md:grid-cols-2">
-        {posts.map((post) => (
-          <Reveal key={post.slug} className="h-full">
-            <BorderTrace color="rgba(244, 63, 94, 0.5)">
-              <SpotlightPanel className="h-full p-6">
-                <p className="text-xs uppercase tracking-wide text-brand-700">
-                  {post.date}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-950">
-                  {post.title}
-                </h3>
-                <p className="mt-3 text-sm text-slate-600">{post.excerpt}</p>
-              </SpotlightPanel>
-            </BorderTrace>
-          </Reveal>
-        ))}
-      </div>
     </div>
   );
 }

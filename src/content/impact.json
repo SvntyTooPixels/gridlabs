@@ -120,5 +120,27 @@
       "image": "/images/gallery_17.jpeg",
       "alt": "Gallery Image"
     }
+  ],
+  "journal": [
+    {
+      "title": "Field Report 1",
+      "image": "/images/Journal1.avif",
+      "alt": "Journal Report"
+    },
+    {
+      "title": "Field Report 2",
+      "image": "/images/Journal2.avif",
+      "alt": "Journal Report"
+    },
+    {
+      "title": "Field Report 3",
+      "image": "/images/Journal3.avif",
+      "alt": "Journal Report"
+    },
+    {
+      "title": "Field Report 4",
+      "image": "/images/Journal4.avif",
+      "alt": "Journal Report"
+    }
   ]
 }
