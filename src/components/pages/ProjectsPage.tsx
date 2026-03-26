@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   motion,
   useScroll,
@@ -108,37 +108,100 @@ function CategoryNav() {
   );
 }
 
-function HorizontalProjectScroll() {
-  const screens: {
-    id: string;
-    title: string;
-    eyebrow: string;
-    image: string;
-    alt: string;
-    items: string[];
-    isContinued: boolean;
-  }[] = [];
+function ProjectFan({ screen }: { screen: any }) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const total = screen.items.length;
 
-  programs.sections.forEach((sec) => {
-    const totalItems = sec.items.length;
-    let i = 0;
-    while (i < totalItems) {
-      const chunk = sec.items.slice(i, i + 5);
-      screens.push({
-        id:
-          i === 0
-            ? getSectionId(sec.title)
-            : `${getSectionId(sec.title)}-page-${Math.floor(i / 5) + 1}`,
-        title: sec.title,
-        eyebrow: sec.eyebrow,
-        image: sec.image,
-        alt: sec.alt,
-        items: chunk,
-        isContinued: i > 0,
-      });
-      i += 5;
-    }
-  });
+  return (
+    <div className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center mt-12 mb-8 perspective-1000">
+      {screen.items.map((item: string, i: number) => {
+        const itemName = item.split(" — ")[0].split(" – ")[0];
+        let itemDesc = "";
+        if (item.includes(" — ")) {
+          itemDesc = item.split(" — ")[1];
+        } else if (item.includes(" – ")) {
+          itemDesc = item.split(" – ")[1];
+        } else {
+          itemDesc = item.substring(itemName.length + 3);
+        }
+
+        const center = (total - 1) / 2;
+        const diff = i - center;
+        const rot = diff * 8; // degrees
+        const yOffset = Math.abs(diff) * 12; // px
+
+        // Base X translation
+        const baseXCalc = `calc(${diff} * clamp(30px, 4vw, 70px))`;
+
+        let pushedX = baseXCalc;
+        let pushedRot = rot;
+        if (selectedIndex !== null && selectedIndex !== i) {
+          const pushAmount = i < selectedIndex ? -90 : 90;
+          pushedX = `calc(${baseXCalc} + ${pushAmount}px)`;
+          pushedRot = rot + (i < selectedIndex ? -6 : 6);
+        }
+
+        const isSelected = selectedIndex === i;
+
+        return (
+          <motion.div
+            key={item}
+            className="absolute top-0 cursor-pointer"
+            style={{ 
+              originX: 0.5, 
+              originY: 1.5,
+              zIndex: isSelected ? 50 : total - i 
+            }}
+            initial={false}
+            animate={{
+              x: isSelected ? baseXCalc : pushedX,
+              y: yOffset, // straighten in its own place
+              rotate: isSelected ? 0 : pushedRot,
+              scale: isSelected ? 1.15 : 1,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 30,
+              mass: 0.8
+            }}
+            onClick={() => setSelectedIndex(isSelected ? null : i)}
+          >
+            <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.4)">
+              <SpotlightPanel className="w-[260px] md:w-[300px] h-[380px] md:h-[420px] bg-white/95 backdrop-blur-xl rounded-[2rem] p-5 shadow-xl border border-white/60 flex flex-col items-center">
+                <div className="w-full flex-shrink-0 h-[140px] md:h-[160px] mb-5 rounded-2xl overflow-hidden shadow-sm relative border border-slate-100">
+                  <img
+                    src={screen.image}
+                    alt={screen.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="font-bold text-center text-lg md:text-xl text-slate-900 leading-tight mb-3">
+                  {itemName}
+                </h3>
+                <div className="w-8 h-1 bg-blue-500 rounded-full mb-4 opacity-80 flex-shrink-0" />
+                <p className="text-sm text-slate-600 text-center line-clamp-4 leading-relaxed px-2">
+                  {itemDesc}
+                </p>
+              </SpotlightPanel>
+            </HoverLiftGlow>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
+function HorizontalProjectScroll() {
+  const screens = programs.sections.map((sec) => ({
+    id: getSectionId(sec.title),
+    title: sec.title,
+    eyebrow: sec.eyebrow,
+    image: sec.image,
+    alt: sec.alt,
+    items: sec.items,
+    isContinued: false,
+  }));
 
   const numScreens = screens.length;
   const containerRef = useRef<HTMLDivElement>(null);
@@ -170,7 +233,6 @@ function HorizontalProjectScroll() {
             className="absolute w-full snap-start scroll-mt-32"
             style={{ top: `${i * 100}vh`, height: "100vh" }}
           >
-            {/* Markers for individual items if needed by CategoryNav */}
             {screen.items.map((item) => (
               <div
                 key={item}
@@ -200,77 +262,11 @@ function HorizontalProjectScroll() {
                     <p className="section-kicker mb-2">{screen.eyebrow}</p>
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 flex items-baseline gap-4">
                       {screen.title}
-                      {screen.isContinued && (
-                        <span className="text-lg md:text-2xl text-slate-400 font-normal">
-                          (Continued)
-                        </span>
-                      )}
                     </h2>
                   </Reveal>
                 </div>
 
-                <div className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center mt-12 mb-8 perspective-1000">
-                  {screen.items.map((item, i) => {
-                    const itemName = item.split(" — ")[0].split(" – ")[0];
-                    let itemDesc = "";
-                    if (item.includes(" — ")) {
-                      itemDesc = item.split(" — ")[1];
-                    } else if (item.includes(" – ")) {
-                      itemDesc = item.split(" – ")[1];
-                    } else {
-                      itemDesc = item.substring(itemName.length + 3);
-                    }
-                    
-                    const total = screen.items.length;
-                    const center = (total - 1) / 2;
-                    const diff = i - center;
-                    const rot = diff * 8; // degrees
-                    const yOffset = Math.abs(diff) * 12; // px
-
-                    return (
-                      <motion.div
-                        key={item}
-                        className="absolute top-0 cursor-pointer"
-                        style={{ zIndex: i, originX: 0.5, originY: 1.5 }}
-                        initial={{
-                          x: `calc(${diff} * clamp(40px, 6vw, 90px))`,
-                          y: yOffset,
-                          rotate: rot,
-                        }}
-                        whileHover={{
-                          y: -60,
-                          rotate: 0,
-                          scale: 1.05,
-                          zIndex: 50,
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 25,
-                        }}
-                      >
-                        <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.4)">
-                          <SpotlightPanel className="w-[260px] md:w-[300px] h-[380px] md:h-[420px] bg-white/90 backdrop-blur-xl rounded-[2rem] p-5 shadow-xl border border-white/60 flex flex-col items-center">
-                            <div className="w-full flex-shrink-0 h-[140px] md:h-[160px] mb-5 rounded-2xl overflow-hidden shadow-sm relative">
-                              <img
-                                src={screen.image}
-                                alt={screen.alt}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            <h3 className="font-bold text-center text-lg md:text-xl text-slate-900 leading-tight mb-3">
-                              {itemName}
-                            </h3>
-                            <div className="w-8 h-1 bg-blue-500 rounded-full mb-4 opacity-80 flex-shrink-0" />
-                            <p className="text-sm text-slate-600 text-center line-clamp-4 leading-relaxed px-2">
-                              {itemDesc}
-                            </p>
-                          </SpotlightPanel>
-                        </HoverLiftGlow>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                <ProjectFan screen={screen} />
               </div>
             </div>
           ))}
