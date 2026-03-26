@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useAnimationControls } from "framer-motion";
 
 interface JournalImage {
   image: string;
@@ -16,21 +15,9 @@ interface InfiniteImageScrollProps {
 
 export function InfiniteImageScroll({ images }: InfiniteImageScrollProps) {
   const [expandedImage, setExpandedImage] = useState<JournalImage | null>(null);
-  const controls = useAnimationControls();
 
   // Create a tripled array for seamless infinite effect
   const list = [...images, ...images, ...images];
-
-  useEffect(() => {
-    controls.start({
-      x: [0, "-33.33%"],
-      transition: {
-        duration: 20,
-        ease: "linear",
-        repeat: Infinity,
-      },
-    });
-  }, [controls]);
 
   // Handle Escape key
   useEffect(() => {
@@ -43,17 +30,22 @@ export function InfiniteImageScroll({ images }: InfiniteImageScrollProps) {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden py-10">
-        <motion.div
-          animate={controls}
-          className="flex gap-4 md:gap-6 w-fit"
-          onHoverStart={() => controls.stop()}
-          onHoverEnd={() =>
-            controls.start({
-              x: [null, "-33.33%"],
-              transition: { duration: 20, ease: "linear", repeat: Infinity },
-            })
-          }
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .animate-marquee-infinite {
+          animation: marquee 30s linear infinite;
+        }
+        // .pause-on-hover:hover .animate-marquee-infinite {
+        //   animation-play-state: paused;
+        // }
+      `}} />
+      
+      <div className="relative w-full overflow-hidden py-12 pause-on-hover">
+        <div
+          className="flex gap-6 md:gap-8 w-fit animate-marquee-infinite"
         >
           {list.map((item, idx) => (
             <div
@@ -78,7 +70,7 @@ export function InfiniteImageScroll({ images }: InfiniteImageScrollProps) {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Full screen overlay */}
