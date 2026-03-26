@@ -45,7 +45,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/40 bg-white/60 py-14 backdrop-blur-xl">
+    <footer className="border-t border-white/40 bg-white/60 py-14 backdrop-blur-xl">
       <div className="container-padded grid gap-10 lg:grid-cols-6">
         <div className="lg:col-span-2">
           <Link

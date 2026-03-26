@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import clsx from "clsx";
 import {
   motion,
   useScroll,
@@ -9,7 +8,6 @@ import {
   useMotionTemplate,
 } from "framer-motion";
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
-import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { HoverLiftGlow } from "@/components/interactive/HoverLiftGlow";
 import programs from "@/content/programs.json";
@@ -110,71 +108,170 @@ function CategoryNav() {
   );
 }
 
-function ProgramBlock({
-  title,
-  items,
-  image,
-  alt,
-  eyebrow,
-}: {
-  title: string;
-  items: string[];
-  image: string;
-  alt: string;
-  eyebrow: string;
-}) {
+function HorizontalProjectScroll() {
+  const screens: {
+    id: string;
+    title: string;
+    eyebrow: string;
+    image: string;
+    alt: string;
+    items: string[];
+    isContinued: boolean;
+  }[] = [];
+
+  programs.sections.forEach((sec) => {
+    const totalItems = sec.items.length;
+    let i = 0;
+    while (i < totalItems) {
+      const chunk = sec.items.slice(i, i + 5);
+      screens.push({
+        id:
+          i === 0
+            ? getSectionId(sec.title)
+            : `${getSectionId(sec.title)}-page-${Math.floor(i / 5) + 1}`,
+        title: sec.title,
+        eyebrow: sec.eyebrow,
+        image: sec.image,
+        alt: sec.alt,
+        items: chunk,
+        isContinued: i > 0,
+      });
+      i += 5;
+    }
+  });
+
+  const numScreens = screens.length;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", `-${100 * ((numScreens - 1) / numScreens)}%`]
+  );
+
   return (
-    <Reveal>
-      <div id={getSectionId(title)} className="scroll-mt-32">
-        <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.3)">
-          <SpotlightPanel className="p-4">
-            <div className="grid h-full gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-              <ImageCard src={image} alt={alt} badge={eyebrow} />
-              <div className="section-shell gradient-mesh p-8">
-                <h2 className="text-2xl font-semibold text-slate-950">
-                  {title}
-                </h2>
-                <ul className="mt-4 grid gap-3 text-sm text-slate-700">
-                  {items.map((item) => (
-                    <li
-                      id={getItemId(item)}
-                      key={item}
-                      className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:bg-white hover:text-blue-900 scroll-mt-32"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+    <div
+      ref={containerRef}
+      className="relative w-full"
+      style={{ height: `${numScreens * 100}vh` }}
+    >
+      {/* Absolute markers for native navigation and vertical scroll snapping */}
+      <div
+        className="absolute top-0 left-0 w-full pointer-events-none"
+        style={{ height: `${numScreens * 100}vh` }}
+      >
+        {screens.map((screen, i) => (
+          <div
+            key={`marker-${i}`}
+            id={screen.id}
+            className="absolute w-full snap-start scroll-mt-32"
+            style={{ top: `${i * 100}vh`, height: "100vh" }}
+          >
+            {/* Markers for individual items if needed by CategoryNav */}
+            {screen.items.map((item) => (
+              <div
+                key={item}
+                id={getItemId(item)}
+                className="absolute w-full scroll-mt-32"
+                style={{ top: "30%" }}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Pinned horizontal scrolling block */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center border-y border-slate-200/50">
+        <motion.div
+          className="flex h-full will-change-transform items-center"
+          style={{ x, width: `${numScreens * 100}vw` }}
+        >
+          {screens.map((screen, idx) => (
+            <div
+              key={idx}
+              className="w-screen h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 flex-shrink-0 pt-24 pb-12"
+            >
+              <div className="max-w-7xl w-full mx-auto">
+                <div className="mb-8 lg:mb-12">
+                  <Reveal>
+                    <p className="section-kicker mb-2">{screen.eyebrow}</p>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 flex items-baseline gap-4">
+                      {screen.title}
+                      {screen.isContinued && (
+                        <span className="text-lg md:text-2xl text-slate-400 font-normal">
+                          (Continued)
+                        </span>
+                      )}
+                    </h2>
+                  </Reveal>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 auto-rows-fr">
+                  {screen.items.map((item, i) => {
+                    const itemName = item.split(" — ")[0].split(" – ")[0];
+                    let itemDesc = "";
+                    if (item.includes(" — ")) {
+                      itemDesc = item.split(" — ")[1];
+                    } else if (item.includes(" – ")) {
+                      itemDesc = item.split(" – ")[1];
+                    } else {
+                      itemDesc = item.substring(itemName.length + 3);
+                    }
+                    return (
+                      <Reveal key={item} delay={i * 0.1}>
+                        <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.3)">
+                          <SpotlightPanel className="p-4 h-full bg-white/70 backdrop-blur-md">
+                            <div className="flex flex-col sm:flex-row gap-4 h-full items-start">
+                              <img
+                                src={screen.image}
+                                alt={screen.alt}
+                                className="w-20 h-20 sm:w-[100px] sm:h-[100px] object-cover rounded-xl flex-shrink-0 shadow-sm border border-slate-100"
+                              />
+                              <div className="flex flex-col flex-1">
+                                <h3 className="font-semibold text-slate-900 text-base md:text-lg leading-tight mb-2">
+                                  {itemName}
+                                </h3>
+                                <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                                  {itemDesc}
+                                </p>
+                              </div>
+                            </div>
+                          </SpotlightPanel>
+                        </HoverLiftGlow>
+                      </Reveal>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </SpotlightPanel>
-        </HoverLiftGlow>
+          ))}
+        </motion.div>
       </div>
-    </Reveal>
+    </div>
   );
 }
 
 export function ProjectsPage() {
   return (
-    <div className="container-padded space-y-8 pb-16">
-      <Reveal>
-        <span className="section-kicker">Programs with personality</span>
-        <h1 className="mt-5 section-title">Programs / Projects</h1>
-        <p className="mt-4 max-w-3xl section-copy">{programs.intro}</p>
-      </Reveal>
+    <div className="w-full pb-0 pt-16 relative">
+      <div className="container-padded space-y-8 mb-8">
+        <Reveal>
+          <span className="section-kicker">Programs with personality</span>
+          <h1 className="mt-5 section-title">Programs / Projects</h1>
+          <p className="mt-4 max-w-3xl section-copy">{programs.intro}</p>
+        </Reveal>
+      </div>
 
-      <CategoryNav />
+      <div className="container-padded sticky top-16 z-50 mb-8 pointer-events-none">
+        <div className="pointer-events-auto">
+          <CategoryNav />
+        </div>
+      </div>
 
-      {programs.sections.map((section) => (
-        <ProgramBlock
-          key={section.title}
-          title={section.title}
-          items={section.items}
-          image={section.image}
-          alt={section.alt}
-          eyebrow={section.eyebrow}
-        />
-      ))}
+      <HorizontalProjectScroll />
     </div>
   );
 }
