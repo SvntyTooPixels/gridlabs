@@ -49,7 +49,7 @@ export function FoundersTimeline({ items }: { items: string[] }) {
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-150px" }}
+                viewport={{ once: false, margin: "-150px" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="absolute left-2 md:left-[calc(50%-8px)] w-4 h-4 bg-white border-4 border-slate-300 group-hover:border-fuchsia-500 rounded-full transition-colors duration-500 -translate-x-1/2 z-20"
               >
@@ -64,7 +64,7 @@ export function FoundersTimeline({ items }: { items: string[] }) {
               <motion.div
                 initial={{ opacity: 0, x: isEven ? -40 : 40, y: 30 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full pl-12 md:pl-0 md:w-[45%]"
               >

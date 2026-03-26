@@ -15,6 +15,12 @@ interface InstagramGridProps {
 
 export function InstagramGrid({ images }: InstagramGridProps) {
   const [expandedImage, setExpandedImage] = useState<ImageItem | null>(null);
+  const [displayImages, setDisplayImages] = useState<ImageItem[]>(images);
+
+  useEffect(() => {
+    // Shuffle images on the client to avoid SSR hydration mismatch
+    setDisplayImages([...images].sort(() => Math.random() - 0.5));
+  }, [images]);
 
   // Close on Escape key
   useEffect(() => {
@@ -27,10 +33,10 @@ export function InstagramGrid({ images }: InstagramGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 auto-rows-fr grid-flow-dense w-full h-[calc(100vh-10rem)] min-h-[400px]">
-        {images.map((img, i) => (
+      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-4 auto-rows-fr grid-flow-dense w-full h-[calc(100vh-10rem)] min-h-[400px]">
+        {displayImages.map((img, i) => (
           <InstagramGridItem
-            key={i}
+            key={`${img.image}-${i}`}
             item={img}
             index={i}
             onClick={() => setExpandedImage(img)}
@@ -102,9 +108,10 @@ function InstagramGridItem({
   index: number;
   onClick: () => void;
 }) {
-  // Start with default square to avoid hydration mismatch if possible, 
-  // but since we rely on onLoad, we start hidden.
-  const [spanClass, setSpanClass] = useState("col-span-1 row-span-1");
+  // Pre-determine span based on index to create an explore-style grid
+  const isLarge = index % 2 === 0;
+  const spanClass = isLarge ? "col-span-2 row-span-2" : "col-span-1 row-span-1";
+  
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -122,30 +129,7 @@ function InstagramGridItem({
         fill
         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
         className={`object-cover transition-transform duration-700 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
-        onLoad={(e) => {
-          const { naturalWidth, naturalHeight } = e.currentTarget;
-          const ratio = naturalWidth / naturalHeight;
-
-          let spans = "col-span-1 row-span-1";
-
-          // Calculate spans based on aspect ratio
-          if (ratio > 1.3) {
-            spans = "col-span-2 row-span-1"; // Landscape
-          } else if (ratio < 0.8) {
-            spans = "col-span-1 row-span-2"; // Portrait
-          } else {
-            // Randomly make some square blocks large (2x2) for a more authentic explore grid feel
-            // Only do it occasionally (e.g., every 5th or 6th image if it's square)
-            if (index % 5 === 0 && index !== 0) {
-              spans = "col-span-2 row-span-2 flex-col";
-            } else {
-              spans = "col-span-1 row-span-1";
-            }
-          }
-
-          setSpanClass(spans);
-          setLoaded(true);
-        }}
+        onLoad={() => setLoaded(true)}
       />
       {/* <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
       <div className="absolute inset-0 flex items-end p-4 opacity-0 transition-all duration-300 group-hover:opacity-100 pointer-events-none translate-y-4 group-hover:translate-y-0">
