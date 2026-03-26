@@ -1,5 +1,5 @@
 import { SpotlightPanel } from "@/components/interactive/SpotlightPanel";
-import { FeatureCarousel } from "@/components/visual/FeatureCarousel";
+import { InstagramGrid } from "@/components/visual/InstagramGrid";
 import { ImageCard } from "@/components/visual/ImageCard";
 import { Reveal } from "@/components/animation/Reveal";
 import { CountUp } from "@/components/animation/CountUp";
@@ -119,13 +119,11 @@ export async function ImpactPage() {
         <h2 className="mt-5 text-2xl font-semibold text-slate-950">Gallery</h2>
       </Reveal>
       <Reveal>
-        <FeatureCarousel
-          slides={impact.gallery.map((item) => ({
+        <InstagramGrid
+          images={impact.gallery.map((item) => ({
             title: item.title,
-            description: item.title,
             image: item.image,
             alt: item.alt,
-            tag: "Field moment",
           }))}
         />
       </Reveal>

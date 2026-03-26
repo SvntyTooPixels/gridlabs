@@ -41,34 +41,84 @@
   "caseStudy3": "In partnership with educational institutions and corporate contributors, the initiative aims to promote literacy, improve access to education, and empower young learners to build a better future.",
   "gallery": [
     {
-      "title": "School kit distribution drive",
-      "image": "/images/image_5.jpg",
-      "alt": "Children receiving school supplies"
+      "title": "Gallery Image",
+      "image": "/images/gallery_1.jpeg",
+      "alt": "Gallery Image"
     },
     {
-      "title": "Healthcare outreach camp",
-      "image": "/images/image_6.jpg",
-      "alt": "Healthcare camp consultation in progress"
+      "title": "Gallery Image",
+      "image": "/images/gallery_2.png",
+      "alt": "Gallery Image"
     },
     {
-      "title": "Community sanitation workshop",
-      "image": "/images/image_7.jpg",
-      "alt": "Community hygiene workshop discussion"
+      "title": "Gallery Image",
+      "image": "/images/gallery_3.jpg",
+      "alt": "Gallery Image"
     },
     {
-      "title": "Women welfare awareness session",
-      "image": "/images/image_8.jpg",
-      "alt": "Women attending an awareness event"
+      "title": "Gallery Image",
+      "image": "/images/gallery_4.jpeg",
+      "alt": "Gallery Image"
     },
     {
-      "title": "Sustainability recycling initiative",
-      "image": "/images/image_9.jpg",
-      "alt": "Volunteers outdoors in a sustainability activity"
+      "title": "Gallery Image",
+      "image": "/images/gallery_5.png",
+      "alt": "Gallery Image"
     },
     {
-      "title": "Rural education support event",
-      "image": "/images/image_10.jpg",
-      "alt": "Students in a rural learning environment"
+      "title": "Gallery Image",
+      "image": "/images/gallery_6.png",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_7.png",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_8.jpg",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_9.png",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_10.jpg",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_11.png",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_12.png",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_14.png",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_15.jpeg",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_16.jpeg",
+      "alt": "Gallery Image"
+    },
+    {
+      "title": "Gallery Image",
+      "image": "/images/gallery_17.jpeg",
+      "alt": "Gallery Image"
     }
   ]
 }

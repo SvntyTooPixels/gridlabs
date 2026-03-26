@@ -6,6 +6,7 @@ import { FoldUpCard } from "@/components/interactive/FoldUpCard";
 import { TiltPanel } from "@/components/interactive/TiltPanel";
 import { MouseParallax } from "@/components/interactive/MouseParallax";
 import { SiblingDimGroup } from "@/components/interactive/SiblingDimGroup";
+import { FoundersTimeline } from "@/components/interactive/FoundersTimeline";
 import about from "@/content/about.json";
 
 export function AboutPage() {
@@ -101,19 +102,11 @@ export function AboutPage() {
         <span className="section-kicker">Leadership strengths</span>
         <h2 className="mt-5 section-title">Founder Achievements</h2>
       </Reveal>
-      <SiblingDimGroup className="grid gap-4 md:grid-cols-2">
-        {about.achievements.map((item, index) => (
-          <Reveal key={item} delay={index * 0.04}>
-            <SpotlightPanel className="h-full p-5 transition-transform duration-500 hover:-translate-y-2">
-              <p className="text-sm leading-6 text-slate-700">{item}</p>
-            </SpotlightPanel>
-          </Reveal>
-        ))}
-      </SiblingDimGroup>
+      <FoundersTimeline items={about.achievements} />
 
       <Reveal>
         <TiltPanel maxTilt={5}>
-          <SpotlightPanel className="section-shell gradient-mesh p-8 text-center">
+          <SpotlightPanel className="section-shell gradient-mesh p-8 text-center max-w-4xl mx-auto">
             <h3 className="text-xl font-semibold text-slate-950">
               Founder Quote
             </h3>
