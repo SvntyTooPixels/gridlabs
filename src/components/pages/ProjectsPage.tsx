@@ -61,12 +61,16 @@ function CategoryNav() {
               <button
                 className="px-3 py-2 text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors whitespace-nowrap"
                 onClick={() => {
-                  const el = document.getElementById(
-                    getSectionId(section.title),
-                  );
+                  const isMobile = window.innerWidth < 968; // md breakpoint
+                  const targetId = isMobile 
+                    ? `${getSectionId(section.title)}-mob` 
+                    : getSectionId(section.title);
+                  
+                  const el = document.getElementById(targetId);
+                  
                   if (el) {
-                    const y =
-                      el.getBoundingClientRect().top + window.scrollY;
+                    const navOffset = isMobile ? 120 : 0;
+                    const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
@@ -113,7 +117,7 @@ function ProjectFan({ screen }: { screen: any }) {
   const total = screen.items.length;
 
   return (
-    <div className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center mt-12 mb-8 perspective-1000">
+    <div className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center mt-12 mb-8 perspective-1000 origin-top scale-[0.8] sm:scale-95 md:scale-100">
       {screen.items.map((itemObj: any, i: number) => {
         const itemText = itemObj.text;
         const itemImage = itemObj.image;
@@ -277,9 +281,72 @@ function HorizontalProjectScroll() {
   );
 }
 
+function MobileProjectScroll() {
+  const screens = programs.sections.map((sec) => ({
+    id: `${getSectionId(sec.title)}-mob`,
+    title: sec.title,
+    eyebrow: sec.eyebrow,
+    items: sec.items,
+  }));
+
+  return (
+    <div className="w-full flex lg:hidden flex-col gap-12 pb-16 pt-8">
+      {screens.map((screen) => (
+        <div key={screen.id} id={screen.id} className="w-full scroll-mt-32">
+          <div className="container-padded mb-6">
+            <Reveal>
+              <p className="section-kicker mb-2">{screen.eyebrow}</p>
+              <h2 className="text-3xl font-bold text-slate-900">{screen.title}</h2>
+            </Reveal>
+          </div>
+          
+          <div className="w-full relative">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 sm:px-6 pb-8 pt-2 no-scrollbar">
+              {screen.items.map((itemObj: any, i) => {
+                const itemText = itemObj.text;
+                const itemImage = itemObj.image;
+                const itemName = itemText.split(" — ")[0].split(" – ")[0];
+                let itemDesc = "";
+                if (itemText.includes(" — ")) {
+                  itemDesc = itemText.split(" — ")[1];
+                } else if (itemText.includes(" – ")) {
+                  itemDesc = itemText.split(" – ")[1];
+                } else {
+                  itemDesc = itemText.substring(itemName.length + 3);
+                }
+
+                return (
+                  <div key={i} className="snap-center shrink-0 w-[85vw] max-w-[320px] scroll-mt-4">
+                    <SpotlightPanel className="w-full h-full bg-white/95 backdrop-blur-xl rounded-[2rem] p-5 shadow-lg border border-slate-200/60 flex flex-col h-[400px]">
+                      <div className="w-full flex-shrink-0 h-[150px] mb-4 rounded-2xl overflow-hidden relative">
+                        <img
+                          src={itemImage}
+                          alt={itemName}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <h3 className="font-bold text-center text-lg text-slate-900 leading-tight mb-2">
+                        {itemName}
+                      </h3>
+                      <div className="w-8 h-1 bg-blue-500 rounded-full mb-3 mx-auto opacity-80 flex-shrink-0" />
+                      <p className="text-sm text-slate-600 text-center line-clamp-4 leading-relaxed px-1">
+                        {itemDesc}
+                      </p>
+                    </SpotlightPanel>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function ProjectsPage() {
   return (
-    <div className="w-full pb-0 pt-16 relative">
+    <div className="w-full pb-0 pt-16 relative overflow-hidden md:overflow-visible">
       <div className="container-padded space-y-8 mb-8">
         <Reveal>
           <span className="section-kicker">Programs with personality</span>
@@ -294,7 +361,11 @@ export function ProjectsPage() {
         </div>
       </div>
 
-      <HorizontalProjectScroll />
+      <div className="hidden lg:block">
+        <HorizontalProjectScroll />
+      </div>
+      
+      <MobileProjectScroll />
     </div>
   );
 }
