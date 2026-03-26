@@ -9,33 +9,33 @@
     "Environment"
   ],
   "healthcare": [
-    "Healthcare for Tribals in Tamil Nadu — A multi-specialty healthcare facility initiative aimed at improving access to quality medical services for tribal communities in Tamil Nadu.",
-    "Donate-a-Dialysis — Supports dialysis facilities to provide life-saving treatment for patients lacking access to affordable care.",
-    "Ambulance for Neonatal Care – Hyderabad — A specialized neonatal ambulance service for newborns requiring critical care.",
-    "Neuro Healthcare / Trauma Centres — Development of specialized healthcare facilities for neurological and trauma conditions.",
-    "Cataract Surgery for the Poor – Nashik — Free or affordable cataract surgeries for economically disadvantaged communities.",
-    "Dental Hygiene Awareness & Treatment — School-based oral health awareness and treatment support program.",
-    "Skin Care Awareness & Treatment — Community initiative focused on skin health, preventive care, and treatment access.",
-    "Healthcare for Armed Forces Veterans — Access to medical services and wellness programs for veterans."
+    { "text": "Healthcare for Tribals in Tamil Nadu — A multi-specialty healthcare facility initiative aimed at improving access to quality medical services for tribal communities in Tamil Nadu.", "image": "/images/100_1.png" },
+    { "text": "Donate-a-Dialysis — Supports dialysis facilities to provide life-saving treatment for patients lacking access to affordable care.", "image": "/images/100_2.png" },
+    { "text": "Ambulance for Neonatal Care – Hyderabad — A specialized neonatal ambulance service for newborns requiring critical care.", "image": "/images/100_3.png" },
+    { "text": "Neuro Healthcare / Trauma Centres — Development of specialized healthcare facilities for neurological and trauma conditions.", "image": "/images/100_4.png" },
+    { "text": "Cataract Surgery for the Poor – Nashik — Free or affordable cataract surgeries for economically disadvantaged communities.", "image": "/images/100_5.png" },
+    { "text": "Dental Hygiene Awareness & Treatment — School-based oral health awareness and treatment support program.", "image": "/images/100_6.png" },
+    { "text": "Skin Care Awareness & Treatment — Community initiative focused on skin health, preventive care, and treatment access.", "image": "/images/100_7.png" },
+    { "text": "Healthcare for Armed Forces Veterans — Access to medical services and wellness programs for veterans.", "image": "/images/100_8.png" }
   ],
   "education": [
-    "Jao Padho – Education Program — Provides textbooks, notebooks, stationery, and uniforms to underprivileged students.",
-    "Cyber Crime Awareness — Nationwide awareness program on cyber threats and digital safety.",
-    "Safety Awareness & Training — Road safety education program to encourage responsible road behavior."
+    { "text": "Jao Padho – Education Program — Provides textbooks, notebooks, stationery, and uniforms to underprivileged students.", "image": "/images/100_9.png" },
+    { "text": "Cyber Crime Awareness — Nationwide awareness program on cyber threats and digital safety.", "image": "/images/100_10.png" },
+    { "text": "Safety Awareness & Training — Road safety education program to encourage responsible road behavior.", "image": "/images/100_11.png" }
   ],
   "welfare": [
-    "Menstruation Hygiene Program — Awareness and support for menstrual health education and product access.",
-    "Depression, Autism & Mental Health Program — Support, counselling, and awareness for mental health challenges."
+    { "text": "Menstruation Hygiene Program — Awareness and support for menstrual health education and product access.", "image": "/images/100_12.png" },
+    { "text": "Depression, Autism & Mental Health Program — Support, counselling, and awareness for mental health challenges.", "image": "/images/100_8.png" }
   ],
   "community": [
-    "Tribal Housing Projects — Housing initiative providing safe and sustainable homes for tribal communities.",
-    "Toilet Corridors in Mumbai — Public sanitation facilities along highways to improve hygiene for commuters.",
-    "Donate a Meal — Community initiative combating hunger with a long-term sustainable kitchen goal.",
-    "Artisans Store — Supports local artisans by enabling sale and visibility of handcrafted products.",
-    "Social & Cultural Activities — Programs promoting social harmony, cultural heritage, and participation."
+    { "text": "Tribal Housing Projects — Housing initiative providing safe and sustainable homes for tribal communities.", "image": "/images/100_14.png" },
+    { "text": "Toilet Corridors in Mumbai — Public sanitation facilities along highways to improve hygiene for commuters.", "image": "/images/100_15.png" },
+    { "text": "Donate a Meal — Community initiative combating hunger with a long-term sustainable kitchen goal.", "image": "/images/100_2.png" },
+    { "text": "Artisans Store — Supports local artisans by enabling sale and visibility of handcrafted products.", "image": "/images/100_17.png" },
+    { "text": "Social & Cultural Activities — Programs promoting social harmony, cultural heritage, and participation.", "image": "/images/100_1.png" }
   ],
   "environment": [
-    "Recycling & Waste Management — Promotes responsible waste management, recycling awareness, and sustainable practices."
+    { "text": "Recycling & Waste Management — Promotes responsible waste management, recycling awareness, and sustainable practices.", "image": "/images/100_16.png" }
   ],
   "sections": [
     {
@@ -44,14 +44,14 @@
       "image": "/images/image_4.jpg",
       "alt": "Medical outreach workers with a patient",
       "items": [
-        "Healthcare for Tribals in Tamil Nadu — A multi-specialty healthcare facility initiative aimed at improving access to quality medical services for tribal communities in Tamil Nadu.",
-        "Donate-a-Dialysis — Supports dialysis facilities to provide life-saving treatment for patients lacking access to affordable care.",
-        "Ambulance for Neonatal Care – Hyderabad — A specialized neonatal ambulance service for newborns requiring critical care.",
-        "Neuro Healthcare / Trauma Centres — Development of specialized healthcare facilities for neurological and trauma conditions.",
-        "Cataract Surgery for the Poor – Nashik — Free or affordable cataract surgeries for economically disadvantaged communities.",
-        "Dental Hygiene Awareness & Treatment — School-based oral health awareness and treatment support program.",
-        "Skin Care Awareness & Treatment — Community initiative focused on skin health, preventive care, and treatment access.",
-        "Healthcare for Armed Forces Veterans — Access to medical services and wellness programs for veterans."
+        { "text": "Healthcare for Tribals in Tamil Nadu — A multi-specialty healthcare facility initiative aimed at improving access to quality medical services for tribal communities in Tamil Nadu.", "image": "/images/100_2.png" },
+        { "text": "Donate-a-Dialysis — Supports dialysis facilities to provide life-saving treatment for patients lacking access to affordable care.", "image": "/images/100_5.png" },
+        { "text": "Ambulance for Neonatal Care – Hyderabad — A specialized neonatal ambulance service for newborns requiring critical care.", "image": "/images/100_1.png" },
+        { "text": "Neuro Healthcare / Trauma Centres — Development of specialized healthcare facilities for neurological and trauma conditions.", "image": "/images/100_13.png" },
+        { "text": "Cataract Surgery for the Poor – Nashik — Free or affordable cataract surgeries for economically disadvantaged communities.", "image": "/images/100_10.png" },
+        { "text": "Dental Hygiene Awareness & Treatment — School-based oral health awareness and treatment support program.", "image": "/images/100_6.png" },
+        { "text": "Skin Care Awareness & Treatment — Community initiative focused on skin health, preventive care, and treatment access.", "image": "/images/100_14.png" },
+        { "text": "Healthcare for Armed Forces Veterans — Access to medical services and wellness programs for veterans.", "image": "/images/100_3.png" }
       ]
     },
     {
@@ -60,9 +60,9 @@
       "image": "/images/image_3.jpg",
       "alt": "Students learning together in a classroom",
       "items": [
-        "Jao Padho – Education Program — Provides textbooks, notebooks, stationery, and uniforms to underprivileged students.",
-        "Cyber Crime Awareness — Nationwide awareness program on cyber threats and digital safety.",
-        "Safety Awareness & Training — Road safety education program to encourage responsible road behavior."
+        { "text": "Jao Padho – Education Program — Provides textbooks, notebooks, stationery, and uniforms to underprivileged students.", "image": "/images/100_4.png" },
+        { "text": "Cyber Crime Awareness — Nationwide awareness program on cyber threats and digital safety.", "image": "/images/100_7.png" },
+        { "text": "Safety Awareness & Training — Road safety education program to encourage responsible road behavior.", "image": "/images/100_15.png" }
       ]
     },
     {
@@ -71,8 +71,8 @@
       "image": "/images/image_5.jpg",
       "alt": "Women in a group discussion and training session",
       "items": [
-        "Menstruation Hygiene Program — Awareness and support for menstrual health education and product access.",
-        "Depression, Autism & Mental Health Program — Support, counselling, and awareness for mental health challenges."
+        { "text": "Menstruation Hygiene Program — Awareness and support for menstrual health education and product access.", "image": "/images/100_17.png" },
+        { "text": "Depression, Autism & Mental Health Program — Support, counselling, and awareness for mental health challenges.", "image": "/images/100_13.png" }
       ]
     },
     {
@@ -81,11 +81,11 @@
       "image": "/images/image_1.jpg",
       "alt": "Community members gathered outside local homes",
       "items": [
-        "Tribal Housing Projects — Housing initiative providing safe and sustainable homes for tribal communities.",
-        "Toilet Corridors in Mumbai — Public sanitation facilities along highways to improve hygiene for commuters.",
-        "Donate a Meal — Community initiative combating hunger with a long-term sustainable kitchen goal.",
-        "Artisans Store — Supports local artisans by enabling sale and visibility of handcrafted products.",
-        "Social & Cultural Activities — Programs promoting social harmony, cultural heritage, and participation."
+        { "text": "Tribal Housing Projects — Housing initiative providing safe and sustainable homes for tribal communities.", "image": "/images/100_9.png" },
+        { "text": "Toilet Corridors in Mumbai — Public sanitation facilities along highways to improve hygiene for commuters.", "image": "/images/100_12.png" },
+        { "text": "Donate a Meal — Community initiative combating hunger with a long-term sustainable kitchen goal.", "image": "/images/100_13.png" },
+        { "text": "Artisans Store — Supports local artisans by enabling sale and visibility of handcrafted products.", "image": "/images/100_11.png" },
+        { "text": "Social & Cultural Activities — Programs promoting social harmony, cultural heritage, and participation.", "image": "/images/100_13.png" }
       ]
     },
     {
@@ -94,7 +94,7 @@
       "image": "/images/image_2.jpg",
       "alt": "Volunteers planting trees outdoors",
       "items": [
-        "Recycling & Waste Management — Promotes responsible waste management, recycling awareness, and sustainable practices."
+        { "text": "Recycling & Waste Management — Promotes responsible waste management, recycling awareness, and sustainable practices.", "image": "/images/100_16.png" }
       ]
     }
   ]

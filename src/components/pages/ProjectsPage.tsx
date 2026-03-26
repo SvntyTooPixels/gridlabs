@@ -114,15 +114,18 @@ function ProjectFan({ screen }: { screen: any }) {
 
   return (
     <div className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center mt-12 mb-8 perspective-1000">
-      {screen.items.map((item: string, i: number) => {
-        const itemName = item.split(" — ")[0].split(" – ")[0];
+      {screen.items.map((itemObj: any, i: number) => {
+        const itemText = itemObj.text;
+        const itemImage = itemObj.image;
+
+        const itemName = itemText.split(" — ")[0].split(" – ")[0];
         let itemDesc = "";
-        if (item.includes(" — ")) {
-          itemDesc = item.split(" — ")[1];
-        } else if (item.includes(" – ")) {
-          itemDesc = item.split(" – ")[1];
+        if (itemText.includes(" — ")) {
+          itemDesc = itemText.split(" — ")[1];
+        } else if (itemText.includes(" – ")) {
+          itemDesc = itemText.split(" – ")[1];
         } else {
-          itemDesc = item.substring(itemName.length + 3);
+          itemDesc = itemText.substring(itemName.length + 3);
         }
 
         const center = (total - 1) / 2;
@@ -145,7 +148,7 @@ function ProjectFan({ screen }: { screen: any }) {
 
         return (
           <motion.div
-            key={item}
+            key={itemText}
             className="absolute top-0 cursor-pointer"
             style={{ 
               originX: 0.5, 
@@ -169,11 +172,11 @@ function ProjectFan({ screen }: { screen: any }) {
           >
             <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.4)">
               <SpotlightPanel className="w-[260px] md:w-[300px] h-[380px] md:h-[420px] bg-white/95 backdrop-blur-xl rounded-[2rem] p-5 shadow-xl border border-white/60 flex flex-col items-center">
-                <div className="w-full flex-shrink-0 h-[140px] md:h-[160px] mb-5 rounded-2xl overflow-hidden shadow-sm relative border border-slate-100">
+                <div className="w-full flex-shrink-0 h-[140px] md:h-[160px] mb-5 rounded-2xl overflow-hidden relative">
                   <img
-                    src={screen.image}
-                    alt={screen.alt}
-                    className="w-full h-full object-cover"
+                    src={itemImage}
+                    alt={itemName}
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <h3 className="font-bold text-center text-lg md:text-xl text-slate-900 leading-tight mb-3">
@@ -197,9 +200,7 @@ function HorizontalProjectScroll() {
     id: getSectionId(sec.title),
     title: sec.title,
     eyebrow: sec.eyebrow,
-    image: sec.image,
-    alt: sec.alt,
-    items: sec.items,
+    items: sec.items, // already format { text, image }
     isContinued: false,
   }));
 
@@ -233,10 +234,10 @@ function HorizontalProjectScroll() {
             className="absolute w-full snap-start scroll-mt-32"
             style={{ top: `${i * 100}vh`, height: "100vh" }}
           >
-            {screen.items.map((item) => (
+            {screen.items.map((itemObj) => (
               <div
-                key={item}
-                id={getItemId(item)}
+                key={itemObj.text}
+                id={getItemId(itemObj.text)}
                 className="absolute w-full scroll-mt-32"
                 style={{ top: "30%" }}
               />
