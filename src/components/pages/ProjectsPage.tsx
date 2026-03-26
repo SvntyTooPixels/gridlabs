@@ -66,7 +66,7 @@ function CategoryNav() {
                   );
                   if (el) {
                     const y =
-                      el.getBoundingClientRect().top + window.scrollY - 130;
+                      el.getBoundingClientRect().top + window.scrollY;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
