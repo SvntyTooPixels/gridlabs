@@ -74,7 +74,7 @@ function CategoryNav() {
                 {section.title}
               </button>
 
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] pt-2 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-hover:max-h-[600px] group-hover:opacity-100 z-50">
+              {/* <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] pt-2 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-hover:max-h-[600px] group-hover:opacity-100 z-50">
                 <ul className="p-2 flex flex-col gap-1.5 w-full bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl">
                   {section.items.map((item) => {
                     const itemName = item.split(" — ")[0].split(" – ")[0];
@@ -99,7 +99,7 @@ function CategoryNav() {
                     );
                   })}
                 </ul>
-              </div>
+              </div> */}
             </li>
           ))}
         </ul>
