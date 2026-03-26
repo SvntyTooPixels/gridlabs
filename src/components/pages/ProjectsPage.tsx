@@ -209,7 +209,7 @@ function HorizontalProjectScroll() {
                   </Reveal>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 auto-rows-fr">
+                <div className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center mt-12 mb-8 perspective-1000">
                   {screen.items.map((item, i) => {
                     const itemName = item.split(" — ")[0].split(" – ")[0];
                     let itemDesc = "";
@@ -220,28 +220,54 @@ function HorizontalProjectScroll() {
                     } else {
                       itemDesc = item.substring(itemName.length + 3);
                     }
+                    
+                    const total = screen.items.length;
+                    const center = (total - 1) / 2;
+                    const diff = i - center;
+                    const rot = diff * 8; // degrees
+                    const yOffset = Math.abs(diff) * 12; // px
+
                     return (
-                      <Reveal key={item} delay={i * 0.1}>
-                        <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.3)">
-                          <SpotlightPanel className="p-4 h-full bg-white/70 backdrop-blur-md">
-                            <div className="flex flex-col sm:flex-row gap-4 h-full items-start">
+                      <motion.div
+                        key={item}
+                        className="absolute top-0 cursor-pointer"
+                        style={{ zIndex: i, originX: 0.5, originY: 1.5 }}
+                        initial={{
+                          x: `calc(${diff} * clamp(40px, 6vw, 90px))`,
+                          y: yOffset,
+                          rotate: rot,
+                        }}
+                        whileHover={{
+                          y: -60,
+                          rotate: 0,
+                          scale: 1.05,
+                          zIndex: 50,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 25,
+                        }}
+                      >
+                        <HoverLiftGlow glowColor="rgba(59, 130, 246, 0.4)">
+                          <SpotlightPanel className="w-[260px] md:w-[300px] h-[380px] md:h-[420px] bg-white/90 backdrop-blur-xl rounded-[2rem] p-5 shadow-xl border border-white/60 flex flex-col items-center">
+                            <div className="w-full flex-shrink-0 h-[140px] md:h-[160px] mb-5 rounded-2xl overflow-hidden shadow-sm relative">
                               <img
                                 src={screen.image}
                                 alt={screen.alt}
-                                className="w-20 h-20 sm:w-[100px] sm:h-[100px] object-cover rounded-xl flex-shrink-0 shadow-sm border border-slate-100"
+                                className="w-full h-full object-cover"
                               />
-                              <div className="flex flex-col flex-1">
-                                <h3 className="font-semibold text-slate-900 text-base md:text-lg leading-tight mb-2">
-                                  {itemName}
-                                </h3>
-                                <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed">
-                                  {itemDesc}
-                                </p>
-                              </div>
                             </div>
+                            <h3 className="font-bold text-center text-lg md:text-xl text-slate-900 leading-tight mb-3">
+                              {itemName}
+                            </h3>
+                            <div className="w-8 h-1 bg-blue-500 rounded-full mb-4 opacity-80 flex-shrink-0" />
+                            <p className="text-sm text-slate-600 text-center line-clamp-4 leading-relaxed px-2">
+                              {itemDesc}
+                            </p>
                           </SpotlightPanel>
                         </HoverLiftGlow>
-                      </Reveal>
+                      </motion.div>
                     );
                   })}
                 </div>
